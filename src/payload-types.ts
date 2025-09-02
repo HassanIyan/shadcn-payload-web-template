@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     tags: Tag;
+    categories: Category;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -87,10 +89,16 @@ export interface Config {
     defaultIDType: number;
   };
   globals: {
-    seo: Seo;
+    metadata: Metadatum;
+    robots: Robot;
+    manifest: Manifest;
+    sitemap: Sitemap;
   };
   globalsSelect: {
-    seo: SeoSelect<false> | SeoSelect<true>;
+    metadata: MetadataSelect<false> | MetadataSelect<true>;
+    robots: RobotsSelect<false> | RobotsSelect<true>;
+    manifest: ManifestSelect<false> | ManifestSelect<true>;
+    sitemap: SitemapSelect<false> | SitemapSelect<true>;
   };
   locale: null;
   user: User & {
@@ -177,6 +185,17 @@ export interface Tag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  name: string;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -193,6 +212,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'tags';
         value: number | Tag;
+      } | null)
+    | ({
+        relationTo: 'categories';
+        value: number | Category;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -290,6 +313,16 @@ export interface TagsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
  */
 export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
@@ -322,9 +355,9 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "seo".
+ * via the `definition` "metadata".
  */
-export interface Seo {
+export interface Metadatum {
   id: number;
   metadataBase?: string | null;
   title?: {
@@ -1342,9 +1375,149 @@ export interface Seo {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "seo_select".
+ * via the `definition` "robots".
  */
-export interface SeoSelect<T extends boolean = true> {
+export interface Robot {
+  id: number;
+  rules?:
+    | {
+        userAgents?:
+          | {
+              userAgent?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        allows?:
+          | {
+              allow?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        disallows?:
+          | {
+              disallow?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        crawlDelay?: number | null;
+        id?: string | null;
+      }[]
+    | null;
+  sitemaps?:
+    | {
+        sitemap?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  host?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "manifest".
+ */
+export interface Manifest {
+  id: number;
+  name?: string | null;
+  short_name?: string | null;
+  description?: string | null;
+  start_url?: string | null;
+  scope?: string | null;
+  display?: ('fullscreen' | 'standalone' | 'minimal-ui' | 'browser') | null;
+  orientation?:
+    | (
+        | 'any'
+        | 'natural'
+        | 'landscape'
+        | 'portrait'
+        | 'portrait-primary'
+        | 'portrait-secondary'
+        | 'landscape-primary'
+        | 'landscape-secondary'
+      )
+    | null;
+  theme_color?: string | null;
+  background_color?: string | null;
+  lang?: string | null;
+  dir?: ('ltr' | 'rtl' | 'auto') | null;
+  categories?: (number | Category)[] | null;
+  icons?: (number | Media)[] | null;
+  screenshots?: (number | Media)[] | null;
+  shortcuts?:
+    | {
+        name?: string | null;
+        short_name?: string | null;
+        description?: string | null;
+        url?: string | null;
+        icons?: (number | Media)[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  prefer_related_applications?: boolean | null;
+  related_applications?:
+    | {
+        platform?: string | null;
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  protocol_handlers?:
+    | {
+        protocol?: string | null;
+        url?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  share_target?: {
+    action?: string | null;
+    method?: ('GET' | 'POST') | null;
+    enctype?: ('application/x-www-form-urlencoded' | 'multipart/form-data') | null;
+    params?: {
+      title?: string | null;
+      text?: string | null;
+      url?: string | null;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sitemap".
+ */
+export interface Sitemap {
+  id: number;
+  pages?:
+    | {
+        url?: string | null;
+        lastModified?: string | null;
+        changeFrequency?: ('always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never') | null;
+        priority?: number | null;
+        alternates?: {
+          languages?:
+            | {
+                language?: string | null;
+                url?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        images?: (number | Media)[] | null;
+        videos?: (number | Media)[] | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'custom';
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "metadata_select".
+ */
+export interface MetadataSelect<T extends boolean = true> {
   metadataBase?: T;
   title?:
     | T
@@ -2418,6 +2591,144 @@ export interface SeoSelect<T extends boolean = true> {
   category?: T;
   classification?: T;
   other?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "robots_select".
+ */
+export interface RobotsSelect<T extends boolean = true> {
+  rules?:
+    | T
+    | {
+        userAgents?:
+          | T
+          | {
+              userAgent?: T;
+              id?: T;
+            };
+        allows?:
+          | T
+          | {
+              allow?: T;
+              id?: T;
+            };
+        disallows?:
+          | T
+          | {
+              disallow?: T;
+              id?: T;
+            };
+        crawlDelay?: T;
+        id?: T;
+      };
+  sitemaps?:
+    | T
+    | {
+        sitemap?: T;
+        id?: T;
+      };
+  host?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "manifest_select".
+ */
+export interface ManifestSelect<T extends boolean = true> {
+  name?: T;
+  short_name?: T;
+  description?: T;
+  start_url?: T;
+  scope?: T;
+  display?: T;
+  orientation?: T;
+  theme_color?: T;
+  background_color?: T;
+  lang?: T;
+  dir?: T;
+  categories?: T;
+  icons?: T;
+  screenshots?: T;
+  shortcuts?:
+    | T
+    | {
+        name?: T;
+        short_name?: T;
+        description?: T;
+        url?: T;
+        icons?: T;
+        id?: T;
+      };
+  prefer_related_applications?: T;
+  related_applications?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  protocol_handlers?:
+    | T
+    | {
+        protocol?: T;
+        url?: T;
+        id?: T;
+      };
+  share_target?:
+    | T
+    | {
+        action?: T;
+        method?: T;
+        enctype?: T;
+        params?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              url?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sitemap_select".
+ */
+export interface SitemapSelect<T extends boolean = true> {
+  pages?:
+    | T
+    | {
+        custom?:
+          | T
+          | {
+              url?: T;
+              lastModified?: T;
+              changeFrequency?: T;
+              priority?: T;
+              alternates?:
+                | T
+                | {
+                    languages?:
+                      | T
+                      | {
+                          language?: T;
+                          url?: T;
+                          id?: T;
+                        };
+                  };
+              images?: T;
+              videos?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
