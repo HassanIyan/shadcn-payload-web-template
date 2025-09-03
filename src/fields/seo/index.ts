@@ -1690,13 +1690,7 @@ export const SeoFields: Field[] = [
                 type: 'array',
                 fields: [{ name: 'value', label: '', type: 'text' }],
             },
-            {
-                name: 'other',
-                label: 'Other',
-                labels: { singular: 'Other', plural: 'Others' },
-                type: 'array',
-                fields: [{ name: 'value', label: '', type: 'text' }],
-            },
+            { name: 'other', label: 'Other', type: 'json' },
         ],
     },
     {

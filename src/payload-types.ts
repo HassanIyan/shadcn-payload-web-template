@@ -1248,9 +1248,12 @@ export interface Metadatum {
       | null;
     other?:
       | {
-          value?: string | null;
-          id?: string | null;
-        }[]
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
       | null;
   };
   appleWebApp?: {
@@ -2465,12 +2468,7 @@ export interface MetadataSelect<T extends boolean = true> {
               value?: T;
               id?: T;
             };
-        other?:
-          | T
-          | {
-              value?: T;
-              id?: T;
-            };
+        other?: T;
       };
   appleWebApp?:
     | T
