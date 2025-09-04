@@ -44,6 +44,43 @@ export const Manifest: GlobalConfig = {
             ],
         },
         {
+            name: 'display_override',
+            type: 'array',
+            label: 'Display Override',
+            fields: [
+                {
+                    name: 'override',
+                    label: '',
+                    type: 'select',
+                    options: [
+                        { label: 'Fullscreen', value: 'fullscreen' },
+                        { label: 'Standalone', value: 'standalone' },
+                        { label: 'Minimal UI', value: 'minimal-ui' },
+                        { label: 'Browser', value: 'browser' },
+                        { label: 'Window Controls Overlay', value: 'window-controls-overlay' },
+                    ],
+                },
+            ],
+        },
+        {
+            name: 'file_handlers',
+            type: 'array',
+            label: 'File Handlers',
+            labels: { singular: 'File Handler', plural: 'File Handlers' },
+            fields: [
+                { name: 'action', label: 'Action', type: 'text' },
+                {
+                    name: 'accept',
+                    label: 'Action',
+                    type: 'array',
+                    fields: [
+                        { name: 'mimeType', label: 'Mime Type', type: 'text' },
+                        { name: 'value', label: 'Value', type: 'text' },
+                    ],
+                },
+            ],
+        },
+        {
             name: 'orientation',
             type: 'select',
             label: 'Orientation',

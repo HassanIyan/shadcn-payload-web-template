@@ -1428,6 +1428,12 @@ export interface Manifest {
   start_url?: string | null;
   scope?: string | null;
   display?: ('fullscreen' | 'standalone' | 'minimal-ui' | 'browser') | null;
+  display_override?:
+    | {
+        override?: ('fullscreen' | 'standalone' | 'minimal-ui' | 'browser' | 'window-controls-overlay') | null;
+        id?: string | null;
+      }[]
+    | null;
   orientation?:
     | (
         | 'any'
@@ -2644,6 +2650,12 @@ export interface ManifestSelect<T extends boolean = true> {
   start_url?: T;
   scope?: T;
   display?: T;
+  display_override?:
+    | T
+    | {
+        override?: T;
+        id?: T;
+      };
   orientation?: T;
   theme_color?: T;
   background_color?: T;
