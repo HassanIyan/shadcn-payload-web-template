@@ -111,6 +111,20 @@ export const Manifest: GlobalConfig = {
             label: 'Language',
         },
         {
+            name: 'launch_handler',
+            type: 'group',
+            label: 'Launch Handler',
+            fields: [
+                {
+                    name: 'client_mode',
+                    type: 'select',
+                    label: 'Client Mode',
+                    options: ['auto', 'focus-existing', 'navigate-existing', 'navigate-new'],
+                    hasMany: true,
+                },
+            ],
+        },
+        {
             name: 'dir',
             type: 'select',
             label: 'Text Direction',
@@ -266,6 +280,13 @@ export const Manifest: GlobalConfig = {
                             name: 'url',
                             type: 'text',
                             label: 'URL Parameter Name',
+                        },
+                        {
+                            name: 'files',
+                            type: 'upload',
+                            label: 'Files',
+                            relationTo: 'media',
+                            hasMany: true,
                         },
                     ],
                 },

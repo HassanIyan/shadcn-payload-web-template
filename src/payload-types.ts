@@ -1434,6 +1434,19 @@ export interface Manifest {
         id?: string | null;
       }[]
     | null;
+  file_handlers?:
+    | {
+        action?: string | null;
+        accept?:
+          | {
+              mimeType?: string | null;
+              value?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
   orientation?:
     | (
         | 'any'
@@ -1449,6 +1462,9 @@ export interface Manifest {
   theme_color?: string | null;
   background_color?: string | null;
   lang?: string | null;
+  launch_handler?: {
+    client_mode?: ('auto' | 'focus-existing' | 'navigate-existing' | 'navigate-new')[] | null;
+  };
   dir?: ('ltr' | 'rtl' | 'auto') | null;
   categories?: (number | Category)[] | null;
   icons?: (number | Media)[] | null;
@@ -1486,6 +1502,7 @@ export interface Manifest {
       title?: string | null;
       text?: string | null;
       url?: string | null;
+      files?: (number | Media)[] | null;
     };
   };
   updatedAt?: string | null;
@@ -2656,10 +2673,28 @@ export interface ManifestSelect<T extends boolean = true> {
         override?: T;
         id?: T;
       };
+  file_handlers?:
+    | T
+    | {
+        action?: T;
+        accept?:
+          | T
+          | {
+              mimeType?: T;
+              value?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   orientation?: T;
   theme_color?: T;
   background_color?: T;
   lang?: T;
+  launch_handler?:
+    | T
+    | {
+        client_mode?: T;
+      };
   dir?: T;
   categories?: T;
   icons?: T;
@@ -2701,6 +2736,7 @@ export interface ManifestSelect<T extends boolean = true> {
               title?: T;
               text?: T;
               url?: T;
+              files?: T;
             };
       };
   updatedAt?: T;

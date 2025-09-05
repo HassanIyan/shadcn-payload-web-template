@@ -1,20 +1,38 @@
 import type { MetadataRoute } from 'next'
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { arrayOrUndefined, stringOrUndefined } from '@/lib/utils'
+import {
+    arrayOrUndefined,
+    numberOrUndefined,
+    objectOrUndefined,
+    stringOrUndefined,
+} from '@/lib/utils'
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
     const payload = await getPayload({ config })
     const robots = await payload.findGlobal({ slug: 'robots' })
 
     return {
-        rules: {
-            userAgent: '*',
-            allow: '/',
-            disallow: '/private/',
-        },
+        // @ts-expect-error: not typed
+        rules:
+            arrayOrUndefined(
+                robots?.rules?.map((rule) =>
+                    objectOrUndefined({
+                        userAgent: arrayOrUndefined(
+                            rule?.userAgents?.map(({ userAgent }) => stringOrUndefined(userAgent)),
+                        ),
+                        allow: arrayOrUndefined(
+                            rule?.allows?.map(({ allow }) => stringOrUndefined(allow)),
+                        ),
+                        disallow: arrayOrUndefined(
+                            rule?.disallows?.map(({ disallow }) => stringOrUndefined(disallow)),
+                        ),
+                        crawlDelay: numberOrUndefined(rule?.crawlDelay),
+                    }),
+                ),
+            ) || [],
         sitemap: arrayOrUndefined(
-            robots.sitemaps?.map(({ sitemap }) => stringOrUndefined(sitemap)),
+            robots?.sitemaps?.map(({ sitemap }) => stringOrUndefined(sitemap)),
         ) as string[],
     }
 }

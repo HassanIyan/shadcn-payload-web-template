@@ -1,8 +1,13 @@
 import type { MetadataRoute } from 'next'
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { arrayOrUndefined, objectOrUndefined, stringOrUndefined } from '@/lib/utils'
-import { Category } from '@/payload-types'
+import {
+    arrayOrUndefined,
+    booleanOrUndefined,
+    objectOrUndefined,
+    stringOrUndefined,
+} from '@/lib/utils'
+import { Category, Media } from '@/payload-types'
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
     const payload = await getPayload({ config })
@@ -19,59 +24,100 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         display_override: arrayOrUndefined(
             manifest.display_override?.map(({ override }) => stringOrUndefined(override)),
         ),
-        // file_handlers: {
-        //     action: string,
-        //     accept: {
-        //         [mimeType: string]: string[],
-        //     },
-        // }[] | undefined,
-        // icons: Icon[] | undefined,
-        // id: string | undefined,
-        // lang: string | undefined,
-        // launch_handler: {
-        //     client_mode: ClientModeEnum | ClientModeEnum[],
-        // } | undefined,
-        // name: string | undefined,
-        // orientation: 'any' | 'natural' | 'landscape' | 'portrait' | 'portrait-primary' | 'portrait-secondary' | 'landscape-primary' | 'landscape-secondary' | undefined,
-        // prefer_related_applications: boolean | undefined,
-        // protocol_handlers: {
-        //     protocol: string,
-        //     url: string,
-        // }[] | undefined,
-        // related_applications: {
-        //     platform: string,
-        //     url: string,
-        //     id: string | undefined,
-        // }[] | undefined,
-        // scope: string | undefined,
-        // screenshots: {
-        //     form_factor: 'narrow' | 'wide' | undefined,
-        //     label: string | undefined,
-        //     platform: 'android' | 'chromeos' | 'ipados' | 'ios' | 'kaios' | 'macos' | 'windows' | 'xbox' | 'chrome_web_store' | 'itunes' | 'microsoft-inbox' | 'microsoft-store' | 'play' | undefined,
-        //     src: string,
-        //     type: string | undefined,
-        //     sizes: string | undefined,
-        // }[] | undefined,
-        // share_target: {
-        //     action: string,
-        //     method: 'get' | 'post' | 'GET' | 'POST' | undefined,
-        //     enctype: 'application/x-www-form-urlencoded' | 'multipart/form-data' | undefined,
-        //     params: {
-        //         title: string | undefined,
-        //         text: string | undefined,
-        //         url: string | undefined,
-        //         files: File | File[] | undefined,
-        //     },
-        // } | undefined,
-        // short_name: string | undefined,
-        // shortcuts: {
-        //     name: string,
-        //     short_name: string | undefined,
-        //     description: string | undefined,
-        //     url: string,
-        //     icons: Icon[] | undefined,
-        // }[] | undefined,
-        // start_url: string | undefined,
-        // theme_color: string | undefined,
+        file_handlers: arrayOrUndefined(
+            manifest?.file_handlers?.map((file_handler) => ({
+                action: stringOrUndefined(file_handler.action),
+                accept: objectOrUndefined(
+                    Object.assign(
+                        {},
+                        ...(file_handler?.accept?.map((accept) => ({
+                            [accept.mimeType || '']: stringOrUndefined(accept.value),
+                        })) || []),
+                    ),
+                ),
+            })),
+        ),
+        icons: arrayOrUndefined(
+            (manifest?.icons as Media[])?.map((icon) =>
+                objectOrUndefined({
+                    src: stringOrUndefined(icon.url),
+                    type: stringOrUndefined(icon.mimeType),
+                }),
+            ),
+        ),
+        id: stringOrUndefined(manifest?.id?.toString()),
+        lang: stringOrUndefined(manifest?.lang),
+        launch_handler: objectOrUndefined({
+            client_mode: arrayOrUndefined(
+                manifest?.launch_handler?.client_mode?.map((client_mode) =>
+                    stringOrUndefined(client_mode),
+                ),
+            ),
+        }),
+        name: stringOrUndefined(manifest?.name),
+        orientation: stringOrUndefined(manifest?.orientation),
+        prefer_related_applications: booleanOrUndefined(manifest?.prefer_related_applications),
+        protocol_handlers: arrayOrUndefined(
+            manifest?.protocol_handlers?.map((protocol_handler) => ({
+                protocol: stringOrUndefined(protocol_handler?.protocol),
+                url: stringOrUndefined(protocol_handler?.url),
+            })),
+        ),
+        related_applications: arrayOrUndefined(
+            manifest?.related_applications?.map((related_application) =>
+                objectOrUndefined({
+                    platform: stringOrUndefined(related_application?.platform),
+                    url: stringOrUndefined(related_application?.url),
+                    id: stringOrUndefined(related_application?.id),
+                }),
+            ),
+        ),
+        scope: stringOrUndefined(manifest?.scope),
+        screenshots: arrayOrUndefined(
+            (manifest?.screenshots as Media[])?.map((screenshot) =>
+                objectOrUndefined({
+                    src: stringOrUndefined(screenshot?.url),
+                    type: stringOrUndefined(screenshot?.mimeType),
+                }),
+            ),
+        ),
+        share_target: objectOrUndefined({
+            action: stringOrUndefined(manifest.share_target?.action),
+            method: stringOrUndefined(manifest.share_target?.method),
+            enctype: stringOrUndefined(manifest.share_target?.enctype),
+            params: objectOrUndefined({
+                title: stringOrUndefined(manifest?.share_target?.params?.title),
+                text: stringOrUndefined(manifest?.share_target?.params?.text),
+                url: stringOrUndefined(manifest?.share_target?.params?.url),
+                files: arrayOrUndefined(
+                    (manifest?.share_target?.params?.files as Media[])?.map((file) =>
+                        arrayOrUndefined({
+                            // @ts-expect-error: not typed well
+                            name: stringOrUndefined(file?.filename),
+                            accept: stringOrUndefined(file?.mimeType),
+                        }),
+                    ),
+                ),
+            }),
+        }),
+        short_name: stringOrUndefined(manifest?.short_name),
+        shortcuts: arrayOrUndefined(
+            manifest?.shortcuts?.map((shortcut) =>
+                objectOrUndefined({
+                    name: stringOrUndefined(shortcut.name),
+                    short_name: stringOrUndefined(shortcut.short_name),
+                    description: stringOrUndefined(shortcut.description),
+                    url: stringOrUndefined(shortcut.url),
+                    icons: arrayOrUndefined(
+                        (shortcut?.icons as Media[])?.map((icon) => ({
+                            src: stringOrUndefined(icon?.url),
+                            type: stringOrUndefined(icon?.mimeType),
+                        })),
+                    ),
+                }),
+            ),
+        ),
+        start_url: stringOrUndefined(manifest?.start_url),
+        theme_color: stringOrUndefined(manifest?.theme_color),
     }) as MetadataRoute.Manifest
 }
