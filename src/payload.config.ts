@@ -15,6 +15,7 @@ import { Robots } from './globals/Robots'
 import { Manifest } from './globals/Manifest'
 import { Sitemap } from './globals/Sitemap'
 import { Categories } from './collections/Categories'
+import { Theme } from './globals/Theme'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,7 +28,7 @@ export default buildConfig({
         },
     },
     collections: [Users, Media, Tags, Categories],
-    globals: [Metadata, Robots, Manifest, Sitemap],
+    globals: [Metadata, Robots, Manifest, Sitemap, Theme],
     editor: lexicalEditor(),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {

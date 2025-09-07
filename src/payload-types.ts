@@ -93,12 +93,14 @@ export interface Config {
     robots: Robot;
     manifest: Manifest;
     sitemap: Sitemap;
+    theme: Theme;
   };
   globalsSelect: {
     metadata: MetadataSelect<false> | MetadataSelect<true>;
     robots: RobotsSelect<false> | RobotsSelect<true>;
     manifest: ManifestSelect<false> | ManifestSelect<true>;
     sitemap: SitemapSelect<false> | SitemapSelect<true>;
+    theme: ThemeSelect<false> | ThemeSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1541,6 +1543,34 @@ export interface Sitemap {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "theme".
+ */
+export interface Theme {
+  id: number;
+  radius?: number | null;
+  background?: string | null;
+  foreground?: string | null;
+  card?: string | null;
+  cardForeground?: string | null;
+  popover?: string | null;
+  popoverForeground?: string | null;
+  primary?: string | null;
+  primaryForeground?: string | null;
+  secondary?: string | null;
+  secondaryForeground?: string | null;
+  muted?: string | null;
+  mutedForeground?: string | null;
+  accent?: string | null;
+  accentForeground?: string | null;
+  destructive?: string | null;
+  border?: string | null;
+  input?: string | null;
+  ring?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "metadata_select".
  */
 export interface MetadataSelect<T extends boolean = true> {
@@ -2775,6 +2805,34 @@ export interface SitemapSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "theme_select".
+ */
+export interface ThemeSelect<T extends boolean = true> {
+  radius?: T;
+  background?: T;
+  foreground?: T;
+  card?: T;
+  cardForeground?: T;
+  popover?: T;
+  popoverForeground?: T;
+  primary?: T;
+  primaryForeground?: T;
+  secondary?: T;
+  secondaryForeground?: T;
+  muted?: T;
+  mutedForeground?: T;
+  accent?: T;
+  accentForeground?: T;
+  destructive?: T;
+  border?: T;
+  input?: T;
+  ring?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
