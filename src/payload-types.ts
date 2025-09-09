@@ -4271,6 +4271,60 @@ export interface Theme {
  */
 export interface Layout {
   id: number;
+  header?: {
+    sticky?: boolean | null;
+    logo?: (number | null) | Media;
+    menu?: {
+      align?: ('left' | 'center' | 'right') | null;
+      navigation?:
+        | {
+            label?: string | null;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    buttons?:
+      | {
+          label?: string | null;
+          url?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  footer?: {
+    logo?: (number | null) | Media;
+    description?: string | null;
+    social_media?:
+      | {
+          icon?: string | null;
+          url?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    menus?:
+      | {
+          title?: string | null;
+          navigations?:
+            | {
+                icon?: string | null;
+                title?: string | null;
+                url?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+    copy_right?: string | null;
+    navigations?:
+      | {
+          title?: string | null;
+          url?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -5547,6 +5601,66 @@ export interface ThemeSelect<T extends boolean = true> {
  * via the `definition` "layout_select".
  */
 export interface LayoutSelect<T extends boolean = true> {
+  header?:
+    | T
+    | {
+        sticky?: T;
+        logo?: T;
+        menu?:
+          | T
+          | {
+              align?: T;
+              navigation?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        buttons?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              id?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        logo?: T;
+        description?: T;
+        social_media?:
+          | T
+          | {
+              icon?: T;
+              url?: T;
+              id?: T;
+            };
+        menus?:
+          | T
+          | {
+              title?: T;
+              navigations?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        copy_right?: T;
+        navigations?:
+          | T
+          | {
+              title?: T;
+              url?: T;
+              id?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
