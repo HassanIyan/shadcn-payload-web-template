@@ -67,20 +67,30 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    users: User;
-    media: Media;
+    posts: Post;
+    events: Event;
+    downloads: Download;
     tags: Tag;
     categories: Category;
+    pages: Page;
+    media: Media;
+    users: User;
+    'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
   collectionsJoins: {};
   collectionsSelect: {
-    users: UsersSelect<false> | UsersSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
+    downloads: DownloadsSelect<false> | DownloadsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -94,6 +104,7 @@ export interface Config {
     manifest: Manifest;
     sitemap: Sitemap;
     theme: Theme;
+    layout: Layout;
   };
   globalsSelect: {
     metadata: MetadataSelect<false> | MetadataSelect<true>;
@@ -101,13 +112,20 @@ export interface Config {
     manifest: ManifestSelect<false> | ManifestSelect<true>;
     sitemap: SitemapSelect<false> | SitemapSelect<true>;
     theme: ThemeSelect<false> | ThemeSelect<true>;
+    layout: LayoutSelect<false> | LayoutSelect<true>;
   };
   locale: null;
   user: User & {
     collection: 'users';
   };
   jobs: {
-    tasks: unknown;
+    tasks: {
+      schedulePublish: TaskSchedulePublish;
+      inline: {
+        input: unknown;
+        output: unknown;
+      };
+    };
     workflows: unknown;
   };
 }
@@ -128,6 +146,58 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  description?: string | null;
+  lead?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  feature_image: number | Media;
+  date: string;
+  author: number | User;
+  category: number | Category;
+  tags?: (number | Tag)[] | null;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -157,22 +227,14 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
+ * via the `definition` "categories".
  */
-export interface Media {
+export interface Category {
   id: number;
-  alt: string;
+  name: string;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -187,12 +249,1154 @@ export interface Tag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
+ * via the `definition` "events".
  */
-export interface Category {
+export interface Event {
+  id: number;
+  title: string;
+  location?: string | null;
+  audience?: string | null;
+  description?: string | null;
+  category: number | Category;
+  start_date: string;
+  end_date?: string | null;
+  tags?: (number | Tag)[] | null;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "downloads".
+ */
+export interface Download {
   id: number;
   name: string;
-  slug?: string | null;
+  description?: string | null;
+  file: number | Media;
+  category: number | Category;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  url: string;
+  design?: {};
+  seo?: {
+    metadataBase?: string | null;
+    title?: {
+      default?: string | null;
+      template?: string | null;
+      absolute?: string | null;
+    };
+    description?: string | null;
+    applicationName?: string | null;
+    authors?: (number | User)[] | null;
+    generator?: string | null;
+    keywords?: (number | Tag)[] | null;
+    referrer?:
+      | (
+          | 'no-referrer'
+          | 'origin'
+          | 'no-referrer-when-downgrade'
+          | 'origin-when-cross-origin'
+          | 'same-origin'
+          | 'strict-origin'
+          | 'strict-origin-when-cross-origin'
+        )
+      | null;
+    creator?: string | null;
+    publisher?: string | null;
+    robots?: string | null;
+    alternates?: {
+      canonical?: string | null;
+      languages?:
+        | {
+            language?: string | null;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      media?:
+        | {
+            medium?: string | null;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      types?:
+        | {
+            type?: string | null;
+            url?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    icons?: (number | Media)[] | null;
+    manifest?: string | null;
+    openGraph?:
+      | (
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphWebsite';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              publishedTime?: string | null;
+              modifiedTime?: string | null;
+              expirationTime?: string | null;
+              authors?: (number | User)[] | null;
+              section?: string | null;
+              tags?: (number | Tag)[] | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphArticle';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              isbn?: number | null;
+              releaseDate?: string | null;
+              authors?: (number | User)[] | null;
+              tags?: (number | Tag)[] | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphBook';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              firstName?: string | null;
+              lastName?: string | null;
+              username?: string | null;
+              gender?: ('male' | 'female') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphProfile';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              duration?: number | null;
+              albums?:
+                | {
+                    album?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              musicians?:
+                | {
+                    musician?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphMusicSong';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              songs?:
+                | {
+                    song?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              musicians?:
+                | {
+                    musician?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              releaseDate?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphMusicAlbum';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              songs?:
+                | {
+                    song?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              creators?:
+                | {
+                    creator?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphMusicPlaylist';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              creators?:
+                | {
+                    creator?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphRadioStation';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              actors?:
+                | {
+                    actor?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              directors?:
+                | {
+                    director?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              writers?:
+                | {
+                    writer?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              duration?: number | null;
+              releaseDate?: string | null;
+              tags?: (number | Tag)[] | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphVideoMovie';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              actors?:
+                | {
+                    actor?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              directors?:
+                | {
+                    director?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              writers?:
+                | {
+                    writer?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              duration?: number | null;
+              releaseDate?: string | null;
+              tags?: (number | Tag)[] | null;
+              series?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphVideoEpisode';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphVideoTVShow';
+            }
+          | {
+              type?: string | null;
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphVideoOther';
+            }
+          | {
+              determiner?: ('a' | 'an' | 'the' | 'auto' | '') | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              description?: string | null;
+              emails?:
+                | {
+                    email?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              phoneNumbers?:
+                | {
+                    phone_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              faxNumbers?:
+                | {
+                    fax_number?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              siteName?: string | null;
+              locale?: string | null;
+              alternateLocale?:
+                | {
+                    alternate_locale?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              images?: (number | Media)[] | null;
+              audio?: (number | Media)[] | null;
+              videos?: (number | Media)[] | null;
+              url?: string | null;
+              countryName?: string | null;
+              ttl?: number | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'OpenGraphMetadata';
+            }
+        )[]
+      | null;
+    twitter?:
+      | (
+          | {
+              card?: string | null;
+              site?: string | null;
+              siteId?: string | null;
+              creator?: string | null;
+              creatorId?: string | null;
+              description?: string | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              images?: (number | Media)[] | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TwitterSummary';
+            }
+          | {
+              card?: string | null;
+              site?: string | null;
+              siteId?: string | null;
+              creator?: string | null;
+              creatorId?: string | null;
+              description?: string | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              images?: (number | Media)[] | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TwitterSummaryLargeImage';
+            }
+          | {
+              card?: string | null;
+              site?: string | null;
+              siteId?: string | null;
+              creator?: string | null;
+              creatorId?: string | null;
+              description?: string | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              images?: (number | Media)[] | null;
+              players?:
+                | {
+                    playerUrl?: string | null;
+                    streamUrl?: string | null;
+                    width?: number | null;
+                    height?: number | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TwitterPlayer';
+            }
+          | {
+              card?: string | null;
+              site?: string | null;
+              siteId?: string | null;
+              creator?: string | null;
+              creatorId?: string | null;
+              description?: string | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              images?: (number | Media)[] | null;
+              app?: {
+                id?: {
+                  iphone?: string | null;
+                  ipad?: string | null;
+                  googleplay?: string | null;
+                };
+                url?: {
+                  iphone?: string | null;
+                  ipad?: string | null;
+                  googleplay?: string | null;
+                };
+                name?: string | null;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TwitterApp';
+            }
+          | {
+              site?: string | null;
+              siteId?: string | null;
+              creator?: string | null;
+              creatorId?: string | null;
+              description?: string | null;
+              title?: {
+                default?: string | null;
+                template?: string | null;
+                absolute?: string | null;
+              };
+              images?: (number | Media)[] | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TwitterMetadata';
+            }
+        )[]
+      | null;
+    facebook?: {
+      appId?: string | null;
+      admins?:
+        | {
+            admin?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    pinterest?: {
+      richPin?: string | null;
+    };
+    verification?: {
+      google?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      yahoo?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      yandex?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      me?:
+        | {
+            value?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      other?:
+        | {
+            [k: string]: unknown;
+          }
+        | unknown[]
+        | string
+        | number
+        | boolean
+        | null;
+    };
+    appleWebApp?: {
+      capable?: boolean | null;
+      title?: string | null;
+      startupImage?: (number | Media)[] | null;
+      statusBarStyle?: ('default' | 'black' | 'black-translucent') | null;
+    };
+    formatDetection?: {
+      telephone?: boolean | null;
+      date?: boolean | null;
+      address?: boolean | null;
+      email?: boolean | null;
+      url?: boolean | null;
+    };
+    itunes?: {
+      appId?: string | null;
+      appArgument?: string | null;
+    };
+    abstract?: string | null;
+    appLinks?: {
+      ios?:
+        | {
+            url?: string | null;
+            app_store_id?: string | null;
+            app_name?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      iphone?:
+        | {
+            url?: string | null;
+            app_store_id?: string | null;
+            app_name?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      ipad?:
+        | {
+            url?: string | null;
+            app_store_id?: string | null;
+            app_name?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      android?:
+        | {
+            package?: string | null;
+            url?: string | null;
+            class?: string | null;
+            app_name?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      windows_phone?:
+        | {
+            url?: string | null;
+            app_id?: string | null;
+            app_name?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      windows?:
+        | {
+            url?: string | null;
+            app_id?: string | null;
+            app_name?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      windows_universal?:
+        | {
+            url?: string | null;
+            app_id?: string | null;
+            app_name?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      web?:
+        | {
+            url?: string | null;
+            should_fallback?: boolean | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    archives?:
+      | {
+          archive?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    assets?:
+      | {
+          asset?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    bookmarks?:
+      | {
+          bookmark?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    pagination?: {
+      previous?: string | null;
+      next?: string | null;
+    };
+    category?: string | null;
+    classification?: string | null;
+    other?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs".
+ */
+export interface PayloadJob {
+  id: number;
+  /**
+   * Input data provided to the job
+   */
+  input?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  taskStatus?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  completedAt?: string | null;
+  totalTried?: number | null;
+  /**
+   * If hasError is true this job will not be retried
+   */
+  hasError?: boolean | null;
+  /**
+   * If hasError is true, this is the error that caused it
+   */
+  error?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Task execution log
+   */
+  log?:
+    | {
+        executedAt: string;
+        completedAt: string;
+        taskSlug: 'inline' | 'schedulePublish';
+        taskID: string;
+        input?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        output?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        state: 'failed' | 'succeeded';
+        error?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  taskSlug?: ('inline' | 'schedulePublish') | null;
+  queue?: string | null;
+  waitUntil?: string | null;
+  processing?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -204,12 +1408,16 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'users';
-        value: number | User;
+        relationTo: 'posts';
+        value: number | Post;
       } | null)
     | ({
-        relationTo: 'media';
-        value: number | Media;
+        relationTo: 'events';
+        value: number | Event;
+      } | null)
+    | ({
+        relationTo: 'downloads';
+        value: number | Download;
       } | null)
     | ({
         relationTo: 'tags';
@@ -218,6 +1426,22 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'categories';
         value: number | Category;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'payload-jobs';
+        value: number | PayloadJob;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -263,6 +1487,1176 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  lead?: T;
+  feature_image?: T;
+  date?: T;
+  author?: T;
+  category?: T;
+  tags?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  location?: T;
+  audience?: T;
+  description?: T;
+  category?: T;
+  start_date?: T;
+  end_date?: T;
+  tags?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "downloads_select".
+ */
+export interface DownloadsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  file?: T;
+  category?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  url?: T;
+  design?: T | {};
+  seo?:
+    | T
+    | {
+        metadataBase?: T;
+        title?:
+          | T
+          | {
+              default?: T;
+              template?: T;
+              absolute?: T;
+            };
+        description?: T;
+        applicationName?: T;
+        authors?: T;
+        generator?: T;
+        keywords?: T;
+        referrer?: T;
+        creator?: T;
+        publisher?: T;
+        robots?: T;
+        alternates?:
+          | T
+          | {
+              canonical?: T;
+              languages?:
+                | T
+                | {
+                    language?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              media?:
+                | T
+                | {
+                    medium?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              types?:
+                | T
+                | {
+                    type?: T;
+                    url?: T;
+                    id?: T;
+                  };
+            };
+        icons?: T;
+        manifest?: T;
+        openGraph?:
+          | T
+          | {
+              OpenGraphWebsite?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphArticle?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    publishedTime?: T;
+                    modifiedTime?: T;
+                    expirationTime?: T;
+                    authors?: T;
+                    section?: T;
+                    tags?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphBook?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    isbn?: T;
+                    releaseDate?: T;
+                    authors?: T;
+                    tags?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphProfile?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    firstName?: T;
+                    lastName?: T;
+                    username?: T;
+                    gender?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphMusicSong?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    duration?: T;
+                    albums?:
+                      | T
+                      | {
+                          album?: T;
+                          id?: T;
+                        };
+                    musicians?:
+                      | T
+                      | {
+                          musician?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphMusicAlbum?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    songs?:
+                      | T
+                      | {
+                          song?: T;
+                          id?: T;
+                        };
+                    musicians?:
+                      | T
+                      | {
+                          musician?: T;
+                          id?: T;
+                        };
+                    releaseDate?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphMusicPlaylist?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    songs?:
+                      | T
+                      | {
+                          song?: T;
+                          id?: T;
+                        };
+                    creators?:
+                      | T
+                      | {
+                          creator?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphRadioStation?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    creators?:
+                      | T
+                      | {
+                          creator?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphVideoMovie?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    actors?:
+                      | T
+                      | {
+                          actor?: T;
+                          id?: T;
+                        };
+                    directors?:
+                      | T
+                      | {
+                          director?: T;
+                          id?: T;
+                        };
+                    writers?:
+                      | T
+                      | {
+                          writer?: T;
+                          id?: T;
+                        };
+                    duration?: T;
+                    releaseDate?: T;
+                    tags?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphVideoEpisode?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    actors?:
+                      | T
+                      | {
+                          actor?: T;
+                          id?: T;
+                        };
+                    directors?:
+                      | T
+                      | {
+                          director?: T;
+                          id?: T;
+                        };
+                    writers?:
+                      | T
+                      | {
+                          writer?: T;
+                          id?: T;
+                        };
+                    duration?: T;
+                    releaseDate?: T;
+                    tags?: T;
+                    series?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphVideoTVShow?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphVideoOther?:
+                | T
+                | {
+                    type?: T;
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              OpenGraphMetadata?:
+                | T
+                | {
+                    determiner?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    description?: T;
+                    emails?:
+                      | T
+                      | {
+                          email?: T;
+                          id?: T;
+                        };
+                    phoneNumbers?:
+                      | T
+                      | {
+                          phone_number?: T;
+                          id?: T;
+                        };
+                    faxNumbers?:
+                      | T
+                      | {
+                          fax_number?: T;
+                          id?: T;
+                        };
+                    siteName?: T;
+                    locale?: T;
+                    alternateLocale?:
+                      | T
+                      | {
+                          alternate_locale?: T;
+                          id?: T;
+                        };
+                    images?: T;
+                    audio?: T;
+                    videos?: T;
+                    url?: T;
+                    countryName?: T;
+                    ttl?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+        twitter?:
+          | T
+          | {
+              TwitterSummary?:
+                | T
+                | {
+                    card?: T;
+                    site?: T;
+                    siteId?: T;
+                    creator?: T;
+                    creatorId?: T;
+                    description?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    images?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              TwitterSummaryLargeImage?:
+                | T
+                | {
+                    card?: T;
+                    site?: T;
+                    siteId?: T;
+                    creator?: T;
+                    creatorId?: T;
+                    description?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    images?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              TwitterPlayer?:
+                | T
+                | {
+                    card?: T;
+                    site?: T;
+                    siteId?: T;
+                    creator?: T;
+                    creatorId?: T;
+                    description?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    images?: T;
+                    players?:
+                      | T
+                      | {
+                          playerUrl?: T;
+                          streamUrl?: T;
+                          width?: T;
+                          height?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+              TwitterApp?:
+                | T
+                | {
+                    card?: T;
+                    site?: T;
+                    siteId?: T;
+                    creator?: T;
+                    creatorId?: T;
+                    description?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    images?: T;
+                    app?:
+                      | T
+                      | {
+                          id?:
+                            | T
+                            | {
+                                iphone?: T;
+                                ipad?: T;
+                                googleplay?: T;
+                              };
+                          url?:
+                            | T
+                            | {
+                                iphone?: T;
+                                ipad?: T;
+                                googleplay?: T;
+                              };
+                          name?: T;
+                        };
+                    id?: T;
+                    blockName?: T;
+                  };
+              TwitterMetadata?:
+                | T
+                | {
+                    site?: T;
+                    siteId?: T;
+                    creator?: T;
+                    creatorId?: T;
+                    description?: T;
+                    title?:
+                      | T
+                      | {
+                          default?: T;
+                          template?: T;
+                          absolute?: T;
+                        };
+                    images?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+        facebook?:
+          | T
+          | {
+              appId?: T;
+              admins?:
+                | T
+                | {
+                    admin?: T;
+                    id?: T;
+                  };
+            };
+        pinterest?:
+          | T
+          | {
+              richPin?: T;
+            };
+        verification?:
+          | T
+          | {
+              google?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              yahoo?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              yandex?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              me?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              other?: T;
+            };
+        appleWebApp?:
+          | T
+          | {
+              capable?: T;
+              title?: T;
+              startupImage?: T;
+              statusBarStyle?: T;
+            };
+        formatDetection?:
+          | T
+          | {
+              telephone?: T;
+              date?: T;
+              address?: T;
+              email?: T;
+              url?: T;
+            };
+        itunes?:
+          | T
+          | {
+              appId?: T;
+              appArgument?: T;
+            };
+        abstract?: T;
+        appLinks?:
+          | T
+          | {
+              ios?:
+                | T
+                | {
+                    url?: T;
+                    app_store_id?: T;
+                    app_name?: T;
+                    id?: T;
+                  };
+              iphone?:
+                | T
+                | {
+                    url?: T;
+                    app_store_id?: T;
+                    app_name?: T;
+                    id?: T;
+                  };
+              ipad?:
+                | T
+                | {
+                    url?: T;
+                    app_store_id?: T;
+                    app_name?: T;
+                    id?: T;
+                  };
+              android?:
+                | T
+                | {
+                    package?: T;
+                    url?: T;
+                    class?: T;
+                    app_name?: T;
+                    id?: T;
+                  };
+              windows_phone?:
+                | T
+                | {
+                    url?: T;
+                    app_id?: T;
+                    app_name?: T;
+                    id?: T;
+                  };
+              windows?:
+                | T
+                | {
+                    url?: T;
+                    app_id?: T;
+                    app_name?: T;
+                    id?: T;
+                  };
+              windows_universal?:
+                | T
+                | {
+                    url?: T;
+                    app_id?: T;
+                    app_name?: T;
+                    id?: T;
+                  };
+              web?:
+                | T
+                | {
+                    url?: T;
+                    should_fallback?: T;
+                    id?: T;
+                  };
+            };
+        archives?:
+          | T
+          | {
+              archive?: T;
+              id?: T;
+            };
+        assets?:
+          | T
+          | {
+              asset?: T;
+              id?: T;
+            };
+        bookmarks?:
+          | T
+          | {
+              bookmark?: T;
+              id?: T;
+            };
+        pagination?:
+          | T
+          | {
+              previous?: T;
+              next?: T;
+            };
+        category?: T;
+        classification?: T;
+        other?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -287,39 +2681,32 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
+ * via the `definition` "payload-jobs_select".
  */
-export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags_select".
- */
-export interface TagsSelect<T extends boolean = true> {
-  name?: T;
-  slug?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
- */
-export interface CategoriesSelect<T extends boolean = true> {
-  name?: T;
-  slug?: T;
+export interface PayloadJobsSelect<T extends boolean = true> {
+  input?: T;
+  taskStatus?: T;
+  completedAt?: T;
+  totalTried?: T;
+  hasError?: T;
+  error?: T;
+  log?:
+    | T
+    | {
+        executedAt?: T;
+        completedAt?: T;
+        taskSlug?: T;
+        taskID?: T;
+        input?: T;
+        output?: T;
+        state?: T;
+        error?: T;
+        id?: T;
+      };
+  taskSlug?: T;
+  queue?: T;
+  waitUntil?: T;
+  processing?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -1547,6 +3934,9 @@ export interface Sitemap {
  */
 export interface Theme {
   id: number;
+  /**
+   * value must be a REM value
+   */
   radius?: number | null;
   background?: string | null;
   foreground?: string | null;
@@ -1566,6 +3956,15 @@ export interface Theme {
   border?: string | null;
   input?: string | null;
   ring?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "layout".
+ */
+export interface Layout {
+  id: number;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -2836,6 +5235,41 @@ export interface ThemeSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "layout_select".
+ */
+export interface LayoutSelect<T extends boolean = true> {
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskSchedulePublish".
+ */
+export interface TaskSchedulePublish {
+  input: {
+    type?: ('publish' | 'unpublish') | null;
+    locale?: string | null;
+    doc?:
+      | ({
+          relationTo: 'posts';
+          value: number | Post;
+        } | null)
+      | ({
+          relationTo: 'events';
+          value: number | Event;
+        } | null)
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null);
+    global?: string | null;
+    user?: (number | null) | User;
+  };
+  output?: unknown;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

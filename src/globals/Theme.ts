@@ -2,12 +2,17 @@ import { GlobalConfig } from 'payload'
 
 export const Theme: GlobalConfig = {
     slug: 'theme',
-    label: 'Website Theme',
+    label: 'Theme',
     admin: {
-        group: 'Payload',
+        group: 'Website',
     },
     fields: [
-        { name: 'radius', label: 'Radius', type: 'number' },
+        {
+            name: 'radius',
+            label: 'Radius',
+            type: 'number',
+            admin: { description: 'value must be a REM value' },
+        },
         {
             type: 'row',
             fields: [

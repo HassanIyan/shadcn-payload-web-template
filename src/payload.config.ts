@@ -16,6 +16,11 @@ import { Manifest } from './globals/Manifest'
 import { Sitemap } from './globals/Sitemap'
 import { Categories } from './collections/Categories'
 import { Theme } from './globals/Theme'
+import { Posts } from './collections/Posts'
+import { Pages } from './collections/Pages'
+import { Events } from './collections/Events'
+import { Downloads } from './collections/Downloads'
+import { Layout } from './globals/Layout'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,8 +32,8 @@ export default buildConfig({
             baseDir: path.resolve(dirname),
         },
     },
-    collections: [Users, Media, Tags, Categories],
-    globals: [Metadata, Robots, Manifest, Sitemap, Theme],
+    collections: [Posts, Events, Downloads, Tags, Categories, Pages, Media, Users],
+    globals: [Metadata, Robots, Manifest, Sitemap, Theme, Layout],
     editor: lexicalEditor(),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {
