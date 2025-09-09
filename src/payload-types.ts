@@ -72,6 +72,8 @@ export interface Config {
     downloads: Download;
     tags: Tag;
     categories: Category;
+    forms: Form;
+    form_submissions: FormSubmission;
     pages: Page;
     media: Media;
     users: User;
@@ -87,6 +89,8 @@ export interface Config {
     downloads: DownloadsSelect<false> | DownloadsSelect<true>;
     tags: TagsSelect<false> | TagsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    forms: FormsSelect<false> | FormsSelect<true>;
+    form_submissions: FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -276,6 +280,153 @@ export interface Download {
   description?: string | null;
   file: number | Media;
   category: number | Category;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "forms".
+ */
+export interface Form {
+  id: number;
+  name: string;
+  description?: string | null;
+  blocks: (
+    | {
+        label: string;
+        name: string;
+        placeholder?: string | null;
+        helpText?: string | null;
+        required?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'textField';
+      }
+    | {
+        label: string;
+        name: string;
+        placeholder?: string | null;
+        helpText?: string | null;
+        required?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'emailField';
+      }
+    | {
+        label: string;
+        name: string;
+        placeholder?: string | null;
+        min?: number | null;
+        max?: number | null;
+        helpText?: string | null;
+        required?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'numberField';
+      }
+    | {
+        label: string;
+        name: string;
+        placeholder?: string | null;
+        rows?: number | null;
+        helpText?: string | null;
+        required?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'textareaField';
+      }
+    | {
+        label: string;
+        name: string;
+        options?:
+          | {
+              label: string;
+              value: string;
+              disabled?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        placeholder?: string | null;
+        helpText?: string | null;
+        required?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'selectField';
+      }
+    | {
+        label: string;
+        name: string;
+        options?:
+          | {
+              label: string;
+              value: string;
+              defaultChecked?: boolean | null;
+              disabled?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        helpText?: string | null;
+        minSelections?: number | null;
+        maxSelections?: number | null;
+        required?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'checkboxGroup';
+      }
+    | {
+        label: string;
+        name: string;
+        options?:
+          | {
+              label: string;
+              value: string;
+              disabled?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        helpText?: string | null;
+        defaultValue?: string | null;
+        required?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'radioGroup';
+      }
+    | {
+        label: string;
+        name: string;
+        file?: (number | null) | Media;
+        helpText?: string | null;
+        required?: boolean | null;
+        acceptedFileTypes?: string | null;
+        maxFileSizeMB?: number | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'fileUploadField';
+      }
+  )[];
+  mailTo: string;
+  mailSubject?: string | null;
+  active?: boolean | null;
+  createdBy?: (number | null) | User;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form_submissions".
+ */
+export interface FormSubmission {
+  id: number;
+  form: number | Form;
+  values?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1428,6 +1579,14 @@ export interface PayloadLockedDocument {
         value: number | Category;
       } | null)
     | ({
+        relationTo: 'forms';
+        value: number | Form;
+      } | null)
+    | ({
+        relationTo: 'form_submissions';
+        value: number | FormSubmission;
+      } | null)
+    | ({
         relationTo: 'pages';
         value: number | Page;
       } | null)
@@ -1550,6 +1709,153 @@ export interface TagsSelect<T extends boolean = true> {
 export interface CategoriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "forms_select".
+ */
+export interface FormsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  blocks?:
+    | T
+    | {
+        textField?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              placeholder?: T;
+              helpText?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        emailField?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              placeholder?: T;
+              helpText?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        numberField?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              placeholder?: T;
+              min?: T;
+              max?: T;
+              helpText?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        textareaField?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              placeholder?: T;
+              rows?: T;
+              helpText?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        selectField?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              options?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    disabled?: T;
+                    id?: T;
+                  };
+              placeholder?: T;
+              helpText?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        checkboxGroup?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              options?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    defaultChecked?: T;
+                    disabled?: T;
+                    id?: T;
+                  };
+              helpText?: T;
+              minSelections?: T;
+              maxSelections?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        radioGroup?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              options?:
+                | T
+                | {
+                    label?: T;
+                    value?: T;
+                    disabled?: T;
+                    id?: T;
+                  };
+              helpText?: T;
+              defaultValue?: T;
+              required?: T;
+              id?: T;
+              blockName?: T;
+            };
+        fileUploadField?:
+          | T
+          | {
+              label?: T;
+              name?: T;
+              file?: T;
+              helpText?: T;
+              required?: T;
+              acceptedFileTypes?: T;
+              maxFileSizeMB?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  mailTo?: T;
+  mailSubject?: T;
+  active?: T;
+  createdBy?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "form_submissions_select".
+ */
+export interface FormSubmissionsSelect<T extends boolean = true> {
+  form?: T;
+  values?: T;
   updatedAt?: T;
   createdAt?: T;
 }

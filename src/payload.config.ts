@@ -21,6 +21,8 @@ import { Pages } from './collections/Pages'
 import { Events } from './collections/Events'
 import { Downloads } from './collections/Downloads'
 import { Layout } from './globals/Layout'
+import { FormSubmissions } from './collections/FormSubmissions'
+import { Forms } from './collections/Forms'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -32,7 +34,18 @@ export default buildConfig({
             baseDir: path.resolve(dirname),
         },
     },
-    collections: [Posts, Events, Downloads, Tags, Categories, Pages, Media, Users],
+    collections: [
+        Posts,
+        Events,
+        Downloads,
+        Tags,
+        Categories,
+        Forms,
+        FormSubmissions,
+        Pages,
+        Media,
+        Users,
+    ],
     globals: [Metadata, Robots, Manifest, Sitemap, Theme, Layout],
     editor: lexicalEditor(),
     secret: process.env.PAYLOAD_SECRET || '',
