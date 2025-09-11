@@ -4,7 +4,16 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Media } from '@/payload-types'
-import { Button } from '../ui/button'
+import { MenuIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import {
+    Sheet,
+    SheetContent,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from '@/components/ui/sheet'
 
 export default async function header() {
     const payload = await getPayload({ config })
@@ -16,8 +25,8 @@ export default async function header() {
     const buttons = header?.buttons || null
 
     return (
-        <header className={cn('shadow-md bg-background', isSticky && 'sticky top-0')}>
-            <nav className="container py-2 flex gap-8">
+        <header className={cn('shadow-md bg-background', isSticky && 'sticky top-0 z-10')}>
+            <nav className="container py-2 flex gap-8 items-center">
                 {logo && (
                     <Link href={'/'}>
                         <Image
@@ -32,7 +41,7 @@ export default async function header() {
                 {navigation && (
                     <ul
                         className={cn(
-                            'flex gap-8 items-center flex-1',
+                            'hidden lg:flex gap-8 items-center flex-1',
                             alignment === 'left' && 'justify-start',
                             alignment === 'center' && 'justify-center',
                             alignment === 'right' && 'justify-end',
@@ -40,13 +49,18 @@ export default async function header() {
                     >
                         {navigation?.map(({ id, label, url }) => (
                             <li key={id}>
-                                <Link href={url as string}>{label}</Link>
+                                <Link
+                                    className="hover:underline hover:text-primary"
+                                    href={url as string}
+                                >
+                                    {label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 )}
                 {buttons && (
-                    <ul className="flex items-center">
+                    <ul className="hidden lg:flex items-center">
                         {buttons?.map(({ id, label, url }) => (
                             <li key={id}>
                                 <Button asChild>
@@ -56,6 +70,38 @@ export default async function header() {
                         ))}
                     </ul>
                 )}
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="size-8 ms-auto hover:bg-transparent hover:text-primary lg:hidden"
+                        >
+                            <MenuIcon />
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent>
+                        <SheetHeader>
+                            <SheetTitle> </SheetTitle>
+                        </SheetHeader>
+                        {navigation && (
+                            <ul className={cn('grid flex-1 auto-rows-min gap-6 px-4')}>
+                                {navigation?.map(({ id, label, url }) => (
+                                    <li key={id}>
+                                        <Link href={url as string}>{label}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                        <SheetFooter>
+                            {buttons?.map(({ id, label, url }) => (
+                                <Button key={id} asChild>
+                                    <Link href={url as string}>{label}</Link>
+                                </Button>
+                            ))}
+                        </SheetFooter>
+                    </SheetContent>
+                </Sheet>
             </nav>
         </header>
     )

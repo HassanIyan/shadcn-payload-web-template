@@ -14,9 +14,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <StyledJsxRegistry>
                 <CssVariables />
                 <body className="text-foreground">
-                    <div className="flex flex-col min-h-screen">
+                    <div className="min-h-screen flex flex-col">
                         <Header />
-                        <main className="flex-1">{children}</main>
+                        {children}
                     </div>
                     <Footer />
                 </body>

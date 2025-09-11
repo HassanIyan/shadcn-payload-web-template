@@ -74,7 +74,17 @@ export const Layout: GlobalConfig = {
                             label: 'Social Media',
                             labels: { singular: 'Social Medium', plural: 'Social Media' },
                             fields: [
-                                { name: 'icon', type: 'text', label: 'Icon' },
+                                {
+                                    name: 'icon',
+                                    type: 'text',
+                                    label: 'Icon',
+                                    admin: {
+                                        components: {
+                                            Field: '@/components/payload/icon-selector',
+                                            Cell: '@/components/payload/icon-selector/cell',
+                                        },
+                                    },
+                                },
                                 { name: 'url', type: 'text', label: 'Url' },
                             ],
                         },
@@ -91,7 +101,17 @@ export const Layout: GlobalConfig = {
                                     label: 'Navigations',
                                     labels: { singular: 'Navigation', plural: 'Navigations' },
                                     fields: [
-                                        { name: 'icon', type: 'text', label: 'Icon' },
+                                        {
+                                            name: 'icon',
+                                            type: 'text',
+                                            label: 'Icon',
+                                            admin: {
+                                                components: {
+                                                    Field: '@/components/payload/icon-selector',
+                                                    Cell: '@/components/payload/icon-selector/cell',
+                                                },
+                                            },
+                                        },
                                         { name: 'title', type: 'text', label: 'Title' },
                                         { name: 'url', type: 'text', label: 'Url' },
                                     ],
