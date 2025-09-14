@@ -5,6 +5,7 @@ export const Users: CollectionConfig = {
     admin: {
         useAsTitle: 'name',
         group: 'Payload CMS',
+        hideAPIURL: true,
     },
     auth: true,
     fields: [

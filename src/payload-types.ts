@@ -4227,8 +4227,6 @@ export interface Sitemap {
         images?: (number | Media)[] | null;
         videos?: (number | Media)[] | null;
         id?: string | null;
-        blockName?: string | null;
-        blockType: 'custom';
       }[]
     | null;
   updatedAt?: string | null;
@@ -5540,29 +5538,24 @@ export interface SitemapSelect<T extends boolean = true> {
   pages?:
     | T
     | {
-        custom?:
+        url?: T;
+        lastModified?: T;
+        changeFrequency?: T;
+        priority?: T;
+        alternates?:
           | T
           | {
-              url?: T;
-              lastModified?: T;
-              changeFrequency?: T;
-              priority?: T;
-              alternates?:
+              languages?:
                 | T
                 | {
-                    languages?:
-                      | T
-                      | {
-                          language?: T;
-                          url?: T;
-                          id?: T;
-                        };
+                    language?: T;
+                    url?: T;
+                    id?: T;
                   };
-              images?: T;
-              videos?: T;
-              id?: T;
-              blockName?: T;
             };
+        images?: T;
+        videos?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;

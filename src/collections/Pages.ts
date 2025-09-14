@@ -6,6 +6,7 @@ export const Pages: CollectionConfig = {
     admin: {
         useAsTitle: 'url',
         group: 'Website',
+        hideAPIURL: true,
     },
     fields: [
         { name: 'url', type: 'text', label: 'Url', required: true, unique: true },

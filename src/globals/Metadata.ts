@@ -6,6 +6,7 @@ export const Metadata: GlobalConfig = {
     label: 'Meta Data',
     admin: {
         group: 'Search Engine Optimization',
+        hideAPIURL: true,
     },
     fields: SeoFields,
 }

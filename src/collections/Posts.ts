@@ -6,6 +6,9 @@ export const Posts: CollectionConfig = {
     admin: {
         useAsTitle: 'title',
         group: 'Content Management',
+        enableRichTextRelationship: false,
+        enableRichTextLink: false,
+        hideAPIURL: true,
     },
     fields: [
         { name: 'title', type: 'text', label: 'Title', required: true },

@@ -5,6 +5,7 @@ export const Manifest: GlobalConfig = {
     label: 'Manifest File',
     admin: {
         group: 'Search Engine Optimization',
+        hideAPIURL: true,
     },
     fields: [
         {

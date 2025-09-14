@@ -34,7 +34,8 @@ export default async function header() {
                             width={logo?.width as number}
                             height={logo?.height as number}
                             alt={logo?.alt}
-                            className="max-w-20 hover:scale-120 transition-all"
+                            priority
+                            className="max-w-20 hover:scale-105 transition-all"
                         />
                     </Link>
                 )}

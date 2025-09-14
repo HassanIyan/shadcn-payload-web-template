@@ -4,6 +4,7 @@ export const FormSubmissions: CollectionConfig = {
     slug: 'form_submissions',
     admin: {
         group: 'Form Management',
+        hideAPIURL: true,
     },
     access: {
         create: () => false,

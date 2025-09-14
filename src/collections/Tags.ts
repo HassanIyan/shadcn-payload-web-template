@@ -5,6 +5,7 @@ export const Tags: CollectionConfig = {
     admin: {
         useAsTitle: 'name',
         group: 'Content Management',
+        hideAPIURL: true,
     },
     fields: [
         { name: 'name', type: 'text', label: 'Name', required: true },
@@ -14,7 +15,7 @@ export const Tags: CollectionConfig = {
         beforeValidate: [
             ({ data }) => ({
                 ...data,
-                slug: data?.slug || data?.title.toLowerCase().replaceAll(' ', '-'),
+                slug: data?.slug || data?.name.toLowerCase().replaceAll(' ', '-'),
             }),
         ],
     },

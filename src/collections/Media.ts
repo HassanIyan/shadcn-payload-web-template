@@ -4,6 +4,7 @@ export const Media: CollectionConfig = {
     slug: 'media',
     admin: {
         group: 'Payload CMS',
+        hideAPIURL: true,
     },
     access: {
         read: () => true,

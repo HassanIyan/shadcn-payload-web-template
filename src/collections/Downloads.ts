@@ -5,6 +5,7 @@ export const Downloads: CollectionConfig = {
     admin: {
         useAsTitle: 'name',
         group: 'Content Management',
+        hideAPIURL: true,
     },
     fields: [
         { name: 'name', type: 'text', label: 'Name', required: true },

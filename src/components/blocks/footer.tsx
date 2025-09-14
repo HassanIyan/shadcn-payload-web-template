@@ -75,8 +75,7 @@ export default async function Footer() {
             </div>
             <div className="border-t border-t-white/20 opacity-75">
                 <div className="container py-6 flex items-center justify-between gap-4 lg:gap-8 flex-col lg:flex-row">
-                    {footer?.copy_right && <p>{footer?.copy_right}</p>}
-                    <ul className="flex items-center gap-6 flex-wrap">
+                    <ul className="flex items-center gap-6 flex-wrap lg:order-2">
                         {navigations?.map(({ id, title, url }) => {
                             return (
                                 <li key={id}>
@@ -87,6 +86,9 @@ export default async function Footer() {
                             )
                         })}
                     </ul>
+                    {footer?.copy_right && (
+                        <p className="text-center lg:text-left lg:order-1">{footer?.copy_right}</p>
+                    )}
                 </div>
             </div>
         </footer>

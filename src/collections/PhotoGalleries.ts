@@ -5,6 +5,7 @@ export const PhotoGalleries: CollectionConfig = {
     admin: {
         useAsTitle: 'title',
         group: 'Content Management',
+        hideAPIURL: true,
     },
     fields: [
         { name: 'title', type: 'text', label: 'Title', required: true },
