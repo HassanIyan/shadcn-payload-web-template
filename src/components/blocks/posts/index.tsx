@@ -8,15 +8,17 @@ export interface PostsProps {
     draft?: boolean
     sort?: Sort
     className?: string
+    landing?: boolean
 }
 
-export const Posts: FC<PostsProps> = async ({ where, draft, sort, className }) => {
+export const Posts: FC<PostsProps> = async ({ where, draft, sort, className, landing }) => {
     const { docs, nextPage } = await loadMorePosts({ where, draft, sort })
 
     return (
         <PostClient
             docs={docs}
             nextPage={nextPage}
+            landing={landing}
             loadMore={async (nextPage) => {
                 'use server'
                 return await loadMorePosts({ nextPage, where, draft, sort })

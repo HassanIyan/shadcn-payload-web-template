@@ -33,7 +33,7 @@ export const CssVariablesClient: FC<{
         cardForeground?: string | null
         accent?: string | null
         accentForeground?: string | null
-        line?: string | null
+        border?: string | null
     } | null
 }> = ({ colors }) => {
     return (
@@ -42,7 +42,7 @@ export const CssVariablesClient: FC<{
                 --radius: ${colors?.radius || '0'}rem;
                 --background: ${colors?.background || 'transparent'};
                 --foreground: ${colors?.foreground || 'transparent'};
-                --line: ${colors?.line || 'transparent'};
+                --border: ${colors?.border || 'transparent'};
                 --card: ${colors?.card || 'transparent'};
                 --card-foreground: ${colors?.cardForeground || 'transparent'};
                 --primary: ${colors?.primary || 'transparent'};
