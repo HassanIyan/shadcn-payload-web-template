@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Post } from '@/payload-types'
+import { Category, Media, Post, User } from '@/payload-types'
 import { PaginatedDocs } from 'payload'
 import React, { FC, useCallback, useState } from 'react'
 
@@ -26,9 +26,14 @@ export const PostClient: FC<PostClientProps> = ({ className, ...props }) => {
     }, [props, nextPage])
 
     return (
-        <section className={cn('container', className)}>
-            {docs?.map((doc) => (
-                <PostCard key={doc?.id} {...doc} />
+        <section className={cn('container grid grid-cols-4', className)}>
+            {docs?.map((doc, index) => (
+                <PostCard
+                    key={doc?.id}
+                    size={index === 0 ? 'lg' : 'sm'}
+                    className={cn(index === 0 && 'lg:col-span-4 col-span-2')}
+                    {...doc}
+                />
             ))}
 
             {nextPage && <Button onClick={loadMore}>{'Load more'}</Button>}
@@ -36,6 +41,17 @@ export const PostClient: FC<PostClientProps> = ({ className, ...props }) => {
     )
 }
 
-export const PostCard: FC<Post & { size?: 'sm' | 'lg' }> = ({}) => {
-    return <div></div>
+export const PostCard: FC<Post & { size?: 'sm' | 'lg'; className?: string }> = ({
+    id,
+    size,
+    className,
+    ...props
+}) => {
+    const feature_image = props.feature_image as Media
+    const category = props.category as Category
+    const author = props.author as User
+    const url = `/posts/${id}`
+
+    if (size === 'lg') return <div className={cn('', className)}></div>
+    return <div className={cn('', className)}></div>
 }
