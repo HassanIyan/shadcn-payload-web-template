@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { Category, Media, Post, Tag, User } from '@/payload-types'
 import Image from 'next/image'
 import { PaginatedDocs } from 'payload'
-import React, { FC, ReactNode, useCallback, useState } from 'react'
+import React, { FC, Fragment, ReactNode, useCallback, useState } from 'react'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import {
@@ -16,6 +16,7 @@ import {
     TimerIcon,
     UserIcon,
 } from 'lucide-react'
+import RichText from '../rich-text'
 
 export interface PostClientProps {
     docs?: Post[]
@@ -188,59 +189,68 @@ export const PostView: FC<Post & { relatedPosts?: ReactNode }> = ({
     const url = `/posts/${id}`
 
     return (
-        <article className="max-w-5xl mx-auto my-8">
-            <Link
-                href={'/posts'}
-                className="text-primary hover:opacity-85 flex gap-2 items-center mb-4"
-            >
-                <ArrowLeftIcon /> {'Back to News'}
-            </Link>
-            <h1 className="text-foreground text-3xl lg:text-5xl font-bold mb-4">{post?.title}</h1>
-            <div className="text-sm text-accent-foreground flex items-center lg:gap-4 gap-2 flex-wrap mb-4">
-                <span className="flex items-center">
-                    <UserIcon size={16} />
-                    {author?.name}
-                </span>
-                <span className="flex items-center gap-2">
-                    <TimerIcon size={16} />
-                    {format(post.createdAt, 'MMMM dd, yyyy')}
-                </span>
-                <Button
-                    variant={'outline'}
-                    onClick={() => navigator?.share({ url: url, title: post.title })}
-                    className="ms-auto cursor-pointer"
+        <Fragment>
+            <article className="max-w-5xl mx-auto my-8 container">
+                <Link
+                    href={'/posts'}
+                    className="text-primary hover:opacity-85 flex gap-2 items-center mb-4"
                 >
-                    <ShareIcon /> {'Share'}
-                </Button>
-            </div>
-            <Image
-                src={feature_image?.url as string}
-                alt={feature_image?.alt}
-                width={feature_image?.width as number}
-                height={feature_image?.height as number}
-                className="w-full mb-4"
-            />
-
-            {/* TODO: RichText */}
-
-            <hr className="border border-border" />
-
-            <div className="flex gap-6 my-4">
-                <h6 className="font-medium">Tags</h6>
-                <div className="flex items-center justify-center gap-3 flex-wrap">
-                    {tags?.map((tag, index) => (
-                        <Link
-                            key={index}
-                            href={`/tags/${tag.slug}`}
-                            className="bg-primary/15 text-primary rounded-full py-1 px-4 text-sm hover:opacity-75"
-                        >
-                            {tag.name}
-                        </Link>
-                    ))}
+                    <ArrowLeftIcon /> {'Back to News'}
+                </Link>
+                <h1 className="text-foreground text-3xl lg:text-5xl font-bold mb-4">
+                    {post?.title}
+                </h1>
+                <div className="text-sm text-accent-foreground flex items-center lg:gap-4 gap-2 flex-wrap mb-4">
+                    <span className="flex items-center">
+                        <UserIcon size={16} />
+                        {author?.name}
+                    </span>
+                    <span className="flex items-center gap-2">
+                        <TimerIcon size={16} />
+                        {format(post.createdAt, 'MMMM dd, yyyy')}
+                    </span>
+                    <Button
+                        variant={'outline'}
+                        onClick={() => navigator?.share({ url: url, title: post.title })}
+                        className="ms-auto cursor-pointer"
+                    >
+                        <ShareIcon /> {'Share'}
+                    </Button>
                 </div>
-            </div>
+                <Image
+                    src={feature_image?.url as string}
+                    alt={feature_image?.alt}
+                    width={feature_image?.width as number}
+                    height={feature_image?.height as number}
+                    className="w-full mb-4"
+                />
 
-            {relatedPosts}
-        </article>
+                {/* TODO: RichText */}
+                <RichText>{post?.lead}</RichText>
+
+                <hr className="border border-border" />
+
+                <section className="flex gap-6 my-4">
+                    <h6 className="font-medium">Tags</h6>
+                    <div className="flex items-center justify-center gap-3 flex-wrap">
+                        {tags?.map((tag, index) => (
+                            <Link
+                                key={index}
+                                href={`/tags/${tag.id}`}
+                                className="bg-primary/15 text-primary rounded-full py-1 px-4 text-sm hover:opacity-75"
+                            >
+                                {tag.name}
+                            </Link>
+                        ))}
+                    </div>
+                </section>
+            </article>
+            <section className="bg-accent text-accent-foreground py-12">
+                <div className="container">
+                    <h6 className="font-bold mb-6 text-lg">{'Related Articles'}</h6>
+                    {relatedPosts}
+                </div>
+            </section>
+        </Fragment>
     )
 }

@@ -5,7 +5,14 @@ import React from 'react'
 export default function PostsPage() {
     return (
         <main className="my-12">
-            <Posts className="container" />
+            <Posts
+                className="container"
+                where={{
+                    _status: {
+                        equals: 'published',
+                    },
+                }}
+            />
         </main>
     )
 }

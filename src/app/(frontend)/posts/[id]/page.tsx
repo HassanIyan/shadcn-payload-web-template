@@ -15,8 +15,22 @@ export default async function PostPage({ params }: Props) {
     const post = await getPost(id)
 
     return (
-        <main className="container">
-            <PostView {...post} relatedPosts={<Posts landing={false} />} />
+        <main>
+            <PostView
+                {...post}
+                relatedPosts={
+                    <Posts
+                        landing={false}
+                        where={{
+                            tags: {
+                                in: post?.tags?.map((tag) =>
+                                    typeof tag === 'number' ? tag : tag.id,
+                                ),
+                            },
+                        }}
+                    />
+                }
+            />
         </main>
     )
 }
@@ -33,7 +47,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const getPost = cache(async (id: string) => {
     try {
         const payload = await getPayload({ config })
-        return await payload.findByID({ collection: 'posts', id: parseInt(id) || 0 })
+        const res = await payload.findByID({ collection: 'posts', id: parseInt(id) || 0 })
+        if (res?._status === 'published') return res
+        else throw new Error('Not Found')
     } catch (error: unknown) {
         if ((error as Error).message === 'Not Found') return notFound()
         throw error
