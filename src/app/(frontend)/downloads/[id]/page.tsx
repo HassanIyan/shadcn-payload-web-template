@@ -1,8 +1,8 @@
-import React, { cache } from 'react'
+import { cache } from 'react'
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
+import { notFound, redirect } from 'next/navigation'
+import { Media } from '@/payload-types'
 
 interface Props {
     params: Promise<{ id: string }>
@@ -12,16 +12,7 @@ export default async function DownloadPage({ params }: Props) {
     const { id } = await params
     const download = await getDownload(id)
 
-    return <div>{JSON.stringify(download)}</div>
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { id } = await params
-    const download = await getDownload(id)
-
-    return {
-        title: download.name,
-    }
+    return redirect((download?.file as Media)?.url || '/')
 }
 
 const getDownload = cache(async (id: string) => {

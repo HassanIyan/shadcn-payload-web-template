@@ -11,7 +11,7 @@ export const Events: CollectionConfig = {
         { name: 'title', type: 'text', label: 'Title', required: true },
         { name: 'location', type: 'text', label: 'Location' },
         { name: 'audience', type: 'text', label: 'Audience' },
-        { name: 'description', type: 'textarea', label: 'Description', admin: { rows: 10 } },
+        { name: 'description', type: 'richText', label: 'Description' },
         {
             name: 'category',
             type: 'relationship',
