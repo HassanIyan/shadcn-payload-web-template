@@ -225,7 +225,6 @@ export const PostView: FC<Post & { relatedPosts?: ReactNode }> = ({
                     className="w-full mb-4"
                 />
 
-                {/* TODO: RichText */}
                 <RichText>{post?.lead}</RichText>
 
                 <hr className="border border-border" />

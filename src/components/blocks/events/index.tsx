@@ -1,46 +1,44 @@
 import React, { FC } from 'react'
 import { getPayload, Sort, Where } from 'payload'
 import config from '@payload-config'
-import { PostClient } from './client'
+import { EventClient } from './client'
 import { notFound } from 'next/navigation'
 
-export interface PostsProps {
+export interface EventsProps {
     where?: Where
     draft?: boolean
     sort?: Sort
     className?: string
-    landing?: boolean
 }
 
-export const Posts: FC<PostsProps> = async ({ where, draft, sort, className, landing }) => {
-    const { docs, nextPage, totalDocs } = await loadMorePosts({ where, draft, sort })
+export const Events: FC<EventsProps> = async ({ where, draft, sort, className }) => {
+    const { docs, nextPage, totalDocs } = await loadMoreEvents({ where, draft, sort })
 
     if ((totalDocs || 0) === 0) notFound()
 
     return (
-        <PostClient
+        <EventClient
             docs={docs}
             nextPage={nextPage}
-            landing={landing}
             loadMore={async (nextPage) => {
                 'use server'
-                return await loadMorePosts({ nextPage, where, draft, sort })
+                return await loadMoreEvents({ nextPage, where, draft, sort })
             }}
             className={className}
         />
     )
 }
 
-const loadMorePosts = async ({
+const loadMoreEvents = async ({
     where,
     draft,
     sort,
     nextPage = 1,
-}: PostsProps & { nextPage?: number }) => {
+}: EventsProps & { nextPage?: number }) => {
     const payload = await getPayload({ config })
 
     return await payload.find({
-        collection: 'posts',
+        collection: 'events',
         where,
         draft,
         sort,

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { getPayload, Sort, Where } from 'payload'
 import config from '@payload-config'
 import { DownloadClient } from './client'
+import { notFound } from 'next/navigation'
 
 export interface DownloadsProps {
     where?: Where
@@ -12,7 +13,9 @@ export interface DownloadsProps {
 }
 
 export const Downloads: FC<DownloadsProps> = async ({ where, draft, sort, className, landing }) => {
-    const { docs, nextPage } = await loadMoreDownloads({ where, draft, sort })
+    const { docs, nextPage, totalDocs } = await loadMoreDownloads({ where, draft, sort })
+
+    if ((totalDocs || 0) === 0) notFound()
 
     return (
         <DownloadClient

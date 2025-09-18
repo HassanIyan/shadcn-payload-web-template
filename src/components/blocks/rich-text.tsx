@@ -16,7 +16,10 @@ export default RichText
 
 export const Node: FC<unknown> = ({ type, tag, indent, direction, text, format, ...props }) => {
     const attr = {
-        style: { marginStart: (indent || 0) * 4 },
+        style: {
+            marginStart: (indent || 0) * 4,
+            textAlign: typeof format === 'string' ? format : undefined,
+        },
         dir: direction,
     }
 
