@@ -24,9 +24,15 @@ export interface PostClientProps {
     loadMore?: (nextPage: number) => Promise<PaginatedDocs<Post>>
     className?: string
     landing?: boolean
+    children?: ReactNode
 }
 
-export const PostClient: FC<PostClientProps> = ({ className, landing = true, ...props }) => {
+export const PostClient: FC<PostClientProps> = ({
+    className,
+    landing = true,
+    children,
+    ...props
+}) => {
     const [nextPage, setNextPage] = useState(props.nextPage)
     const [docs, setDocs] = useState(props.docs)
     const [loading, setLoading] = useState(false)
@@ -48,6 +54,7 @@ export const PostClient: FC<PostClientProps> = ({ className, landing = true, ...
 
     return (
         <section className={cn('grid lg:grid-cols-4 grid-cols-2 gap-4', className)}>
+            {children}
             {docs?.map((doc, index) => (
                 <PostCard
                     key={doc?.id}

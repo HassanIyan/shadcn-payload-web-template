@@ -22,9 +22,10 @@ export interface EventClientProps {
     nextPage?: number | null
     loadMore?: (nextPage: number) => Promise<PaginatedDocs<Event>>
     className?: string
+    children?: ReactNode
 }
 
-export const EventClient: FC<EventClientProps> = ({ className, ...props }) => {
+export const EventClient: FC<EventClientProps> = ({ className, children, ...props }) => {
     const [nextPage, setNextPage] = useState(props.nextPage)
     const [docs, setDocs] = useState(props.docs)
     const [loading, setLoading] = useState(false)
@@ -46,6 +47,8 @@ export const EventClient: FC<EventClientProps> = ({ className, ...props }) => {
 
     return (
         <section className={cn('grid lg:grid-cols-3 grid-cols-1 gap-4', className)}>
+            {children}
+
             {docs?.map((doc) => (
                 <EventCard key={doc?.id} {...doc} />
             ))}

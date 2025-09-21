@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Category, Download, Media } from '@/payload-types'
 import { PaginatedDocs } from 'payload'
-import React, { FC, useCallback, useState } from 'react'
+import React, { FC, ReactNode, useCallback, useState } from 'react'
 import { DownloadIcon, Loader2Icon } from 'lucide-react'
 import Link from 'next/link'
 import { extension } from 'mime-types'
@@ -15,10 +15,10 @@ export interface DownloadClientProps {
     nextPage?: number | null
     loadMore?: (nextPage: number) => Promise<PaginatedDocs<Download>>
     className?: string
-    landing?: boolean
+    children?: ReactNode
 }
 
-export const DownloadClient: FC<DownloadClientProps> = ({ className, ...props }) => {
+export const DownloadClient: FC<DownloadClientProps> = ({ className, children, ...props }) => {
     const [nextPage, setNextPage] = useState(props.nextPage)
     const [docs, setDocs] = useState(props.docs)
     const [loading, setLoading] = useState(false)
@@ -42,6 +42,7 @@ export const DownloadClient: FC<DownloadClientProps> = ({ className, ...props })
 
     return (
         <section className={cn('grid lg:grid-cols-3 grid-cols-1 gap-4', className)}>
+            {children}
             {docs?.map((doc, index) => (
                 <DownloadCard key={doc?.id} color={`#${colors[index % colors.length]}`} {...doc} />
             ))}

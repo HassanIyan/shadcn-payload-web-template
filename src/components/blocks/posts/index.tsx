@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { getPayload, Sort, Where } from 'payload'
 import config from '@payload-config'
 import { PostClient } from './client'
@@ -10,12 +10,28 @@ export interface PostsProps {
     sort?: Sort
     className?: string
     landing?: boolean
+    children?: ReactNode
+    enableNotFound?: boolean
 }
 
-export const Posts: FC<PostsProps> = async ({ where, draft, sort, className, landing }) => {
+export const Posts: FC<PostsProps> = async ({
+    where,
+    draft,
+    sort,
+    className,
+    landing,
+    enableNotFound = true,
+    children,
+}) => {
     const { docs, nextPage, totalDocs } = await loadMorePosts({ where, draft, sort })
 
-    if ((totalDocs || 0) === 0) notFound()
+    if ((totalDocs || 0) === 0) {
+        if (enableNotFound) {
+            notFound()
+        } else {
+            return null
+        }
+    }
 
     return (
         <PostClient
@@ -27,7 +43,9 @@ export const Posts: FC<PostsProps> = async ({ where, draft, sort, className, lan
                 return await loadMorePosts({ nextPage, where, draft, sort })
             }}
             className={className}
-        />
+        >
+            {children}
+        </PostClient>
     )
 }
 

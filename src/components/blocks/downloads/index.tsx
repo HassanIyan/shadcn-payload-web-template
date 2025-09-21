@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ReactNode } from 'react'
 import { getPayload, Sort, Where } from 'payload'
 import config from '@payload-config'
 import { DownloadClient } from './client'
@@ -9,25 +9,40 @@ export interface DownloadsProps {
     draft?: boolean
     sort?: Sort
     className?: string
-    landing?: boolean
+    children?: ReactNode
+    enableNotFound?: boolean
 }
 
-export const Downloads: FC<DownloadsProps> = async ({ where, draft, sort, className, landing }) => {
+export const Downloads: FC<DownloadsProps> = async ({
+    where,
+    draft,
+    sort,
+    className,
+    children,
+    enableNotFound = true,
+}) => {
     const { docs, nextPage, totalDocs } = await loadMoreDownloads({ where, draft, sort })
 
-    if ((totalDocs || 0) === 0) notFound()
+    if ((totalDocs || 0) === 0) {
+        if (enableNotFound) {
+            notFound()
+        } else {
+            return null
+        }
+    }
 
     return (
         <DownloadClient
             docs={docs}
             nextPage={nextPage}
-            landing={landing}
             loadMore={async (nextPage) => {
                 'use server'
                 return await loadMoreDownloads({ nextPage, where, draft, sort })
             }}
             className={className}
-        />
+        >
+            {children}
+        </DownloadClient>
     )
 }
 
