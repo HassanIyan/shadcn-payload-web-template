@@ -408,7 +408,6 @@ export interface Form {
     | {
         label: string;
         name: string;
-        file?: (number | null) | Media;
         helpText?: string | null;
         required?: boolean | null;
         acceptedFileTypes?: string | null;
@@ -421,6 +420,7 @@ export interface Form {
   mailTo: string;
   mailSubject?: string | null;
   active?: boolean | null;
+  redirectURL?: string | null;
   createdBy?: (number | null) | User;
   updatedAt: string;
   createdAt: string;
@@ -1847,7 +1847,6 @@ export interface FormsSelect<T extends boolean = true> {
           | {
               label?: T;
               name?: T;
-              file?: T;
               helpText?: T;
               required?: T;
               acceptedFileTypes?: T;
@@ -1859,6 +1858,7 @@ export interface FormsSelect<T extends boolean = true> {
   mailTo?: T;
   mailSubject?: T;
   active?: T;
+  redirectURL?: T;
   createdBy?: T;
   updatedAt?: T;
   createdAt?: T;

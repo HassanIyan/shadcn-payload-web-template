@@ -34,6 +34,8 @@ export const CssVariablesClient: FC<{
         accent?: string | null
         accentForeground?: string | null
         border?: string | null
+        ring?: string | null
+        popover?: string | null
     } | null
 }> = ({ colors }) => {
     return (
@@ -53,6 +55,8 @@ export const CssVariablesClient: FC<{
                 --muted-foreground: ${colors?.mutedForeground || 'transparent'};
                 --accent: ${colors?.accent || 'transparent'};
                 --accent-foreground: ${colors?.accentForeground || 'transparent'};
+                --ring: ${colors?.ring || 'transparent'};
+                --popover: ${colors?.popover || 'transparent'};
             }
         `}</style>
     )

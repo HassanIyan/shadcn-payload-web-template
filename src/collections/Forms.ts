@@ -154,12 +154,6 @@ export const Forms: CollectionConfig = {
                     fields: [
                         { name: 'label', type: 'text', required: true },
                         { name: 'name', type: 'text', required: true },
-                        {
-                            name: 'file',
-                            type: 'upload',
-                            relationTo: 'media', // assumes you have a media collection
-                            required: false,
-                        },
                         { name: 'helpText', type: 'text' },
                         { name: 'required', type: 'checkbox', defaultValue: false },
                         {
@@ -190,11 +184,18 @@ export const Forms: CollectionConfig = {
             defaultValue: true,
         },
         {
+            name: 'redirectURL',
+            type: 'text',
+            label: 'Redirect URL (on successful submit)',
+            defaultValue: '/',
+        },
+        {
             name: 'createdBy',
             type: 'relationship',
             relationTo: 'users',
             label: 'Created By',
             required: false,
+            defaultValue: ({ user }) => user?.id,
         },
     ],
 }
