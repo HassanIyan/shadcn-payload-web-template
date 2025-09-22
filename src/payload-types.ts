@@ -451,7 +451,187 @@ export interface FormSubmission {
 export interface Page {
   id: number;
   url: string;
-  design?: {};
+  design?: {
+    blocks?:
+      | (
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'hero-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'hero-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'hero-three';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'hero-four';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'about-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'about-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'about-three';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'call-to-action-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'call-to-action-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'contact-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'contact-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'faq-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'features-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'features-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'features-three';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'features-four';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'features-five';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'form-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'gallery-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'gallery-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'integration-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'pricing-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'products-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'query-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'query-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'query-three';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'resources-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'services-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'stats-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'stats-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'tab-content-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'team-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'team-two';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'testimonials-one';
+            }
+          | {
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'timeline-one';
+            }
+        )[]
+      | null;
+  };
   seo?: {
     metadataBase?: string | null;
     title?: {
@@ -1879,7 +2059,224 @@ export interface FormSubmissionsSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   url?: T;
-  design?: T | {};
+  design?:
+    | T
+    | {
+        blocks?:
+          | T
+          | {
+              'hero-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'hero-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'hero-three'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'hero-four'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'about-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'about-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'about-three'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'call-to-action-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'call-to-action-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'contact-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'contact-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'faq-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'features-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'features-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'features-three'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'features-four'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'features-five'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'form-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'gallery-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'gallery-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'integration-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'pricing-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'products-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'query-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'query-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'query-three'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'resources-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'services-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'stats-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'stats-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'tab-content-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'team-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'team-two'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'testimonials-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+              'timeline-one'?:
+                | T
+                | {
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+      };
   seo?:
     | T
     | {
