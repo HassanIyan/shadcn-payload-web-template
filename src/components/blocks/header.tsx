@@ -25,7 +25,7 @@ export default async function header() {
     const buttons = header?.buttons || null
 
     return (
-        <header className={cn('shadow-md bg-background', isSticky && 'sticky top-0 z-10')}>
+        <header className={cn('shadow-md bg-background z-10', isSticky && 'sticky top-0')}>
             <nav className="container py-2 flex gap-8 items-center">
                 {logo && (
                     <Link href={'/'}>
