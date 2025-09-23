@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 interface TabContentOneProps {
-	[key: string]: unknown;
+    [key: string]: unknown
 }
 
 export const TabContentOne: FC<TabContentOneProps> = ({ ...props }) => {
