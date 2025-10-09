@@ -80,11 +80,11 @@ export const HeroOne: FC<HeroOneProps> = ({
                         <div
                             key={id}
                             className={cn(
-                                'p-6 bg-background rounded-md flex-1 transition-all cursor-pointer',
+                                'p-6 bg-background rounded-md flex-1 text-center transition-all cursor-pointer',
                                 'hover:-translate-y-2 hover:shadow-lg hover:scale-105',
                             )}
                         >
-                            <h5 className="text-primary font-bold text-2xl mb-2">{value}</h5>
+                            <h5 className="text-primary font-bold text-3xl mb-2">{value}</h5>
                             <h6 className="text-muted-foreground text-sm font-semibold">{name}</h6>
                         </div>
                     ))}

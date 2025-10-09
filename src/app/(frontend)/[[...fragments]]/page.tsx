@@ -5,41 +5,8 @@ import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { ObjectifyMetaData } from '@/lib/utils'
 import { Metadatum } from '@/payload-types'
-import { FeaturesOne } from '@/components/blocks/page/FeaturesOne'
-import { AboutOne } from '@/components/blocks/page/AboutOne'
-import { CallToActionOne } from '@/components/blocks/page/CallToActionOne'
-import { AboutTwo } from '@/components/blocks/page/AboutTwo'
-import { AboutThree } from '@/components/blocks/page/AboutThree'
-import { CallToActionTwo } from '@/components/blocks/page/CallToActionTwo'
-import { ContactOne } from '@/components/blocks/page/ContactOne'
-import { ContactTwo } from '@/components/blocks/page/ContactTwo'
-import { FaqOne } from '@/components/blocks/page/FaqOne'
-import { FeaturesTwo } from '@/components/blocks/page/FeaturesTwo'
-import { FeaturesThree } from '@/components/blocks/page/FeaturesThree'
-import { FeaturesFour } from '@/components/blocks/page/FeaturesFour'
-import { FeaturesFive } from '@/components/blocks/page/FeaturesFive'
-import { FormOne } from '@/components/blocks/page/FormOne'
-import { GalleryOne } from '@/components/blocks/page/GalleryOne'
-import { GalleryTwo } from '@/components/blocks/page/GalleryTwo'
-import { HeroOne, HeroOneProps } from '@/components/blocks/page/HeroOne'
-import { HeroTwo } from '@/components/blocks/page/HeroTwo'
-import { HeroThree } from '@/components/blocks/page/HeroThree'
-import { HeroFour } from '@/components/blocks/page/HeroFour'
-import { IntegrationOne } from '@/components/blocks/page/IntegrationOne'
-import { PricingOne } from '@/components/blocks/page/PricingOne'
-import { ProductsOne } from '@/components/blocks/page/ProductsOne'
-import { QueryOne } from '@/components/blocks/page/QueryOne'
-import { QueryTwo } from '@/components/blocks/page/QueryTwo'
-import { QueryThree } from '@/components/blocks/page/QueryThree'
-import { ResourcesOne } from '@/components/blocks/page/ResourcesOne'
-import { ServicesOne } from '@/components/blocks/page/ServicesOne'
-import { StatsOne } from '@/components/blocks/page/StatsOne'
-import { StatsTwo } from '@/components/blocks/page/StatsTwo'
-import { TabContentOne } from '@/components/blocks/page/TabContentOne'
-import { TeamOne } from '@/components/blocks/page/TeamOne'
-import { TeamTwo } from '@/components/blocks/page/TeamTwo'
-import { TestimonialsOne } from '@/components/blocks/page/TestimonialsOne'
-import { TimelineOne } from '@/components/blocks/page/TimelineOne'
+import dynamic from 'next/dynamic'
+import { HeroOneProps } from '@/components/blocks/page/HeroOne'
 
 interface Props {
     params: Promise<{ fragments: string[] }>
@@ -48,6 +15,111 @@ interface Props {
 export default async function page({ params }: Props) {
     const { fragments } = await params
     const page = await getPage(fragments)
+    const FeaturesOne = dynamic(() =>
+        import('@/components/blocks/page/FeaturesOne').then((mod) => mod.FeaturesOne),
+    )
+    const AboutOne = dynamic(() =>
+        import('@/components/blocks/page/AboutOne').then((mod) => mod.AboutOne),
+    )
+    const CallToActionOne = dynamic(() =>
+        import('@/components/blocks/page/CallToActionOne').then((mod) => mod.CallToActionOne),
+    )
+    const AboutTwo = dynamic(() =>
+        import('@/components/blocks/page/AboutTwo').then((mod) => mod.AboutTwo),
+    )
+    const AboutThree = dynamic(() =>
+        import('@/components/blocks/page/AboutThree').then((mod) => mod.AboutThree),
+    )
+    const CallToActionTwo = dynamic(() =>
+        import('@/components/blocks/page/CallToActionTwo').then((mod) => mod.CallToActionTwo),
+    )
+    const ContactOne = dynamic(() =>
+        import('@/components/blocks/page/ContactOne').then((mod) => mod.ContactOne),
+    )
+    const ContactTwo = dynamic(() =>
+        import('@/components/blocks/page/ContactTwo').then((mod) => mod.ContactTwo),
+    )
+    const FaqOne = dynamic(() =>
+        import('@/components/blocks/page/FaqOne').then((mod) => mod.FaqOne),
+    )
+    const FeaturesTwo = dynamic(() =>
+        import('@/components/blocks/page/FeaturesTwo').then((mod) => mod.FeaturesTwo),
+    )
+    const FeaturesThree = dynamic(() =>
+        import('@/components/blocks/page/FeaturesThree').then((mod) => mod.FeaturesThree),
+    )
+    const FeaturesFour = dynamic(() =>
+        import('@/components/blocks/page/FeaturesFour').then((mod) => mod.FeaturesFour),
+    )
+    const FeaturesFive = dynamic(() =>
+        import('@/components/blocks/page/FeaturesFive').then((mod) => mod.FeaturesFive),
+    )
+    const FormOne = dynamic(() =>
+        import('@/components/blocks/page/FormOne').then((mod) => mod.FormOne),
+    )
+    const GalleryOne = dynamic(() =>
+        import('@/components/blocks/page/GalleryOne').then((mod) => mod.GalleryOne),
+    )
+    const GalleryTwo = dynamic(() =>
+        import('@/components/blocks/page/GalleryTwo').then((mod) => mod.GalleryTwo),
+    )
+    const HeroOne = dynamic(() =>
+        import('@/components/blocks/page/HeroOne').then((mod) => mod.HeroOne),
+    )
+    const HeroTwo = dynamic(() =>
+        import('@/components/blocks/page/HeroTwo').then((mod) => mod.HeroTwo),
+    )
+    const HeroThree = dynamic(() =>
+        import('@/components/blocks/page/HeroThree').then((mod) => mod.HeroThree),
+    )
+    const HeroFour = dynamic(() =>
+        import('@/components/blocks/page/HeroFour').then((mod) => mod.HeroFour),
+    )
+    const IntegrationOne = dynamic(() =>
+        import('@/components/blocks/page/IntegrationOne').then((mod) => mod.IntegrationOne),
+    )
+    const PricingOne = dynamic(() =>
+        import('@/components/blocks/page/PricingOne').then((mod) => mod.PricingOne),
+    )
+    const ProductsOne = dynamic(() =>
+        import('@/components/blocks/page/ProductsOne').then((mod) => mod.ProductsOne),
+    )
+    const QueryOne = dynamic(() =>
+        import('@/components/blocks/page/QueryOne').then((mod) => mod.QueryOne),
+    )
+    const QueryTwo = dynamic(() =>
+        import('@/components/blocks/page/QueryTwo').then((mod) => mod.QueryTwo),
+    )
+    const QueryThree = dynamic(() =>
+        import('@/components/blocks/page/QueryThree').then((mod) => mod.QueryThree),
+    )
+    const ResourcesOne = dynamic(() =>
+        import('@/components/blocks/page/ResourcesOne').then((mod) => mod.ResourcesOne),
+    )
+    const ServicesOne = dynamic(() =>
+        import('@/components/blocks/page/ServicesOne').then((mod) => mod.ServicesOne),
+    )
+    const StatsOne = dynamic(() =>
+        import('@/components/blocks/page/StatsOne').then((mod) => mod.StatsOne),
+    )
+    const StatsTwo = dynamic(() =>
+        import('@/components/blocks/page/StatsTwo').then((mod) => mod.StatsTwo),
+    )
+    const TabContentOne = dynamic(() =>
+        import('@/components/blocks/page/TabContentOne').then((mod) => mod.TabContentOne),
+    )
+    const TeamOne = dynamic(() =>
+        import('@/components/blocks/page/TeamOne').then((mod) => mod.TeamOne),
+    )
+    const TeamTwo = dynamic(() =>
+        import('@/components/blocks/page/TeamTwo').then((mod) => mod.TeamTwo),
+    )
+    const TestimonialsOne = dynamic(() =>
+        import('@/components/blocks/page/TestimonialsOne').then((mod) => mod.TestimonialsOne),
+    )
+    const TimelineOne = dynamic(() =>
+        import('@/components/blocks/page/TimelineOne').then((mod) => mod.TimelineOne),
+    )
 
     return (
         <main>
@@ -93,7 +165,16 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'testimonials-one') return <TestimonialsOne key={index} />
                 if (block?.blockType === 'timeline-one') return <TimelineOne key={index} />
 
-                return <p key={index}>{JSON.stringify(block, null, 2)}</p>
+                return (
+                    <section
+                        key={index}
+                        className="container p-4 bg-card text-card-foreground border-2 border-border overflow-auto"
+                    >
+                        <code>
+                            <pre>{JSON.stringify(block, null, 2)}</pre>
+                        </code>
+                    </section>
+                )
             })}
         </main>
     )
