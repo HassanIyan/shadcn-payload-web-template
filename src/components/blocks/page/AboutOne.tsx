@@ -1,11 +1,64 @@
+import { Badge } from '@/components/ui/badge'
+import { Media } from '@/payload-types'
 import React, { FC } from 'react'
+import RichText from '../rich-text'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import Image from 'next/image'
 
-interface AboutOneProps {
-    [key: string]: unknown
+export interface AboutOneProps {
+    badge?: string | null
+    lead?: {
+        root: {
+            type: string
+            children: {
+                type: string
+                version: number
+                [k: string]: unknown
+            }[]
+            direction: ('ltr' | 'rtl') | null
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
+            indent: number
+            version: number
+        }
+        [k: string]: unknown
+    } | null
+    image?: null | Media
+    button?: {
+        title?: string | null
+        link?: string | null
+        type?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null
+    }
+    id?: string | null
+    blockName?: string | null
+    blockType: 'about-one'
+    priority?: boolean
 }
 
-export const AboutOne: FC<AboutOneProps> = ({ ...props }) => {
-    console.log(JSON.stringify(props, null, 2))
-
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+export const AboutOne: FC<AboutOneProps> = ({ badge, lead, button, image, priority }) => {
+    return (
+        <section className="bg-muted py-12 lg:py-24">
+            <div className="container grid lg:grid-cols-2 lg:gap-8 gap-4 items-center">
+                <div>
+                    <Badge className="mb-2">{badge}</Badge>
+                    <RichText>{lead}</RichText>
+                    {button && (
+                        <Button variant={button?.type} size={'lg'} className="mt-6">
+                            <Link href={button?.link || '#'}>{button?.title}</Link>
+                        </Button>
+                    )}
+                </div>
+                {image?.url && (
+                    <Image
+                        src={image?.url}
+                        width={image?.width || 0}
+                        height={image?.height || 0}
+                        alt={image?.alt || ''}
+                        priority={priority}
+                        className="w-full"
+                    />
+                )}
+            </div>
+        </section>
+    )
 }

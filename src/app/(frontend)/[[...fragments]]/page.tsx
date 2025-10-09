@@ -8,6 +8,7 @@ import { Metadatum } from '@/payload-types'
 import dynamic from 'next/dynamic'
 import { HeroOneProps } from '@/components/blocks/page/HeroOne'
 import { FeaturesOneProps } from '@/components/blocks/page/FeaturesOne'
+import { AboutOneProps } from '@/components/blocks/page/AboutOne'
 
 interface Props {
     params: Promise<{ fragments: string[] }>
@@ -125,7 +126,14 @@ export default async function page({ params }: Props) {
     return (
         <main>
             {page?.design?.blocks?.map((block, index) => {
-                if (block?.blockType === 'about-one') return <AboutOne key={index} />
+                if (block?.blockType === 'about-one')
+                    return (
+                        <AboutOne
+                            {...(block as AboutOneProps)}
+                            key={index}
+                            priority={index === 0}
+                        />
+                    )
                 if (block?.blockType === 'about-two') return <AboutTwo key={index} />
                 if (block?.blockType === 'about-three') return <AboutThree key={index} />
                 if (block?.blockType === 'call-to-action-one')

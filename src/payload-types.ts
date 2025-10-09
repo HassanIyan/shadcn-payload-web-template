@@ -497,6 +497,28 @@ export interface Page {
               blockType: 'hero-four';
             }
           | {
+              badge?: string | null;
+              lead?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              image?: (number | null) | Media;
+              button?: {
+                title?: string | null;
+                link?: string | null;
+                type?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'about-one';
@@ -2148,6 +2170,16 @@ export interface PagesSelect<T extends boolean = true> {
               'about-one'?:
                 | T
                 | {
+                    badge?: T;
+                    lead?: T;
+                    image?: T;
+                    button?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          type?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
