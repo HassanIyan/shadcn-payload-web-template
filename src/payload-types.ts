@@ -537,6 +537,16 @@ export interface Page {
               blockType: 'faq-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              features?:
+                | {
+                    icon?: string | null;
+                    title?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'features-one';
@@ -2186,6 +2196,16 @@ export interface PagesSelect<T extends boolean = true> {
               'features-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    features?:
+                      | T
+                      | {
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };

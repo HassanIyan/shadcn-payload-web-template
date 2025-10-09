@@ -7,6 +7,7 @@ import { ObjectifyMetaData } from '@/lib/utils'
 import { Metadatum } from '@/payload-types'
 import dynamic from 'next/dynamic'
 import { HeroOneProps } from '@/components/blocks/page/HeroOne'
+import { FeaturesOneProps } from '@/components/blocks/page/FeaturesOne'
 
 interface Props {
     params: Promise<{ fragments: string[] }>
@@ -134,7 +135,8 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'contact-one') return <ContactOne key={index} />
                 if (block?.blockType === 'contact-two') return <ContactTwo key={index} />
                 if (block?.blockType === 'faq-one') return <FaqOne key={index} />
-                if (block?.blockType === 'features-one') return <FeaturesOne key={index} />
+                if (block?.blockType === 'features-one')
+                    return <FeaturesOne {...(block as FeaturesOneProps)} key={index} />
                 if (block?.blockType === 'features-two') return <FeaturesTwo key={index} />
                 if (block?.blockType === 'features-three') return <FeaturesThree key={index} />
                 if (block?.blockType === 'features-four') return <FeaturesFour key={index} />
