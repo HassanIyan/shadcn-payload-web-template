@@ -5,6 +5,7 @@ import RichText from '../rich-text'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
+import { SquareCheckBigIcon } from 'lucide-react'
 
 export interface AboutOneProps {
     badge?: string | null
@@ -23,7 +24,13 @@ export interface AboutOneProps {
         }
         [k: string]: unknown
     } | null
-    image?: null | Media
+    image?: Media
+    bullet?:
+        | {
+              name?: string | null
+              id?: string | null
+          }[]
+        | null
     button?: {
         title?: string | null
         link?: string | null
@@ -35,15 +42,23 @@ export interface AboutOneProps {
     priority?: boolean
 }
 
-export const AboutOne: FC<AboutOneProps> = ({ badge, lead, button, image, priority }) => {
+export const AboutOne: FC<AboutOneProps> = ({ badge, lead, button, image, priority, bullet }) => {
     return (
         <section className="bg-muted py-12 lg:py-24">
             <div className="container grid lg:grid-cols-2 lg:gap-8 gap-4 items-center">
                 <div>
                     <Badge className="mb-2">{badge}</Badge>
                     <RichText>{lead}</RichText>
+                    <ul className="my-6">
+                        {bullet?.map(({ name }, id) => (
+                            <li key={id} className="flex gap-2 mb-4">
+                                <SquareCheckBigIcon className="text-primary mt-[3px]" size={20} />
+                                {name}
+                            </li>
+                        ))}
+                    </ul>
                     {button && (
-                        <Button variant={button?.type} size={'lg'} className="mt-6">
+                        <Button variant={button?.type} size={'lg'}>
                             <Link href={button?.link || '#'}>{button?.title}</Link>
                         </Button>
                     )}
