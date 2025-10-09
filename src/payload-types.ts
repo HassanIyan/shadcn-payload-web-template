@@ -514,6 +514,12 @@ export interface Page {
                 [k: string]: unknown;
               } | null;
               image?: (number | null) | Media;
+              bullet?:
+                | {
+                    name?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               button?: {
                 title?: string | null;
                 link?: string | null;
@@ -2173,6 +2179,12 @@ export interface PagesSelect<T extends boolean = true> {
                     badge?: T;
                     lead?: T;
                     image?: T;
+                    bullet?:
+                      | T
+                      | {
+                          name?: T;
+                          id?: T;
+                        };
                     button?:
                       | T
                       | {

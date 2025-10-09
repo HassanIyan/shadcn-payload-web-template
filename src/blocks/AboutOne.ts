@@ -18,6 +18,7 @@ export const AboutOne: Block = {
                 { name: 'image', type: 'upload', relationTo: 'media' },
             ],
         },
+        { name: 'bullet', type: 'array', fields: [{ name: 'name', type: 'text', label: '' }] },
         {
             name: 'button',
             type: 'group',
