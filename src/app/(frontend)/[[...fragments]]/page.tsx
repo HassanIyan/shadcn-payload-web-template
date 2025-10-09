@@ -71,7 +71,9 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'gallery-one') return <GalleryOne key={index} />
                 if (block?.blockType === 'gallery-two') return <GalleryTwo key={index} />
                 if (block?.blockType === 'hero-one')
-                    return <HeroOne key={index} {...(block as HeroOneProps)} />
+                    return (
+                        <HeroOne key={index} {...(block as HeroOneProps)} priority={index === 0} />
+                    )
                 if (block?.blockType === 'hero-two') return <HeroTwo key={index} />
                 if (block?.blockType === 'hero-three') return <HeroThree key={index} />
                 if (block?.blockType === 'hero-four') return <HeroFour key={index} />
