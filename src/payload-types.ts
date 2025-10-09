@@ -455,6 +455,28 @@ export interface Page {
     blocks?:
       | (
           | {
+              image?: (number | null) | Media;
+              badge?: string | null;
+              title?: {
+                first_part?: string | null;
+                second_part?: string | null;
+              };
+              description?: string | null;
+              buttons?:
+                | {
+                    title?: string | null;
+                    link?: string | null;
+                    type?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              stats?:
+                | {
+                    name?: string | null;
+                    value?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'hero-one';
@@ -2068,6 +2090,30 @@ export interface PagesSelect<T extends boolean = true> {
               'hero-one'?:
                 | T
                 | {
+                    image?: T;
+                    badge?: T;
+                    title?:
+                      | T
+                      | {
+                          first_part?: T;
+                          second_part?: T;
+                        };
+                    description?: T;
+                    buttons?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          type?: T;
+                          id?: T;
+                        };
+                    stats?:
+                      | T
+                      | {
+                          name?: T;
+                          value?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };

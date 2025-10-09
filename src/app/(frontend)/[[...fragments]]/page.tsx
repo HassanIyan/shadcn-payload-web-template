@@ -21,7 +21,7 @@ import { FeaturesFive } from '@/components/blocks/page/FeaturesFive'
 import { FormOne } from '@/components/blocks/page/FormOne'
 import { GalleryOne } from '@/components/blocks/page/GalleryOne'
 import { GalleryTwo } from '@/components/blocks/page/GalleryTwo'
-import { HeroOne } from '@/components/blocks/page/HeroOne'
+import { HeroOne, HeroOneProps } from '@/components/blocks/page/HeroOne'
 import { HeroTwo } from '@/components/blocks/page/HeroTwo'
 import { HeroThree } from '@/components/blocks/page/HeroThree'
 import { HeroFour } from '@/components/blocks/page/HeroFour'
@@ -70,7 +70,8 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'form-one') return <FormOne key={index} />
                 if (block?.blockType === 'gallery-one') return <GalleryOne key={index} />
                 if (block?.blockType === 'gallery-two') return <GalleryTwo key={index} />
-                if (block?.blockType === 'hero-one') return <HeroOne key={index} />
+                if (block?.blockType === 'hero-one')
+                    return <HeroOne key={index} {...(block as HeroOneProps)} />
                 if (block?.blockType === 'hero-two') return <HeroTwo key={index} />
                 if (block?.blockType === 'hero-three') return <HeroThree key={index} />
                 if (block?.blockType === 'hero-four') return <HeroFour key={index} />
