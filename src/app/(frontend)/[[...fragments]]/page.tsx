@@ -56,9 +56,6 @@ export default async function page({ params }: Props) {
     const FeaturesFour = dynamic(() =>
         import('@/components/blocks/page/FeaturesFour').then((mod) => mod.FeaturesFour),
     )
-    const FeaturesFive = dynamic(() =>
-        import('@/components/blocks/page/FeaturesFive').then((mod) => mod.FeaturesFive),
-    )
     const FormOne = dynamic(() =>
         import('@/components/blocks/page/FormOne').then((mod) => mod.FormOne),
     )
@@ -116,9 +113,6 @@ export default async function page({ params }: Props) {
     const TeamOne = dynamic(() =>
         import('@/components/blocks/page/TeamOne').then((mod) => mod.TeamOne),
     )
-    const TeamTwo = dynamic(() =>
-        import('@/components/blocks/page/TeamTwo').then((mod) => mod.TeamTwo),
-    )
     const TestimonialsOne = dynamic(() =>
         import('@/components/blocks/page/TestimonialsOne').then((mod) => mod.TestimonialsOne),
     )
@@ -151,7 +145,6 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'features-two') return <FeaturesTwo key={index} />
                 if (block?.blockType === 'features-three') return <FeaturesThree key={index} />
                 if (block?.blockType === 'features-four') return <FeaturesFour key={index} />
-                if (block?.blockType === 'features-five') return <FeaturesFive key={index} />
                 if (block?.blockType === 'form-one') return <FormOne key={index} />
                 if (block?.blockType === 'gallery-one') return <GalleryOne key={index} />
                 if (block?.blockType === 'gallery-two') return <GalleryTwo key={index} />
@@ -181,7 +174,6 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'stats-two') return <StatsTwo key={index} />
                 if (block?.blockType === 'tab-content-one') return <TabContentOne key={index} />
                 if (block?.blockType === 'team-one') return <TeamOne key={index} />
-                if (block?.blockType === 'team-two') return <TeamTwo key={index} />
                 if (block?.blockType === 'testimonials-one')
                     return <TestimonialsOne {...(block as TestimonialsOneProps)} key={index} />
                 if (block?.blockType === 'timeline-one') return <TimelineOne key={index} />

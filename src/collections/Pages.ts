@@ -17,7 +17,6 @@ import { FeaturesOne } from '@/blocks/FeaturesOne'
 import { FeaturesTwo } from '@/blocks/FeaturesTwo'
 import { FeaturesThree } from '@/blocks/FeaturesThree'
 import { FeaturesFour } from '@/blocks/FeaturesFour'
-import { FeaturesFive } from '@/blocks/FeaturesFive'
 import { FormOne } from '@/blocks/FormOne'
 import { GalleryOne } from '@/blocks/GalleryOne'
 import { GalleryTwo } from '@/blocks/GalleryTwo'
@@ -33,7 +32,6 @@ import { StatsOne } from '@/blocks/StatsOne'
 import { StatsTwo } from '@/blocks/StatsTwo'
 import { TabContentOne } from '@/blocks/TabContentOne'
 import { TeamOne } from '@/blocks/TeamOne'
-import { TeamTwo } from '@/blocks/TeamTwo'
 import { TestimonialsOne } from '@/blocks/TestimonialsOne'
 import { TimelineOne } from '@/blocks/TimelineOne'
 
@@ -74,7 +72,6 @@ export const Pages: CollectionConfig = {
                                 FeaturesTwo,
                                 FeaturesThree,
                                 FeaturesFour,
-                                FeaturesFive,
                                 FormOne,
                                 GalleryOne,
                                 GalleryTwo,
@@ -90,7 +87,6 @@ export const Pages: CollectionConfig = {
                                 StatsTwo,
                                 TabContentOne,
                                 TeamOne,
-                                TeamTwo,
                                 TestimonialsOne,
                                 TimelineOne,
                             ],
