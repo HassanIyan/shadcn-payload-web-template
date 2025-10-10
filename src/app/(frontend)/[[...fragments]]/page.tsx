@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic'
 import { HeroOneProps } from '@/components/blocks/page/HeroOne'
 import { FeaturesOneProps } from '@/components/blocks/page/FeaturesOne'
 import { AboutOneProps } from '@/components/blocks/page/AboutOne'
+import { ProductsOneProps } from '@/components/blocks/page/ProductsOne'
 
 interface Props {
     params: Promise<{ fragments: string[] }>
@@ -161,7 +162,14 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'hero-four') return <HeroFour key={index} />
                 if (block?.blockType === 'integration-one') return <IntegrationOne key={index} />
                 if (block?.blockType === 'pricing-one') return <PricingOne key={index} />
-                if (block?.blockType === 'products-one') return <ProductsOne key={index} />
+                if (block?.blockType === 'products-one')
+                    return (
+                        <ProductsOne
+                            {...(block as ProductsOneProps)}
+                            key={index}
+                            priority={index === 0}
+                        />
+                    )
                 if (block?.blockType === 'query-one') return <QueryOne key={index} />
                 if (block?.blockType === 'query-two') return <QueryTwo key={index} />
                 if (block?.blockType === 'query-three') return <QueryThree key={index} />

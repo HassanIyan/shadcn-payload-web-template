@@ -9,5 +9,22 @@ export const CallToActionOne: Block = {
     admin: {
         group: 'Call To Action',
     },
-    fields: [],
+    fields: [
+        { name: 'title', type: 'text' },
+        { name: 'description', type: 'textarea' },
+        {
+            name: 'buttons',
+            type: 'array',
+            fields: [
+                { name: 'title', type: 'text' },
+                { name: 'link', type: 'text' },
+                {
+                    name: 'type',
+                    type: 'select',
+                    options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+                    defaultValue: 'default',
+                },
+            ],
+        },
+    ],
 }

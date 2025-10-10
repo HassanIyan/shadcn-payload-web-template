@@ -540,6 +540,16 @@ export interface Page {
               blockType: 'about-three';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              buttons?:
+                | {
+                    title?: string | null;
+                    link?: string | null;
+                    type?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'call-to-action-one';
@@ -625,6 +635,35 @@ export interface Page {
               blockType: 'pricing-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              products?:
+                | {
+                    title?: string | null;
+                    sub_title?: string | null;
+                    image?: (number | null) | Media;
+                    lead?: {
+                      root: {
+                        type: string;
+                        children: {
+                          type: string;
+                          version: number;
+                          [k: string]: unknown;
+                        }[];
+                        direction: ('ltr' | 'rtl') | null;
+                        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                        indent: number;
+                        version: number;
+                      };
+                      [k: string]: unknown;
+                    } | null;
+                    button?: {
+                      name?: string | null;
+                      link?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'products-one';
@@ -680,6 +719,19 @@ export interface Page {
               blockType: 'team-two';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              testimonials?:
+                | {
+                    stars?: number | null;
+                    message?: string | null;
+                    person?: {
+                      name?: string | null;
+                      designation?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'testimonials-one';
@@ -2210,6 +2262,16 @@ export interface PagesSelect<T extends boolean = true> {
               'call-to-action-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    buttons?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          type?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2310,6 +2372,23 @@ export interface PagesSelect<T extends boolean = true> {
               'products-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    products?:
+                      | T
+                      | {
+                          title?: T;
+                          sub_title?: T;
+                          image?: T;
+                          lead?: T;
+                          button?:
+                            | T
+                            | {
+                                name?: T;
+                                link?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2376,6 +2455,21 @@ export interface PagesSelect<T extends boolean = true> {
               'testimonials-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    testimonials?:
+                      | T
+                      | {
+                          stars?: T;
+                          message?: T;
+                          person?:
+                            | T
+                            | {
+                                name?: T;
+                                designation?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
