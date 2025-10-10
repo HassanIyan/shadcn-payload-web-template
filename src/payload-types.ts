@@ -607,11 +607,6 @@ export interface Page {
           | {
               id?: string | null;
               blockName?: string | null;
-              blockType: 'features-five';
-            }
-          | {
-              id?: string | null;
-              blockName?: string | null;
               blockType: 'form-one';
             }
           | {
@@ -712,11 +707,6 @@ export interface Page {
               id?: string | null;
               blockName?: string | null;
               blockType: 'team-one';
-            }
-          | {
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'team-two';
             }
           | {
               title?: string | null;
@@ -2333,12 +2323,6 @@ export interface PagesSelect<T extends boolean = true> {
                     id?: T;
                     blockName?: T;
                   };
-              'features-five'?:
-                | T
-                | {
-                    id?: T;
-                    blockName?: T;
-                  };
               'form-one'?:
                 | T
                 | {
@@ -2441,12 +2425,6 @@ export interface PagesSelect<T extends boolean = true> {
                     blockName?: T;
                   };
               'team-one'?:
-                | T
-                | {
-                    id?: T;
-                    blockName?: T;
-                  };
-              'team-two'?:
                 | T
                 | {
                     id?: T;
