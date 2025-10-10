@@ -10,6 +10,8 @@ import { HeroOneProps } from '@/components/blocks/page/HeroOne'
 import { FeaturesOneProps } from '@/components/blocks/page/FeaturesOne'
 import { AboutOneProps } from '@/components/blocks/page/AboutOne'
 import { ProductsOneProps } from '@/components/blocks/page/ProductsOne'
+import { CallToActionOneProps } from '@/components/blocks/page/CallToActionOne'
+import { TestimonialsOneProps } from '@/components/blocks/page/TestimonialsOne'
 
 interface Props {
     params: Promise<{ fragments: string[] }>
@@ -138,7 +140,7 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'about-two') return <AboutTwo key={index} />
                 if (block?.blockType === 'about-three') return <AboutThree key={index} />
                 if (block?.blockType === 'call-to-action-one')
-                    return <CallToActionOne key={index} />
+                    return <CallToActionOne {...(block as CallToActionOneProps)} key={index} />
                 if (block?.blockType === 'call-to-action-two')
                     return <CallToActionTwo key={index} />
                 if (block?.blockType === 'contact-one') return <ContactOne key={index} />
@@ -180,7 +182,8 @@ export default async function page({ params }: Props) {
                 if (block?.blockType === 'tab-content-one') return <TabContentOne key={index} />
                 if (block?.blockType === 'team-one') return <TeamOne key={index} />
                 if (block?.blockType === 'team-two') return <TeamTwo key={index} />
-                if (block?.blockType === 'testimonials-one') return <TestimonialsOne key={index} />
+                if (block?.blockType === 'testimonials-one')
+                    return <TestimonialsOne {...(block as TestimonialsOneProps)} key={index} />
                 if (block?.blockType === 'timeline-one') return <TimelineOne key={index} />
 
                 return (

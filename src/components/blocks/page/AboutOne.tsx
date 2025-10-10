@@ -44,7 +44,7 @@ export interface AboutOneProps {
 
 export const AboutOne: FC<AboutOneProps> = ({ badge, lead, button, image, priority, bullet }) => {
     return (
-        <section className="bg-muted py-12 lg:py-24">
+        <section className="bg-muted text-muted-foreground py-12 lg:py-24">
             <div className="container grid lg:grid-cols-2 lg:gap-8 gap-4 items-center">
                 <div>
                     <Badge className="mb-2">{badge}</Badge>
