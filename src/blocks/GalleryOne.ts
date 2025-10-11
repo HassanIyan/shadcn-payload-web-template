@@ -9,5 +9,5 @@ export const GalleryOne: Block = {
     admin: {
         group: 'Gallery',
     },
-    fields: [],
+    fields: [{ name: 'images', type: 'upload', relationTo: 'media', hasMany: true }],
 }

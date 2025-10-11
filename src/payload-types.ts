@@ -523,6 +523,27 @@ export interface Page {
               blockType: 'hero-three';
             }
           | {
+              colors?: {
+                primary?: string | null;
+                secondary?: string | null;
+                accent?: string | null;
+              };
+              title?: {
+                first_part?: string | null;
+                second_part?: string | null;
+              };
+              description?: string | null;
+              /**
+               * @minItems 2
+               * @maxItems 2
+               */
+              coordniates?: [number, number] | null;
+              name?: string | null;
+              address?: string | null;
+              button?: {
+                title?: string | null;
+                link?: string | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'hero-four';
@@ -661,11 +682,49 @@ export interface Page {
               blockType: 'call-to-action-two';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              cards?:
+                | {
+                    color?: string | null;
+                    icon?: string | null;
+                    title?: string | null;
+                    description?: string | null;
+                    button?: {
+                      title?: string | null;
+                      link?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'contact-one';
             }
           | {
+              cards?:
+                | {
+                    color?: string | null;
+                    icon?: string | null;
+                    title?: string | null;
+                    lead?: {
+                      root: {
+                        type: string;
+                        children: {
+                          type: string;
+                          version: number;
+                          [k: string]: unknown;
+                        }[];
+                        direction: ('ltr' | 'rtl') | null;
+                        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                        indent: number;
+                        version: number;
+                      };
+                      [k: string]: unknown;
+                    } | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'contact-two';
@@ -777,16 +836,53 @@ export interface Page {
               blockType: 'form-one';
             }
           | {
+              images?: (number | Media)[] | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'gallery-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              images?:
+                | {
+                    image?: (number | null) | Media;
+                    link?: string | null;
+                    title?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              buttons?:
+                | {
+                    title?: string | null;
+                    link?: string | null;
+                    type?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'gallery-two';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              integration?:
+                | {
+                    color?: string | null;
+                    icon?: string | null;
+                    title?: string | null;
+                    records?:
+                      | {
+                          name?: string | null;
+                          value?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'integration-one';
@@ -855,16 +951,49 @@ export interface Page {
               blockType: 'products-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              query?:
+                | {
+                    [k: string]: unknown;
+                  }
+                | unknown[]
+                | string
+                | number
+                | boolean
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'query-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              query?:
+                | {
+                    [k: string]: unknown;
+                  }
+                | unknown[]
+                | string
+                | number
+                | boolean
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'query-two';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              query?:
+                | {
+                    [k: string]: unknown;
+                  }
+                | unknown[]
+                | string
+                | number
+                | boolean
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'query-three';
@@ -1018,6 +1147,27 @@ export interface Page {
                               blockType: 'hero-three';
                             }
                           | {
+                              colors?: {
+                                primary?: string | null;
+                                secondary?: string | null;
+                                accent?: string | null;
+                              };
+                              title?: {
+                                first_part?: string | null;
+                                second_part?: string | null;
+                              };
+                              description?: string | null;
+                              /**
+                               * @minItems 2
+                               * @maxItems 2
+                               */
+                              coordniates?: [number, number] | null;
+                              name?: string | null;
+                              address?: string | null;
+                              button?: {
+                                title?: string | null;
+                                link?: string | null;
+                              };
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'hero-four';
@@ -1158,11 +1308,49 @@ export interface Page {
                               blockType: 'call-to-action-two';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              cards?:
+                                | {
+                                    color?: string | null;
+                                    icon?: string | null;
+                                    title?: string | null;
+                                    description?: string | null;
+                                    button?: {
+                                      title?: string | null;
+                                      link?: string | null;
+                                    };
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'contact-one';
                             }
                           | {
+                              cards?:
+                                | {
+                                    color?: string | null;
+                                    icon?: string | null;
+                                    title?: string | null;
+                                    lead?: {
+                                      root: {
+                                        type: string;
+                                        children: {
+                                          type: string;
+                                          version: number;
+                                          [k: string]: unknown;
+                                        }[];
+                                        direction: ('ltr' | 'rtl') | null;
+                                        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                        indent: number;
+                                        version: number;
+                                      };
+                                      [k: string]: unknown;
+                                    } | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'contact-two';
@@ -1274,16 +1462,55 @@ export interface Page {
                               blockType: 'form-one';
                             }
                           | {
+                              images?: (number | Media)[] | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'gallery-one';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              images?:
+                                | {
+                                    image?: (number | null) | Media;
+                                    link?: string | null;
+                                    title?: string | null;
+                                    description?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              buttons?:
+                                | {
+                                    title?: string | null;
+                                    link?: string | null;
+                                    type?:
+                                      | ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link')
+                                      | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'gallery-two';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              integration?:
+                                | {
+                                    color?: string | null;
+                                    icon?: string | null;
+                                    title?: string | null;
+                                    records?:
+                                      | {
+                                          name?: string | null;
+                                          value?: string | null;
+                                          id?: string | null;
+                                        }[]
+                                      | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'integration-one';
@@ -1352,16 +1579,49 @@ export interface Page {
                               blockType: 'products-one';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              query?:
+                                | {
+                                    [k: string]: unknown;
+                                  }
+                                | unknown[]
+                                | string
+                                | number
+                                | boolean
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'query-one';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              query?:
+                                | {
+                                    [k: string]: unknown;
+                                  }
+                                | unknown[]
+                                | string
+                                | number
+                                | boolean
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'query-two';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              query?:
+                                | {
+                                    [k: string]: unknown;
+                                  }
+                                | unknown[]
+                                | string
+                                | number
+                                | boolean
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'query-three';
@@ -3063,6 +3323,29 @@ export interface PagesSelect<T extends boolean = true> {
               'hero-four'?:
                 | T
                 | {
+                    colors?:
+                      | T
+                      | {
+                          primary?: T;
+                          secondary?: T;
+                          accent?: T;
+                        };
+                    title?:
+                      | T
+                      | {
+                          first_part?: T;
+                          second_part?: T;
+                        };
+                    description?: T;
+                    coordniates?: T;
+                    name?: T;
+                    address?: T;
+                    button?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -3169,12 +3452,38 @@ export interface PagesSelect<T extends boolean = true> {
               'contact-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    cards?:
+                      | T
+                      | {
+                          color?: T;
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                          button?:
+                            | T
+                            | {
+                                title?: T;
+                                link?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
               'contact-two'?:
                 | T
                 | {
+                    cards?:
+                      | T
+                      | {
+                          color?: T;
+                          icon?: T;
+                          title?: T;
+                          lead?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -3295,18 +3604,55 @@ export interface PagesSelect<T extends boolean = true> {
               'gallery-one'?:
                 | T
                 | {
+                    images?: T;
                     id?: T;
                     blockName?: T;
                   };
               'gallery-two'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    images?:
+                      | T
+                      | {
+                          image?: T;
+                          link?: T;
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    buttons?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          type?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
               'integration-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    integration?:
+                      | T
+                      | {
+                          color?: T;
+                          icon?: T;
+                          title?: T;
+                          records?:
+                            | T
+                            | {
+                                name?: T;
+                                value?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -3368,18 +3714,27 @@ export interface PagesSelect<T extends boolean = true> {
               'query-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    query?: T;
                     id?: T;
                     blockName?: T;
                   };
               'query-two'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    query?: T;
                     id?: T;
                     blockName?: T;
                   };
               'query-three'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    query?: T;
                     id?: T;
                     blockName?: T;
                   };
@@ -3553,6 +3908,29 @@ export interface PagesSelect<T extends boolean = true> {
                                 'hero-four'?:
                                   | T
                                   | {
+                                      colors?:
+                                        | T
+                                        | {
+                                            primary?: T;
+                                            secondary?: T;
+                                            accent?: T;
+                                          };
+                                      title?:
+                                        | T
+                                        | {
+                                            first_part?: T;
+                                            second_part?: T;
+                                          };
+                                      description?: T;
+                                      coordniates?: T;
+                                      name?: T;
+                                      address?: T;
+                                      button?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3659,12 +4037,38 @@ export interface PagesSelect<T extends boolean = true> {
                                 'contact-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      cards?:
+                                        | T
+                                        | {
+                                            color?: T;
+                                            icon?: T;
+                                            title?: T;
+                                            description?: T;
+                                            button?:
+                                              | T
+                                              | {
+                                                  title?: T;
+                                                  link?: T;
+                                                };
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
                                 'contact-two'?:
                                   | T
                                   | {
+                                      cards?:
+                                        | T
+                                        | {
+                                            color?: T;
+                                            icon?: T;
+                                            title?: T;
+                                            lead?: T;
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3785,18 +4189,55 @@ export interface PagesSelect<T extends boolean = true> {
                                 'gallery-one'?:
                                   | T
                                   | {
+                                      images?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
                                 'gallery-two'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      images?:
+                                        | T
+                                        | {
+                                            image?: T;
+                                            link?: T;
+                                            title?: T;
+                                            description?: T;
+                                            id?: T;
+                                          };
+                                      buttons?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            type?: T;
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
                                 'integration-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      integration?:
+                                        | T
+                                        | {
+                                            color?: T;
+                                            icon?: T;
+                                            title?: T;
+                                            records?:
+                                              | T
+                                              | {
+                                                  name?: T;
+                                                  value?: T;
+                                                  id?: T;
+                                                };
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3858,18 +4299,27 @@ export interface PagesSelect<T extends boolean = true> {
                                 'query-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      query?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
                                 'query-two'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      query?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
                                 'query-three'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      query?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
