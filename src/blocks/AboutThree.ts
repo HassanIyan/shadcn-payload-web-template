@@ -9,5 +9,32 @@ export const AboutThree: Block = {
     admin: {
         group: 'About',
     },
-    fields: [],
+    fields: [
+        {
+            name: 'color',
+            type: 'text',
+            admin: {
+                components: {
+                    Field: '@/components/payload/ColorPicker',
+                },
+            },
+        },
+        { name: 'badge', type: 'text' },
+        { name: 'lead', type: 'richText' },
+        {
+            name: 'bullet',
+            type: 'array',
+            fields: [{ name: 'title', type: 'text' }],
+        },
+        {
+            name: 'buttons',
+            type: 'array',
+            fields: [
+                { name: 'title', type: 'text' },
+                { name: 'link', type: 'text' },
+            ],
+            maxRows: 2,
+        },
+        { name: 'image', type: 'upload', relationTo: 'media' },
+    ],
 }

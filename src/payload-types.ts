@@ -482,6 +482,23 @@ export interface Page {
               blockType: 'hero-one';
             }
           | {
+              icon?: string | null;
+              colors?: {
+                primary?: string | null;
+                secondary?: string | null;
+              };
+              title?: {
+                first_part?: string | null;
+                second_part?: string | null;
+              };
+              description?: string | null;
+              buttons?:
+                | {
+                    title?: string | null;
+                    link?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'hero-two';
@@ -530,11 +547,68 @@ export interface Page {
               blockType: 'about-one';
             }
           | {
+              color?: string | null;
+              badge?: string | null;
+              lead?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              bullet?:
+                | {
+                    title?: string | null;
+                    color?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              image?: (number | null) | Media;
               id?: string | null;
               blockName?: string | null;
               blockType: 'about-two';
             }
           | {
+              color?: string | null;
+              badge?: string | null;
+              lead?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              bullet?:
+                | {
+                    title?: string | null;
+                    color?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              buttons?:
+                | {
+                    title?: string | null;
+                    link?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              image?: (number | null) | Media;
               id?: string | null;
               blockName?: string | null;
               blockType: 'about-three';
@@ -590,6 +664,31 @@ export interface Page {
               blockType: 'features-one';
             }
           | {
+              color?: string | null;
+              title?: string | null;
+              description?: string | null;
+              features?:
+                | (
+                    | {
+                        color?: string | null;
+                        icon?: string | null;
+                        title?: string | null;
+                        description?: string | null;
+                        id?: string | null;
+                        blockName?: string | null;
+                        blockType: 'varient-one';
+                      }
+                    | {
+                        color?: string | null;
+                        emoji?: string | null;
+                        title?: string | null;
+                        description?: string | null;
+                        id?: string | null;
+                        blockName?: string | null;
+                        blockType: 'varient-two';
+                      }
+                  )[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'features-two';
@@ -689,6 +788,15 @@ export interface Page {
               blockType: 'services-one';
             }
           | {
+              items?:
+                | {
+                    icon?: string | null;
+                    color?: string | null;
+                    name?: string | null;
+                    value?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'stats-one';
@@ -704,6 +812,18 @@ export interface Page {
               blockType: 'tab-content-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              team?:
+                | {
+                    image?: (number | null) | Media;
+                    name?: string | null;
+                    designation?: string | null;
+                    sub_title?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'team-one';
@@ -2200,6 +2320,27 @@ export interface PagesSelect<T extends boolean = true> {
               'hero-two'?:
                 | T
                 | {
+                    icon?: T;
+                    colors?:
+                      | T
+                      | {
+                          primary?: T;
+                          secondary?: T;
+                        };
+                    title?:
+                      | T
+                      | {
+                          first_part?: T;
+                          second_part?: T;
+                        };
+                    description?: T;
+                    buttons?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2240,12 +2381,41 @@ export interface PagesSelect<T extends boolean = true> {
               'about-two'?:
                 | T
                 | {
+                    color?: T;
+                    badge?: T;
+                    lead?: T;
+                    bullet?:
+                      | T
+                      | {
+                          title?: T;
+                          color?: T;
+                          id?: T;
+                        };
+                    image?: T;
                     id?: T;
                     blockName?: T;
                   };
               'about-three'?:
                 | T
                 | {
+                    color?: T;
+                    badge?: T;
+                    lead?: T;
+                    bullet?:
+                      | T
+                      | {
+                          title?: T;
+                          color?: T;
+                          id?: T;
+                        };
+                    buttons?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          id?: T;
+                        };
+                    image?: T;
                     id?: T;
                     blockName?: T;
                   };
@@ -2308,6 +2478,33 @@ export interface PagesSelect<T extends boolean = true> {
               'features-two'?:
                 | T
                 | {
+                    color?: T;
+                    title?: T;
+                    description?: T;
+                    features?:
+                      | T
+                      | {
+                          'varient-one'?:
+                            | T
+                            | {
+                                color?: T;
+                                icon?: T;
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'varient-two'?:
+                            | T
+                            | {
+                                color?: T;
+                                emoji?: T;
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2409,6 +2606,15 @@ export interface PagesSelect<T extends boolean = true> {
               'stats-one'?:
                 | T
                 | {
+                    items?:
+                      | T
+                      | {
+                          icon?: T;
+                          color?: T;
+                          name?: T;
+                          value?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2427,6 +2633,18 @@ export interface PagesSelect<T extends boolean = true> {
               'team-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    team?:
+                      | T
+                      | {
+                          image?: T;
+                          name?: T;
+                          designation?: T;
+                          sub_title?: T;
+                          description?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
