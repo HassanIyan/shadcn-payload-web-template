@@ -9,5 +9,17 @@ export const StatsTwo: Block = {
     admin: {
         group: 'Stats',
     },
-    fields: [],
+    fields: [
+        { name: 'title', type: 'text' },
+        { name: 'description', type: 'textarea' },
+        {
+            name: 'stat',
+            type: 'array',
+            fields: [
+                { name: 'name', type: 'text' },
+                { name: 'value', type: 'text' },
+                { name: 'description', type: 'textarea' },
+            ],
+        },
+    ],
 }

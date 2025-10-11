@@ -27,6 +27,7 @@ export const FeaturesOne: Block = {
                         },
                     },
                 },
+                { name: 'rounded', type: 'checkbox' },
                 { name: 'title', type: 'text' },
                 { name: 'description', type: 'textarea' },
             ],

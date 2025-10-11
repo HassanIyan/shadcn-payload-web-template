@@ -504,6 +504,20 @@ export interface Page {
               blockType: 'hero-two';
             }
           | {
+              badge?: string | null;
+              title?: {
+                first_part?: string | null;
+                second_part?: string | null;
+              };
+              description?: string | null;
+              buttons?:
+                | {
+                    title?: string | null;
+                    link?: string | null;
+                    type?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'hero-three';
@@ -653,6 +667,7 @@ export interface Page {
               features?:
                 | {
                     icon?: string | null;
+                    rounded?: boolean | null;
                     title?: string | null;
                     description?: string | null;
                     id?: string | null;
@@ -777,6 +792,21 @@ export interface Page {
               blockType: 'query-three';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              resources?:
+                | {
+                    icon?: string | null;
+                    title?: string | null;
+                    description?: string | null;
+                    detail?: string | null;
+                    button?: {
+                      title?: string | null;
+                      link?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'resources-one';
@@ -801,11 +831,470 @@ export interface Page {
               blockType: 'stats-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              stat?:
+                | {
+                    name?: string | null;
+                    value?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'stats-two';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              tabs?:
+                | {
+                    name?: string | null;
+                    content?:
+                      | (
+                          | {
+                              image?: (number | null) | Media;
+                              badge?: string | null;
+                              title?: {
+                                first_part?: string | null;
+                                second_part?: string | null;
+                              };
+                              description?: string | null;
+                              buttons?:
+                                | {
+                                    title?: string | null;
+                                    link?: string | null;
+                                    type?:
+                                      | ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link')
+                                      | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              stats?:
+                                | {
+                                    name?: string | null;
+                                    value?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'hero-one';
+                            }
+                          | {
+                              icon?: string | null;
+                              colors?: {
+                                primary?: string | null;
+                                secondary?: string | null;
+                              };
+                              title?: {
+                                first_part?: string | null;
+                                second_part?: string | null;
+                              };
+                              description?: string | null;
+                              buttons?:
+                                | {
+                                    title?: string | null;
+                                    link?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'hero-two';
+                            }
+                          | {
+                              badge?: string | null;
+                              title?: {
+                                first_part?: string | null;
+                                second_part?: string | null;
+                              };
+                              description?: string | null;
+                              buttons?:
+                                | {
+                                    title?: string | null;
+                                    link?: string | null;
+                                    type?:
+                                      | ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link')
+                                      | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'hero-three';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'hero-four';
+                            }
+                          | {
+                              badge?: string | null;
+                              lead?: {
+                                root: {
+                                  type: string;
+                                  children: {
+                                    type: string;
+                                    version: number;
+                                    [k: string]: unknown;
+                                  }[];
+                                  direction: ('ltr' | 'rtl') | null;
+                                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                  indent: number;
+                                  version: number;
+                                };
+                                [k: string]: unknown;
+                              } | null;
+                              image?: (number | null) | Media;
+                              bullet?:
+                                | {
+                                    name?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              button?: {
+                                title?: string | null;
+                                link?: string | null;
+                                type?: ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link') | null;
+                              };
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'about-one';
+                            }
+                          | {
+                              color?: string | null;
+                              badge?: string | null;
+                              lead?: {
+                                root: {
+                                  type: string;
+                                  children: {
+                                    type: string;
+                                    version: number;
+                                    [k: string]: unknown;
+                                  }[];
+                                  direction: ('ltr' | 'rtl') | null;
+                                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                  indent: number;
+                                  version: number;
+                                };
+                                [k: string]: unknown;
+                              } | null;
+                              bullet?:
+                                | {
+                                    title?: string | null;
+                                    color?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              image?: (number | null) | Media;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'about-two';
+                            }
+                          | {
+                              color?: string | null;
+                              badge?: string | null;
+                              lead?: {
+                                root: {
+                                  type: string;
+                                  children: {
+                                    type: string;
+                                    version: number;
+                                    [k: string]: unknown;
+                                  }[];
+                                  direction: ('ltr' | 'rtl') | null;
+                                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                  indent: number;
+                                  version: number;
+                                };
+                                [k: string]: unknown;
+                              } | null;
+                              bullet?:
+                                | {
+                                    title?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              buttons?:
+                                | {
+                                    title?: string | null;
+                                    link?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              image?: (number | null) | Media;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'about-three';
+                            }
+                          | {
+                              title?: string | null;
+                              description?: string | null;
+                              buttons?:
+                                | {
+                                    title?: string | null;
+                                    link?: string | null;
+                                    type?:
+                                      | ('default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link')
+                                      | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'call-to-action-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'call-to-action-two';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'contact-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'contact-two';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'faq-one';
+                            }
+                          | {
+                              title?: string | null;
+                              description?: string | null;
+                              features?:
+                                | {
+                                    icon?: string | null;
+                                    rounded?: boolean | null;
+                                    title?: string | null;
+                                    description?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'features-one';
+                            }
+                          | {
+                              color?: string | null;
+                              title?: string | null;
+                              description?: string | null;
+                              features?:
+                                | (
+                                    | {
+                                        color?: string | null;
+                                        icon?: string | null;
+                                        title?: string | null;
+                                        description?: string | null;
+                                        id?: string | null;
+                                        blockName?: string | null;
+                                        blockType: 'varient-one';
+                                      }
+                                    | {
+                                        color?: string | null;
+                                        emoji?: string | null;
+                                        title?: string | null;
+                                        description?: string | null;
+                                        id?: string | null;
+                                        blockName?: string | null;
+                                        blockType: 'varient-two';
+                                      }
+                                  )[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'features-two';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'features-three';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'features-four';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'form-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'gallery-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'gallery-two';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'integration-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'pricing-one';
+                            }
+                          | {
+                              title?: string | null;
+                              description?: string | null;
+                              products?:
+                                | {
+                                    title?: string | null;
+                                    sub_title?: string | null;
+                                    image?: (number | null) | Media;
+                                    lead?: {
+                                      root: {
+                                        type: string;
+                                        children: {
+                                          type: string;
+                                          version: number;
+                                          [k: string]: unknown;
+                                        }[];
+                                        direction: ('ltr' | 'rtl') | null;
+                                        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                        indent: number;
+                                        version: number;
+                                      };
+                                      [k: string]: unknown;
+                                    } | null;
+                                    button?: {
+                                      name?: string | null;
+                                      link?: string | null;
+                                    };
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'products-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'query-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'query-two';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'query-three';
+                            }
+                          | {
+                              title?: string | null;
+                              description?: string | null;
+                              resources?:
+                                | {
+                                    icon?: string | null;
+                                    title?: string | null;
+                                    description?: string | null;
+                                    detail?: string | null;
+                                    button?: {
+                                      title?: string | null;
+                                      link?: string | null;
+                                    };
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'resources-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'services-one';
+                            }
+                          | {
+                              items?:
+                                | {
+                                    icon?: string | null;
+                                    color?: string | null;
+                                    name?: string | null;
+                                    value?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'stats-one';
+                            }
+                          | {
+                              title?: string | null;
+                              description?: string | null;
+                              stat?:
+                                | {
+                                    name?: string | null;
+                                    value?: string | null;
+                                    description?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'stats-two';
+                            }
+                          | {
+                              title?: string | null;
+                              description?: string | null;
+                              team?:
+                                | {
+                                    image?: (number | null) | Media;
+                                    name?: string | null;
+                                    designation?: string | null;
+                                    sub_title?: string | null;
+                                    description?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'team-one';
+                            }
+                          | {
+                              title?: string | null;
+                              description?: string | null;
+                              testimonials?:
+                                | {
+                                    stars?: number | null;
+                                    message?: string | null;
+                                    person?: {
+                                      name?: string | null;
+                                      designation?: string | null;
+                                    };
+                                    id?: string | null;
+                                  }[]
+                                | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'testimonials-one';
+                            }
+                          | {
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'timeline-one';
+                            }
+                        )[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'tab-content-one';
@@ -2346,6 +2835,22 @@ export interface PagesSelect<T extends boolean = true> {
               'hero-three'?:
                 | T
                 | {
+                    badge?: T;
+                    title?:
+                      | T
+                      | {
+                          first_part?: T;
+                          second_part?: T;
+                        };
+                    description?: T;
+                    buttons?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          type?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2466,6 +2971,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           icon?: T;
+                          rounded?: T;
                           title?: T;
                           description?: T;
                           id?: T;
@@ -2592,6 +3098,23 @@ export interface PagesSelect<T extends boolean = true> {
               'resources-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    resources?:
+                      | T
+                      | {
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                          detail?: T;
+                          button?:
+                            | T
+                            | {
+                                title?: T;
+                                link?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2619,12 +3142,459 @@ export interface PagesSelect<T extends boolean = true> {
               'stats-two'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    stat?:
+                      | T
+                      | {
+                          name?: T;
+                          value?: T;
+                          description?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
               'tab-content-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    tabs?:
+                      | T
+                      | {
+                          name?: T;
+                          content?:
+                            | T
+                            | {
+                                'hero-one'?:
+                                  | T
+                                  | {
+                                      image?: T;
+                                      badge?: T;
+                                      title?:
+                                        | T
+                                        | {
+                                            first_part?: T;
+                                            second_part?: T;
+                                          };
+                                      description?: T;
+                                      buttons?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            type?: T;
+                                            id?: T;
+                                          };
+                                      stats?:
+                                        | T
+                                        | {
+                                            name?: T;
+                                            value?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'hero-two'?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      colors?:
+                                        | T
+                                        | {
+                                            primary?: T;
+                                            secondary?: T;
+                                          };
+                                      title?:
+                                        | T
+                                        | {
+                                            first_part?: T;
+                                            second_part?: T;
+                                          };
+                                      description?: T;
+                                      buttons?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'hero-three'?:
+                                  | T
+                                  | {
+                                      badge?: T;
+                                      title?:
+                                        | T
+                                        | {
+                                            first_part?: T;
+                                            second_part?: T;
+                                          };
+                                      description?: T;
+                                      buttons?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            type?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'hero-four'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'about-one'?:
+                                  | T
+                                  | {
+                                      badge?: T;
+                                      lead?: T;
+                                      image?: T;
+                                      bullet?:
+                                        | T
+                                        | {
+                                            name?: T;
+                                            id?: T;
+                                          };
+                                      button?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            type?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'about-two'?:
+                                  | T
+                                  | {
+                                      color?: T;
+                                      badge?: T;
+                                      lead?: T;
+                                      bullet?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            color?: T;
+                                            id?: T;
+                                          };
+                                      image?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'about-three'?:
+                                  | T
+                                  | {
+                                      color?: T;
+                                      badge?: T;
+                                      lead?: T;
+                                      bullet?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            id?: T;
+                                          };
+                                      buttons?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            id?: T;
+                                          };
+                                      image?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'call-to-action-one'?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      buttons?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            type?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'call-to-action-two'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'contact-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'contact-two'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'faq-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'features-one'?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      features?:
+                                        | T
+                                        | {
+                                            icon?: T;
+                                            rounded?: T;
+                                            title?: T;
+                                            description?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'features-two'?:
+                                  | T
+                                  | {
+                                      color?: T;
+                                      title?: T;
+                                      description?: T;
+                                      features?:
+                                        | T
+                                        | {
+                                            'varient-one'?:
+                                              | T
+                                              | {
+                                                  color?: T;
+                                                  icon?: T;
+                                                  title?: T;
+                                                  description?: T;
+                                                  id?: T;
+                                                  blockName?: T;
+                                                };
+                                            'varient-two'?:
+                                              | T
+                                              | {
+                                                  color?: T;
+                                                  emoji?: T;
+                                                  title?: T;
+                                                  description?: T;
+                                                  id?: T;
+                                                  blockName?: T;
+                                                };
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'features-three'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'features-four'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'form-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'gallery-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'gallery-two'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'integration-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'pricing-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'products-one'?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      products?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            sub_title?: T;
+                                            image?: T;
+                                            lead?: T;
+                                            button?:
+                                              | T
+                                              | {
+                                                  name?: T;
+                                                  link?: T;
+                                                };
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'query-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'query-two'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'query-three'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'resources-one'?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      resources?:
+                                        | T
+                                        | {
+                                            icon?: T;
+                                            title?: T;
+                                            description?: T;
+                                            detail?: T;
+                                            button?:
+                                              | T
+                                              | {
+                                                  title?: T;
+                                                  link?: T;
+                                                };
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'services-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'stats-one'?:
+                                  | T
+                                  | {
+                                      items?:
+                                        | T
+                                        | {
+                                            icon?: T;
+                                            color?: T;
+                                            name?: T;
+                                            value?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'stats-two'?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      stat?:
+                                        | T
+                                        | {
+                                            name?: T;
+                                            value?: T;
+                                            description?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'team-one'?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      team?:
+                                        | T
+                                        | {
+                                            image?: T;
+                                            name?: T;
+                                            designation?: T;
+                                            sub_title?: T;
+                                            description?: T;
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'testimonials-one'?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      testimonials?:
+                                        | T
+                                        | {
+                                            stars?: T;
+                                            message?: T;
+                                            person?:
+                                              | T
+                                              | {
+                                                  name?: T;
+                                                  designation?: T;
+                                                };
+                                            id?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                'timeline-one'?:
+                                  | T
+                                  | {
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };

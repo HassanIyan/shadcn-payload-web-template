@@ -9,5 +9,35 @@ export const HeroThree: Block = {
     admin: {
         group: 'Hero',
     },
-    fields: [],
+    fields: [
+        { name: 'badge', type: 'text' },
+        {
+            name: 'title',
+            type: 'group',
+            fields: [
+                {
+                    type: 'row',
+                    fields: [
+                        { name: 'first_part', type: 'text' },
+                        { name: 'second_part', type: 'text' },
+                    ],
+                },
+            ],
+        },
+        { name: 'description', type: 'textarea' },
+        {
+            name: 'buttons',
+            type: 'array',
+            fields: [
+                { name: 'title', type: 'text' },
+                { name: 'link', type: 'text' },
+                {
+                    name: 'type',
+                    type: 'select',
+                    options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+                    defaultValue: 'default',
+                },
+            ],
+        },
+    ],
 }
