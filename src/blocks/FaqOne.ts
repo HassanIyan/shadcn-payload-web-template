@@ -9,5 +9,16 @@ export const FaqOne: Block = {
     admin: {
         group: 'Faq',
     },
-    fields: [],
+    fields: [
+        { name: 'title', type: 'text' },
+        { name: 'description', type: 'textarea' },
+        {
+            name: 'question',
+            type: 'array',
+            fields: [
+                { name: 'question', type: 'textarea' },
+                { name: 'answer', type: 'textarea' },
+            ],
+        },
+    ],
 }

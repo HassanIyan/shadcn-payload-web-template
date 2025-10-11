@@ -9,5 +9,25 @@ export const FeaturesFour: Block = {
     admin: {
         group: 'Features',
     },
-    fields: [],
+    fields: [
+        {
+            name: 'features',
+            type: 'array',
+            fields: [
+                {
+                    name: 'icon',
+                    type: 'text',
+                    admin: {
+                        components: {
+                            Field: '@/components/payload/icon-selector',
+                            Cell: '@/components/payload/icon-selector/cell',
+                        },
+                    },
+                },
+                { name: 'image', type: 'upload', relationTo: 'media' },
+                { name: 'title', type: 'text' },
+                { name: 'description', type: 'textarea' },
+            ],
+        },
+    ],
 }

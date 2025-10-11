@@ -9,5 +9,9 @@ export const FormOne: Block = {
     admin: {
         group: 'Form',
     },
-    fields: [],
+    fields: [
+        { name: 'title', type: 'text' },
+        { name: 'description', type: 'textarea' },
+        { name: 'form', type: 'relationship', relationTo: 'forms' },
+    ],
 }

@@ -9,5 +9,25 @@ export const ServicesOne: Block = {
     admin: {
         group: 'Services',
     },
-    fields: [],
+    fields: [
+        { name: 'title', type: 'text' },
+        { name: 'description', type: 'textarea' },
+        {
+            name: 'services',
+            type: 'array',
+            fields: [
+                { name: 'emoji', type: 'text' },
+                { name: 'title', type: 'text' },
+                { name: 'description', type: 'textarea' },
+                {
+                    name: 'button',
+                    type: 'group',
+                    fields: [
+                        { name: 'title', type: 'text' },
+                        { name: 'link', type: 'text' },
+                    ],
+                },
+            ],
+        },
+    ],
 }

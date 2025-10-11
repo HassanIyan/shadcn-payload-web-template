@@ -642,6 +642,20 @@ export interface Page {
               blockType: 'call-to-action-one';
             }
           | {
+              colors?: {
+                primary?: string | null;
+                secondary?: string | null;
+                accent?: string | null;
+              };
+              title?: string | null;
+              description?: string | null;
+              button?:
+                | {
+                    title?: string | null;
+                    link?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'call-to-action-two';
@@ -657,6 +671,15 @@ export interface Page {
               blockType: 'contact-two';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              question?:
+                | {
+                    question?: string | null;
+                    answer?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'faq-one';
@@ -708,16 +731,47 @@ export interface Page {
               blockType: 'features-two';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              badge?: string | null;
+              feature?:
+                | {
+                    emoji?: string | null;
+                    title?: string | null;
+                    sub_title?: string | null;
+                    value?: string | null;
+                    name?: string | null;
+                    tags?:
+                      | {
+                          title?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'features-three';
             }
           | {
+              features?:
+                | {
+                    icon?: string | null;
+                    image?: (number | null) | Media;
+                    title?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'features-four';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              form?: (number | null) | Form;
               id?: string | null;
               blockName?: string | null;
               blockType: 'form-one';
@@ -738,6 +792,30 @@ export interface Page {
               blockType: 'integration-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              color?: string | null;
+              price?:
+                | {
+                    color?: string | null;
+                    icon?: string | null;
+                    title?: string | null;
+                    sub_title?: string | null;
+                    price?: string | null;
+                    basis?: string | null;
+                    bullet?:
+                      | {
+                          title?: string | null;
+                          id?: string | null;
+                        }[]
+                      | null;
+                    button?: {
+                      title?: string | null;
+                      link?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'pricing-one';
@@ -812,6 +890,20 @@ export interface Page {
               blockType: 'resources-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              services?:
+                | {
+                    emoji?: string | null;
+                    title?: string | null;
+                    description?: string | null;
+                    button?: {
+                      title?: string | null;
+                      link?: string | null;
+                    };
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'services-one';
@@ -1047,6 +1139,20 @@ export interface Page {
                               blockType: 'call-to-action-one';
                             }
                           | {
+                              colors?: {
+                                primary?: string | null;
+                                secondary?: string | null;
+                                accent?: string | null;
+                              };
+                              title?: string | null;
+                              description?: string | null;
+                              button?:
+                                | {
+                                    title?: string | null;
+                                    link?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'call-to-action-two';
@@ -1062,6 +1168,15 @@ export interface Page {
                               blockType: 'contact-two';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              question?:
+                                | {
+                                    question?: string | null;
+                                    answer?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'faq-one';
@@ -1113,16 +1228,47 @@ export interface Page {
                               blockType: 'features-two';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              badge?: string | null;
+                              feature?:
+                                | {
+                                    emoji?: string | null;
+                                    title?: string | null;
+                                    sub_title?: string | null;
+                                    value?: string | null;
+                                    name?: string | null;
+                                    tags?:
+                                      | {
+                                          title?: string | null;
+                                          id?: string | null;
+                                        }[]
+                                      | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'features-three';
                             }
                           | {
+                              features?:
+                                | {
+                                    icon?: string | null;
+                                    image?: (number | null) | Media;
+                                    title?: string | null;
+                                    description?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'features-four';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              form?: (number | null) | Form;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'form-one';
@@ -1143,6 +1289,30 @@ export interface Page {
                               blockType: 'integration-one';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              color?: string | null;
+                              price?:
+                                | {
+                                    color?: string | null;
+                                    icon?: string | null;
+                                    title?: string | null;
+                                    sub_title?: string | null;
+                                    price?: string | null;
+                                    basis?: string | null;
+                                    bullet?:
+                                      | {
+                                          title?: string | null;
+                                          id?: string | null;
+                                        }[]
+                                      | null;
+                                    button?: {
+                                      title?: string | null;
+                                      link?: string | null;
+                                    };
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'pricing-one';
@@ -1217,6 +1387,20 @@ export interface Page {
                               blockType: 'resources-one';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              services?:
+                                | {
+                                    emoji?: string | null;
+                                    title?: string | null;
+                                    description?: string | null;
+                                    button?: {
+                                      title?: string | null;
+                                      link?: string | null;
+                                    };
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'services-one';
@@ -1286,6 +1470,17 @@ export interface Page {
                               blockType: 'testimonials-one';
                             }
                           | {
+                              title?: string | null;
+                              description?: string | null;
+                              timeline?:
+                                | {
+                                    color?: string | null;
+                                    icon?: string | null;
+                                    title?: string | null;
+                                    description?: string | null;
+                                    id?: string | null;
+                                  }[]
+                                | null;
                               id?: string | null;
                               blockName?: string | null;
                               blockType: 'timeline-one';
@@ -1335,6 +1530,17 @@ export interface Page {
               blockType: 'testimonials-one';
             }
           | {
+              title?: string | null;
+              description?: string | null;
+              timeline?:
+                | {
+                    color?: string | null;
+                    icon?: string | null;
+                    title?: string | null;
+                    description?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'timeline-one';
@@ -2941,6 +3147,22 @@ export interface PagesSelect<T extends boolean = true> {
               'call-to-action-two'?:
                 | T
                 | {
+                    colors?:
+                      | T
+                      | {
+                          primary?: T;
+                          secondary?: T;
+                          accent?: T;
+                        };
+                    title?: T;
+                    description?: T;
+                    button?:
+                      | T
+                      | {
+                          title?: T;
+                          link?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -2959,6 +3181,15 @@ export interface PagesSelect<T extends boolean = true> {
               'faq-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    question?:
+                      | T
+                      | {
+                          question?: T;
+                          answer?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -3015,18 +3246,49 @@ export interface PagesSelect<T extends boolean = true> {
               'features-three'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    badge?: T;
+                    feature?:
+                      | T
+                      | {
+                          emoji?: T;
+                          title?: T;
+                          sub_title?: T;
+                          value?: T;
+                          name?: T;
+                          tags?:
+                            | T
+                            | {
+                                title?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
               'features-four'?:
                 | T
                 | {
+                    features?:
+                      | T
+                      | {
+                          icon?: T;
+                          image?: T;
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
               'form-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    form?: T;
                     id?: T;
                     blockName?: T;
                   };
@@ -3051,6 +3313,32 @@ export interface PagesSelect<T extends boolean = true> {
               'pricing-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    color?: T;
+                    price?:
+                      | T
+                      | {
+                          color?: T;
+                          icon?: T;
+                          title?: T;
+                          sub_title?: T;
+                          price?: T;
+                          basis?: T;
+                          bullet?:
+                            | T
+                            | {
+                                title?: T;
+                                id?: T;
+                              };
+                          button?:
+                            | T
+                            | {
+                                title?: T;
+                                link?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -3121,6 +3409,22 @@ export interface PagesSelect<T extends boolean = true> {
               'services-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    services?:
+                      | T
+                      | {
+                          emoji?: T;
+                          title?: T;
+                          description?: T;
+                          button?:
+                            | T
+                            | {
+                                title?: T;
+                                link?: T;
+                              };
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
@@ -3333,6 +3637,22 @@ export interface PagesSelect<T extends boolean = true> {
                                 'call-to-action-two'?:
                                   | T
                                   | {
+                                      colors?:
+                                        | T
+                                        | {
+                                            primary?: T;
+                                            secondary?: T;
+                                            accent?: T;
+                                          };
+                                      title?: T;
+                                      description?: T;
+                                      button?:
+                                        | T
+                                        | {
+                                            title?: T;
+                                            link?: T;
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3351,6 +3671,15 @@ export interface PagesSelect<T extends boolean = true> {
                                 'faq-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      question?:
+                                        | T
+                                        | {
+                                            question?: T;
+                                            answer?: T;
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3407,18 +3736,49 @@ export interface PagesSelect<T extends boolean = true> {
                                 'features-three'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      badge?: T;
+                                      feature?:
+                                        | T
+                                        | {
+                                            emoji?: T;
+                                            title?: T;
+                                            sub_title?: T;
+                                            value?: T;
+                                            name?: T;
+                                            tags?:
+                                              | T
+                                              | {
+                                                  title?: T;
+                                                  id?: T;
+                                                };
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
                                 'features-four'?:
                                   | T
                                   | {
+                                      features?:
+                                        | T
+                                        | {
+                                            icon?: T;
+                                            image?: T;
+                                            title?: T;
+                                            description?: T;
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
                                 'form-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      form?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3443,6 +3803,32 @@ export interface PagesSelect<T extends boolean = true> {
                                 'pricing-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      color?: T;
+                                      price?:
+                                        | T
+                                        | {
+                                            color?: T;
+                                            icon?: T;
+                                            title?: T;
+                                            sub_title?: T;
+                                            price?: T;
+                                            basis?: T;
+                                            bullet?:
+                                              | T
+                                              | {
+                                                  title?: T;
+                                                  id?: T;
+                                                };
+                                            button?:
+                                              | T
+                                              | {
+                                                  title?: T;
+                                                  link?: T;
+                                                };
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3513,6 +3899,22 @@ export interface PagesSelect<T extends boolean = true> {
                                 'services-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      services?:
+                                        | T
+                                        | {
+                                            emoji?: T;
+                                            title?: T;
+                                            description?: T;
+                                            button?:
+                                              | T
+                                              | {
+                                                  title?: T;
+                                                  link?: T;
+                                                };
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3589,6 +3991,17 @@ export interface PagesSelect<T extends boolean = true> {
                                 'timeline-one'?:
                                   | T
                                   | {
+                                      title?: T;
+                                      description?: T;
+                                      timeline?:
+                                        | T
+                                        | {
+                                            color?: T;
+                                            icon?: T;
+                                            title?: T;
+                                            description?: T;
+                                            id?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3640,6 +4053,17 @@ export interface PagesSelect<T extends boolean = true> {
               'timeline-one'?:
                 | T
                 | {
+                    title?: T;
+                    description?: T;
+                    timeline?:
+                      | T
+                      | {
+                          color?: T;
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
                     id?: T;
                     blockName?: T;
                   };
