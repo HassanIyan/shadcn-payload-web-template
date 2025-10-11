@@ -597,7 +597,6 @@ export interface Page {
               bullet?:
                 | {
                     title?: string | null;
-                    color?: string | null;
                     id?: string | null;
                   }[]
                 | null;
@@ -2405,7 +2404,6 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           title?: T;
-                          color?: T;
                           id?: T;
                         };
                     buttons?:
