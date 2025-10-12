@@ -18,7 +18,7 @@ const IconSelector: TextFieldClientComponent = (props) => {
     }, [])
 
     return (
-        <div>
+        <div className="field-type">
             <label className="field-label">
                 {props.field.label as string}{' '}
                 {props.field.required && <span className="required">*</span>}

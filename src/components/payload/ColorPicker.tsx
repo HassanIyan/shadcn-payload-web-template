@@ -12,7 +12,7 @@ const ColorPicker = ({
     const { value, setValue } = useField<string>({ path })
 
     return (
-        <div className={'color-picker'}>
+        <div className={'color-picker field-type'}>
             <label className={'field-label'}>
                 {label} {required && <span className="required">*</span>}
             </label>
