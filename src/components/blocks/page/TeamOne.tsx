@@ -69,7 +69,7 @@ export const TeamOne: FC<TeamOneProps> = ({ ...props }) => {
                         >
                             {/* Image with gradient overlay */}
                             <div className="relative">
-                                <img
+                                {/* <img
                                     alt={leader.name}
                                     src={leader.image}
                                     loading="lazy"
@@ -77,7 +77,7 @@ export const TeamOne: FC<TeamOneProps> = ({ ...props }) => {
                                     height={300}
                                     className="w-full h-64 object-cover"
                                     style={{ color: 'transparent' }}
-                                />
+                                /> */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                             </div>
 

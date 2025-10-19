@@ -35,7 +35,7 @@ export interface FeaturesTwoProps {
     blockType: 'features-two'
 }
 
-export const FeaturesTwo: FC<FeaturesTwoProps> = ({ ...props }) => {
+export const FeaturesTwo: FC<FeaturesTwoProps> = ({ features, description, title, color }) => {
     const values = [
         {
             emoji: '🏆',
@@ -92,13 +92,8 @@ export const FeaturesTwo: FC<FeaturesTwoProps> = ({ ...props }) => {
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-                        Our Mission &amp; Values
-                    </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Guided by our core principles, we strive to create an environment where
-                        every student can thrive and reach their full potential.
-                    </p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">{title}</h2>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">{description}</p>
                 </div>
 
                 {/* Mission & Vision */}

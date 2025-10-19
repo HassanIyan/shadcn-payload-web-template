@@ -78,12 +78,12 @@ export const QueryOne: FC<QueryOneProps> = ({ ...props }) => {
                                     className="shadow-sm border border-[#E5E7EB] overflow-hidden"
                                 >
                                     <div className="relative h-64">
-                                        <img
+                                        {/* <img
                                             src={article.image}
                                             alt={article.title}
                                             className="object-cover w-full h-full"
                                             loading="lazy"
-                                        />
+                                        /> */}
                                         {article.featured && (
                                             <div className="absolute top-4 left-4 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold bg-[#51BDA0] text-white">
                                                 Featured
@@ -119,12 +119,12 @@ export const QueryOne: FC<QueryOneProps> = ({ ...props }) => {
                                     className="shadow-sm border border-[#E5E7EB] flex overflow-hidden"
                                 >
                                     <div className="relative w-24 h-24 flex-shrink-0">
-                                        <img
+                                        {/* <img
                                             src={article.image}
                                             alt={article.title}
                                             className="object-cover w-full h-full"
                                             loading="lazy"
-                                        />
+                                        /> */}
                                     </div>
                                     <CardContent className="p-4 flex-1">
                                         <div className="flex items-center gap-2 mb-2">

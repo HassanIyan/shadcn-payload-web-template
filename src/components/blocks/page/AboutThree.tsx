@@ -95,7 +95,7 @@ export const AboutThree: FC<AboutThreeProps> = ({ ...props }) => {
                     {/* Image */}
                     <div className="relative">
                         <div className="absolute -top-4 -left-4 w-full h-full bg-mint-200/30 rounded-3xl"></div>
-                        <img
+                        {/* <img
                             alt="School campus"
                             src="/placeholder.svg"
                             loading="lazy"
@@ -103,7 +103,7 @@ export const AboutThree: FC<AboutThreeProps> = ({ ...props }) => {
                             height={500}
                             className="relative rounded-3xl shadow-xl"
                             style={{ color: 'transparent' }}
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>

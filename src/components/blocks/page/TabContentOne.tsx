@@ -857,13 +857,13 @@ export const TabContentOne: FC<TabContentOneProps> = ({ ...props }) => {
                             {/* Image */}
                             <div className="relative">
                                 <div className="bg-white rounded-2xl p-4 shadow-professional-xl">
-                                    <Image
+                                    {/* <Image
                                         alt="Kindergarten students"
                                         src="/images/kindergarten-class.jpg"
                                         width={600}
                                         height={500}
                                         className="rounded-xl w-full object-cover"
-                                    />
+                                    /> */}
                                 </div>
                             </div>
                         </div>

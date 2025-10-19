@@ -67,11 +67,11 @@ export const GalleryOne: FC<GalleryOneProps> = ({ ...props }) => {
                                         key={index}
                                         className="aspect-square bg-gray-100 rounded-2xl shadow-professional hover:shadow-professional-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden border border-gray-200 group"
                                     >
-                                        <img
+                                        {/* <img
                                             src={src}
                                             alt={`${category} ${index + 1}`}
                                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                        />
+                                        /> */}
                                     </div>
                                 ))}
                             </div>

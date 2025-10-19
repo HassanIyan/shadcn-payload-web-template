@@ -58,12 +58,14 @@ export const HeroTwo: FC<HeroTwoProps> = ({ icon, colors, title, description, bu
                         <Icon className="h-12 w-12" style={{ color: colors?.primary }} />
                     </div>
 
-                    <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                    <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
                         {title?.first_part}
-                        <span className="block text-sky-500">{title?.second_part}</span>
+                        <span className="block" style={{ color: colors?.secondary || undefined }}>
+                            {title?.second_part}
+                        </span>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                    <p className="text-xl md:text-2xl text-foreground/75 mb-8 leading-relaxed">
                         {description}
                     </p>
 
