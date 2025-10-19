@@ -1,7 +1,10 @@
 'use client'
+
 import React, { FC } from 'react'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Heart } from 'lucide-react'
+import dynamicIconImports from 'lucide-react/dynamicIconImports'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 export interface HeroTwoProps {
     icon?: string | null
     colors?: {
@@ -25,49 +28,56 @@ export interface HeroTwoProps {
     blockType: 'hero-two'
 }
 
-export const HeroTwo: FC<HeroTwoProps> = ({ ...props }) => {
-    return (
-        <section className="relative overflow-hidden pt-24 pb-16">
-            {/* Decorative background elements */}
-            <div className="absolute top-20 left-10 w-32 h-32 bg-coral-300/20 rounded-full blur-xl" />
-            <div className="absolute bottom-10 right-10 w-48 h-48 bg-sky-300/20 rounded-full blur-xl" />
+export const HeroTwo: FC<HeroTwoProps> = ({ icon, colors, title, description, buttons }) => {
+    // @ts-expect-error: icon is not typed
+    const Icon = dynamic(dynamicIconImports[icon])
 
-            <div className="container mx-auto px-4">
-                <div className="text-center max-w-4xl mx-auto">
-                    {/* Icon */}
-                    <div className="inline-block p-4 bg-sky-100 rounded-full mb-6">
-                        <Heart className="h-12 w-12 text-sky-600" />
+    return (
+        <section className="relative overflow-hidden">
+            <div
+                className="absolute top-20 left-10 w-32 h-32 rounded-full blur-xl"
+                style={{ backgroundColor: `${colors?.secondary}20` }}
+            />
+            <div
+                className="absolute bottom-10 right-10 w-48 h-48 rounded-full blur-xl"
+                style={{ backgroundColor: `${colors?.primary}20` }}
+            />
+
+            <div className="container mx-auto px-4 min-h-[calc(100vh-80px)] flex items-center justify-center">
+                <div className="text-center max-w-4xl mx-auto mb-12">
+                    <div
+                        className="inline-block p-4 rounded-full mb-6"
+                        style={{ backgroundColor: `${colors?.primary}20` }}
+                    >
+                        {/* @ts-expect-error: icon is not typed */}
+                        <Icon className="h-12 w-12" style={{ color: colors?.primary }} />
                     </div>
 
-                    {/* Title */}
                     <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-                        We Believe in
-                        <span className="block text-sky-500">Curious Minds</span>
+                        {title?.first_part}
+                        <span className="block text-sky-500">{title?.second_part}</span>
                     </h1>
 
-                    {/* Description */}
                     <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                        For over four decades, Ahmadhiyya International School has been nurturing
-                        young minds and preparing them for success in an interconnected world.
+                        {description}
                     </p>
 
-                    {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button
-                            size="lg"
-                            className="bg-coral-500 hover:bg-coral-600 text-white rounded-full px-8 py-4 text-lg font-semibold"
-                        >
-                            Take a Virtual Tour
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                        </Button>
-
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-2 border-sky-500 text-sky-600 hover:bg-sky-50 rounded-full px-8 py-4 text-lg font-semibold"
-                        >
-                            Download Prospectus
-                        </Button>
+                        {buttons?.map((button, index) => (
+                            <Button
+                                size="lg"
+                                key={button.id}
+                                className="rounded-full"
+                                asChild
+                                style={{
+                                    backgroundColor:
+                                        (index === 0 ? colors?.secondary : colors?.primary) ||
+                                        undefined,
+                                }}
+                            >
+                                <Link href={button.link || '#'}>{button.title}</Link>
+                            </Button>
+                        ))}
                     </div>
                 </div>
             </div>
