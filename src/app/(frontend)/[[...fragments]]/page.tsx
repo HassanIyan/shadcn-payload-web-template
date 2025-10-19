@@ -12,6 +12,33 @@ import { AboutOneProps } from '@/components/blocks/page/AboutOne'
 import { ProductsOneProps } from '@/components/blocks/page/ProductsOne'
 import { CallToActionOneProps } from '@/components/blocks/page/CallToActionOne'
 import { TestimonialsOneProps } from '@/components/blocks/page/TestimonialsOne'
+import { HeroTwoProps } from '@/components/blocks/page/HeroTwo'
+import { AboutTwoProps } from '@/components/blocks/page/AboutTwo'
+import { AboutThreeProps } from '@/components/blocks/page/AboutThree'
+import { CallToActionTwoProps } from '@/components/blocks/page/CallToActionTwo'
+import { ContactOneProps } from '@/components/blocks/page/ContactOne'
+import { ContactTwoProps } from '@/components/blocks/page/ContactTwo'
+import { FaqOneProps } from '@/components/blocks/page/FaqOne'
+import { FeaturesTwoProps } from '@/components/blocks/page/FeaturesTwo'
+import { FeaturesThreeProps } from '@/components/blocks/page/FeaturesThree'
+import { FeaturesFourProps } from '@/components/blocks/page/FeaturesFour'
+import { FormOneProps } from '@/components/blocks/page/FormOne'
+import { GalleryOneProps } from '@/components/blocks/page/GalleryOne'
+import { GalleryTwoProps } from '@/components/blocks/page/GalleryTwo'
+import { HeroThreeProps } from '@/components/blocks/page/HeroThree'
+import { HeroFourProps } from '@/components/blocks/page/HeroFour'
+import { IntegrationOneProps } from '@/components/blocks/page/IntegrationOne'
+import { PricingOneProps } from '@/components/blocks/page/PricingOne'
+import { QueryOneProps } from '@/components/blocks/page/QueryOne'
+import { QueryTwoProps } from '@/components/blocks/page/QueryTwo'
+import { QueryThreeProps } from '@/components/blocks/page/QueryThree'
+import { ResourcesOneProps } from '@/components/blocks/page/ResourcesOne'
+import { ServicesOneProps } from '@/components/blocks/page/ServicesOne'
+import { StatsOneProps } from '@/components/blocks/page/StatsOne'
+import { StatsTwoProps } from '@/components/blocks/page/StatsTwo'
+import { TabContentOneProps } from '@/components/blocks/page/TabContentOne'
+import { TeamOneProps } from '@/components/blocks/page/TeamOne'
+import { TimelineOneProps } from '@/components/blocks/page/TimelineOne'
 
 interface Props {
     params: Promise<{ fragments: string[] }>
@@ -131,52 +158,78 @@ export default async function page({ params }: Props) {
                             priority={index === 0}
                         />
                     )
-                if (block?.blockType === 'about-two') return <AboutTwo key={index} />
-                if (block?.blockType === 'about-three') return <AboutThree key={index} />
+                if (block?.blockType === 'about-two')
+                    return <AboutTwo key={index} {...(block as AboutTwoProps)} />
+                if (block?.blockType === 'about-three')
+                    return <AboutThree key={index} {...(block as AboutThreeProps)} />
                 if (block?.blockType === 'call-to-action-one')
-                    return <CallToActionOne {...(block as CallToActionOneProps)} key={index} />
+                    return <CallToActionOne key={index} {...(block as CallToActionOneProps)} />
                 if (block?.blockType === 'call-to-action-two')
-                    return <CallToActionTwo key={index} />
-                if (block?.blockType === 'contact-one') return <ContactOne key={index} />
-                if (block?.blockType === 'contact-two') return <ContactTwo key={index} />
-                if (block?.blockType === 'faq-one') return <FaqOne key={index} />
+                    return <CallToActionTwo key={index} {...(block as CallToActionTwoProps)} />
+                if (block?.blockType === 'contact-one')
+                    return <ContactOne key={index} {...(block as ContactOneProps)} />
+                if (block?.blockType === 'contact-two')
+                    return <ContactTwo key={index} {...(block as ContactTwoProps)} />
+                if (block?.blockType === 'faq-one')
+                    return <FaqOne key={index} {...(block as FaqOneProps)} />
                 if (block?.blockType === 'features-one')
-                    return <FeaturesOne {...(block as FeaturesOneProps)} key={index} />
-                if (block?.blockType === 'features-two') return <FeaturesTwo key={index} />
-                if (block?.blockType === 'features-three') return <FeaturesThree key={index} />
-                if (block?.blockType === 'features-four') return <FeaturesFour key={index} />
-                if (block?.blockType === 'form-one') return <FormOne key={index} />
-                if (block?.blockType === 'gallery-one') return <GalleryOne key={index} />
-                if (block?.blockType === 'gallery-two') return <GalleryTwo key={index} />
+                    return <FeaturesOne key={index} {...(block as FeaturesOneProps)} />
+                if (block?.blockType === 'features-two')
+                    return <FeaturesTwo key={index} {...(block as FeaturesTwoProps)} />
+                if (block?.blockType === 'features-three')
+                    return <FeaturesThree key={index} {...(block as FeaturesThreeProps)} />
+                if (block?.blockType === 'features-four')
+                    return <FeaturesFour key={index} {...(block as FeaturesFourProps)} />
+                if (block?.blockType === 'form-one')
+                    return <FormOne key={index} {...(block as FormOneProps)} />
+                if (block?.blockType === 'gallery-one')
+                    return <GalleryOne key={index} {...(block as GalleryOneProps)} />
+                if (block?.blockType === 'gallery-two')
+                    return <GalleryTwo key={index} {...(block as GalleryTwoProps)} />
                 if (block?.blockType === 'hero-one')
                     return (
                         <HeroOne key={index} {...(block as HeroOneProps)} priority={index === 0} />
                     )
-                if (block?.blockType === 'hero-two') return <HeroTwo key={index} />
-                if (block?.blockType === 'hero-three') return <HeroThree key={index} />
-                if (block?.blockType === 'hero-four') return <HeroFour key={index} />
-                if (block?.blockType === 'integration-one') return <IntegrationOne key={index} />
-                if (block?.blockType === 'pricing-one') return <PricingOne key={index} />
+                if (block?.blockType === 'hero-two')
+                    return <HeroTwo key={index} {...(block as HeroTwoProps)} />
+                if (block?.blockType === 'hero-three')
+                    return <HeroThree key={index} {...(block as HeroThreeProps)} />
+                if (block?.blockType === 'hero-four')
+                    return <HeroFour key={index} {...(block as HeroFourProps)} />
+                if (block?.blockType === 'integration-one')
+                    return <IntegrationOne key={index} {...(block as IntegrationOneProps)} />
+                if (block?.blockType === 'pricing-one')
+                    return <PricingOne key={index} {...(block as PricingOneProps)} />
                 if (block?.blockType === 'products-one')
                     return (
                         <ProductsOne
-                            {...(block as ProductsOneProps)}
                             key={index}
+                            {...(block as ProductsOneProps)}
                             priority={index === 0}
                         />
                     )
-                if (block?.blockType === 'query-one') return <QueryOne key={index} />
-                if (block?.blockType === 'query-two') return <QueryTwo key={index} />
-                if (block?.blockType === 'query-three') return <QueryThree key={index} />
-                if (block?.blockType === 'resources-one') return <ResourcesOne key={index} />
-                if (block?.blockType === 'services-one') return <ServicesOne key={index} />
-                if (block?.blockType === 'stats-one') return <StatsOne key={index} />
-                if (block?.blockType === 'stats-two') return <StatsTwo key={index} />
-                if (block?.blockType === 'tab-content-one') return <TabContentOne key={index} />
-                if (block?.blockType === 'team-one') return <TeamOne key={index} />
+                if (block?.blockType === 'query-one')
+                    return <QueryOne key={index} {...(block as QueryOneProps)} />
+                if (block?.blockType === 'query-two')
+                    return <QueryTwo key={index} {...(block as QueryTwoProps)} />
+                if (block?.blockType === 'query-three')
+                    return <QueryThree key={index} {...(block as QueryThreeProps)} />
+                if (block?.blockType === 'resources-one')
+                    return <ResourcesOne key={index} {...(block as ResourcesOneProps)} />
+                if (block?.blockType === 'services-one')
+                    return <ServicesOne key={index} {...(block as ServicesOneProps)} />
+                if (block?.blockType === 'stats-one')
+                    return <StatsOne key={index} {...(block as StatsOneProps)} />
+                if (block?.blockType === 'stats-two')
+                    return <StatsTwo key={index} {...(block as StatsTwoProps)} />
+                if (block?.blockType === 'tab-content-one')
+                    return <TabContentOne key={index} {...(block as TabContentOneProps)} />
+                if (block?.blockType === 'team-one')
+                    return <TeamOne key={index} {...(block as TeamOneProps)} />
                 if (block?.blockType === 'testimonials-one')
-                    return <TestimonialsOne {...(block as TestimonialsOneProps)} key={index} />
-                if (block?.blockType === 'timeline-one') return <TimelineOne key={index} />
+                    return <TestimonialsOne key={index} {...(block as TestimonialsOneProps)} />
+                if (block?.blockType === 'timeline-one')
+                    return <TimelineOne key={index} {...(block as TimelineOneProps)} />
 
                 return (
                     <section

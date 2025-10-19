@@ -1,9 +1,22 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface QueryTwoProps {
-	[key: string]: unknown;
+export interface QueryTwoProps {
+    title?: string | null
+    description?: string | null
+    query?:
+        | {
+              [k: string]: unknown
+          }
+        | unknown[]
+        | string
+        | number
+        | boolean
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'query-two'
 }
 
 export const QueryTwo: FC<QueryTwoProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

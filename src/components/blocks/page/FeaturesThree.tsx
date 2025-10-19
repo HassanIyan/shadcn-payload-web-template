@@ -1,9 +1,30 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface FeaturesThreeProps {
-	[key: string]: unknown;
+export interface FeaturesThreeProps {
+    title?: string | null
+    description?: string | null
+    badge?: string | null
+    feature?:
+        | {
+              emoji?: string | null
+              title?: string | null
+              sub_title?: string | null
+              value?: string | null
+              name?: string | null
+              tags?:
+                  | {
+                        title?: string | null
+                        id?: string | null
+                    }[]
+                  | null
+              id?: string | null
+          }[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'features-three'
 }
 
 export const FeaturesThree: FC<FeaturesThreeProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props?.blockType}</section>
 }

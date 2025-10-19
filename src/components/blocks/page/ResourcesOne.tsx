@@ -1,9 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface ResourcesOneProps {
-	[key: string]: unknown;
+export interface ResourcesOneProps {
+    title?: string | null
+    description?: string | null
+    resources?:
+        | {
+              icon?: string | null
+              title?: string | null
+              description?: string | null
+              detail?: string | null
+              button?: {
+                  title?: string | null
+                  link?: string | null
+              }
+              id?: string | null
+          }[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'resources-one'
 }
 
 export const ResourcesOne: FC<ResourcesOneProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

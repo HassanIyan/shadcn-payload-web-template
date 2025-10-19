@@ -1,9 +1,13 @@
-import React, { FC } from 'react';
+import { Media } from '@/payload-types'
+import React, { FC } from 'react'
 
-interface GalleryOneProps {
-	[key: string]: unknown;
+export interface GalleryOneProps {
+    images?: Media[] | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'gallery-one'
 }
 
 export const GalleryOne: FC<GalleryOneProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

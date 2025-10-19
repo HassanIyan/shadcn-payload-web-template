@@ -1,11 +1,36 @@
 import React, { FC } from 'react'
 
-interface FeaturesTwoProps {
-    [key: string]: unknown
+export interface FeaturesTwoProps {
+    color?: string | null
+    title?: string | null
+    description?: string | null
+    features?:
+        | (
+              | {
+                    color?: string | null
+                    icon?: string | null
+                    title?: string | null
+                    description?: string | null
+                    id?: string | null
+                    blockName?: string | null
+                    blockType: 'varient-one'
+                }
+              | {
+                    color?: string | null
+                    emoji?: string | null
+                    title?: string | null
+                    description?: string | null
+                    id?: string | null
+                    blockName?: string | null
+                    blockType: 'varient-two'
+                }
+          )[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'features-two'
 }
 
 export const FeaturesTwo: FC<FeaturesTwoProps> = ({ ...props }) => {
-    console.log(JSON.stringify(props, null, 2))
-
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

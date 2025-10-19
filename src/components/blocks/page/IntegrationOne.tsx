@@ -1,9 +1,28 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface IntegrationOneProps {
-	[key: string]: unknown;
+export interface IntegrationOneProps {
+    title?: string | null
+    description?: string | null
+    integration?:
+        | {
+              color?: string | null
+              icon?: string | null
+              title?: string | null
+              records?:
+                  | {
+                        name?: string | null
+                        value?: string | null
+                        id?: string | null
+                    }[]
+                  | null
+              id?: string | null
+          }[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'integration-one'
 }
 
 export const IntegrationOne: FC<IntegrationOneProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

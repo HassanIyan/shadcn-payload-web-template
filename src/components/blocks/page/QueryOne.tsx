@@ -1,9 +1,22 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface QueryOneProps {
-	[key: string]: unknown;
+export interface QueryOneProps {
+    title?: string | null
+    description?: string | null
+    query?:
+        | {
+              [k: string]: unknown
+          }
+        | unknown[]
+        | string
+        | number
+        | boolean
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'query-one'
 }
 
 export const QueryOne: FC<QueryOneProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

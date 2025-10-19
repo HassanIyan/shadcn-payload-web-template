@@ -1,9 +1,21 @@
-import React, { FC } from 'react';
+import { Media } from '@/payload-types'
+import React, { FC } from 'react'
 
-interface FeaturesFourProps {
-	[key: string]: unknown;
+export interface FeaturesFourProps {
+    features?:
+        | {
+              icon?: string | null
+              image?: (number | null) | Media
+              title?: string | null
+              description?: string | null
+              id?: string | null
+          }[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'features-four'
 }
 
 export const FeaturesFour: FC<FeaturesFourProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

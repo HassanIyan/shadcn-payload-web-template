@@ -1,9 +1,22 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface QueryThreeProps {
-	[key: string]: unknown;
+export interface QueryThreeProps {
+    title?: string | null
+    description?: string | null
+    query?:
+        | {
+              [k: string]: unknown
+          }
+        | unknown[]
+        | string
+        | number
+        | boolean
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'query-three'
 }
 
 export const QueryThree: FC<QueryThreeProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

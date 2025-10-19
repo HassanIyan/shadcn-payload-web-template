@@ -1,9 +1,20 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface FaqOneProps {
-	[key: string]: unknown;
+export interface FaqOneProps {
+    title?: string | null
+    description?: string | null
+    question?:
+        | {
+              question?: string | null
+              answer?: string | null
+              id?: string | null
+          }[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'faq-one'
 }
 
 export const FaqOne: FC<FaqOneProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

@@ -1,9 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface ContactOneProps {
-	[key: string]: unknown;
+export interface ContactOneProps {
+    title?: string | null
+    description?: string | null
+    cards?:
+        | {
+              color?: string | null
+              icon?: string | null
+              title?: string | null
+              description?: string | null
+              button?: {
+                  title?: string | null
+                  link?: string | null
+              }
+              id?: string | null
+          }[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'contact-one'
 }
 
 export const ContactOne: FC<ContactOneProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }

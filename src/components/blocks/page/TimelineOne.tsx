@@ -1,9 +1,22 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-interface TimelineOneProps {
-	[key: string]: unknown;
+export interface TimelineOneProps {
+    title?: string | null
+    description?: string | null
+    timeline?:
+        | {
+              color?: string | null
+              icon?: string | null
+              title?: string | null
+              description?: string | null
+              id?: string | null
+          }[]
+        | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'timeline-one'
 }
 
 export const TimelineOne: FC<TimelineOneProps> = ({ ...props }) => {
-    return <section>{JSON.stringify({ ...props }, null, 2)}</section>
+    return <section>{props.blockType}</section>
 }
