@@ -33,7 +33,12 @@ export const HeroTwo: FC<HeroTwoProps> = ({ icon, colors, title, description, bu
     const Icon = dynamic(dynamicIconImports[icon])
 
     return (
-        <section className="relative overflow-hidden">
+        <section
+            className="relative overflow-hidden"
+            style={{
+                background: `linear-gradient(145deg, ${colors?.secondary}10 0%, ${colors?.primary}15 100%)`,
+            }}
+        >
             <div
                 className="absolute top-20 left-10 w-32 h-32 rounded-full blur-xl"
                 style={{ backgroundColor: `${colors?.secondary}20` }}
@@ -67,13 +72,25 @@ export const HeroTwo: FC<HeroTwoProps> = ({ icon, colors, title, description, bu
                             <Button
                                 size="lg"
                                 key={button.id}
-                                className="rounded-full"
+                                className="rounded-full hover:opacity-75"
                                 asChild
-                                style={{
-                                    backgroundColor:
-                                        (index === 0 ? colors?.secondary : colors?.primary) ||
-                                        undefined,
-                                }}
+                                // style={{
+                                //     backgroundColor:
+                                //         (index === 0 ? colors?.secondary : colors?.primary) ||
+                                //         undefined,
+                                // }}
+                                style={
+                                    index === 0
+                                        ? {
+                                              backgroundColor: colors?.secondary || undefined,
+                                          }
+                                        : {
+                                              borderWidth: 1,
+                                              borderColor: colors?.primary || undefined,
+                                              color: colors?.primary || undefined,
+                                              backgroundColor: 'var(--background)',
+                                          }
+                                }
                             >
                                 <Link href={button.link || '#'}>{button.title}</Link>
                             </Button>
