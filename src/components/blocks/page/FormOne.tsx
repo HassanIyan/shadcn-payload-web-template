@@ -17,7 +17,7 @@ import { Form } from '@/payload-types'
 export interface FormOneProps {
     title?: string | null
     description?: string | null
-    form?: (number | null) | Form
+    form?: Form
     id?: string | null
     blockName?: string | null
     blockType: 'form-one'
