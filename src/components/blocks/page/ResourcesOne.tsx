@@ -1,8 +1,10 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Download } from 'lucide-react'
 import React, { FC } from 'react'
+import Link from 'next/link'
+import { Download } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 
 export interface ResourcesOneProps {
     title?: string | null
@@ -25,74 +27,64 @@ export interface ResourcesOneProps {
     blockType: 'resources-one'
 }
 
-export const ResourcesOne: FC<ResourcesOneProps> = ({ ...props }) => {
-    const guides = [
-        {
-            title: 'Kindergarten Guide',
-            description: 'Early years curriculum overview',
-            pages: 12,
-        },
-        {
-            title: 'Primary Handbook',
-            description: 'Grades 1-5 subject details',
-            pages: 24,
-        },
-        {
-            title: 'IGCSE Prospectus',
-            description: 'Secondary school options',
-            pages: 36,
-        },
-        {
-            title: 'A-Level Guide',
-            description: 'University preparation pathway',
-            pages: 28,
-        },
-    ]
-
+export const ResourcesOne: FC<ResourcesOneProps> = ({ title, description, resources }) => {
     return (
-        <section className="py-20 bg-white">
+        <section className="py-20">
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-[#1A1A1A] mb-4">
-                        Curriculum Guides & Resources
-                    </h2>
-                    <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
-                        Download detailed curriculum guides and academic resources to learn more
-                        about our programs.
-                    </p>
+                    {title && (
+                        <h2 className="text-4xl font-bold tracking-tight text-foreground mb-4">
+                            {title}
+                        </h2>
+                    )}
+                    {description && (
+                        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                            {description}
+                        </p>
+                    )}
                 </div>
 
-                {/* Guides Grid */}
+                {/* Resources Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {guides.map((guide) => (
-                        <div
-                            key={guide.title}
-                            className="rounded-md text-card-foreground shadow-sm border border-[#E5E7EB] bg-[#F8F9FA] group hover:shadow-md transition-transform duration-300 hover:-translate-y-1"
+                    {resources?.map(({ id, title, description, detail, button }) => (
+                        <Card
+                            key={id}
+                            className="group border border-border bg-card hover:shadow-md transition-transform duration-300 hover:-translate-y-1"
                         >
-                            {/* Top Content */}
-                            <div className="flex flex-col space-y-1.5 p-6 text-center">
-                                <div className="mx-auto w-16 h-16 bg-[#51BDA0] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                                    <Download className="h-8 w-8 text-white" />
+                            <CardHeader className="text-center">
+                                <div className="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                                    <Download className="h-8 w-8 text-primary-foreground" />
                                 </div>
-                                <div className="font-semibold tracking-tight text-[#1A1A1A] text-lg">
-                                    {guide.title}
-                                </div>
-                                <div className="text-sm text-[#6B7280]">{guide.description}</div>
-                            </div>
+                                {title && (
+                                    <CardTitle className="text-lg font-semibold text-foreground">
+                                        {title}
+                                    </CardTitle>
+                                )}
+                                {description && (
+                                    <CardDescription className="text-muted-foreground">
+                                        {description}
+                                    </CardDescription>
+                                )}
+                            </CardHeader>
 
-                            {/* Bottom Content */}
-                            <div className="p-6 pt-0 text-center">
-                                <p className="text-sm text-[#6B7280] mb-4">{guide.pages} pages</p>
-                                <Button
-                                    className="inline-flex items-center justify-center gap-2 w-full h-10 px-4 py-2 border border-[#51BDA0] text-[#51BDA0] hover:bg-[#51BDA0] hover:text-white rounded-md text-sm font-medium"
-                                    variant="outline"
-                                >
-                                    Download PDF
-                                    <Download className="h-4 w-4" />
-                                </Button>
-                            </div>
-                        </div>
+                            <CardContent className="text-center space-y-4">
+                                {detail && (
+                                    <p className="text-sm text-muted-foreground">{detail}</p>
+                                )}
+                                {button && (
+                                    <Button
+                                        asChild
+                                        variant="outline"
+                                        className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                                    >
+                                        <Link href={button.link || '#'}>
+                                            {button.title || 'Learn More'}
+                                        </Link>
+                                    </Button>
+                                )}
+                            </CardContent>
+                        </Card>
                     ))}
                 </div>
             </div>
