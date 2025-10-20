@@ -9,6 +9,7 @@ export interface FeaturesOneProps {
     features?:
         | {
               icon?: string | null
+              rounded?: boolean | null
               title?: string | null
               description?: string | null
               id?: string | null
@@ -22,10 +23,12 @@ export interface FeaturesOneProps {
 export const FeaturesOne: FC<FeaturesOneProps> = ({ title, description, features }) => {
     return (
         <section className="container lg:py-24 py-12 text-center">
-            <h1 className="text-4xl font-bold mb-4">{title}</h1>
-            <p className="text-xl max-w-2xl mx-auto mb-16 opacity-50">{description}</p>
+            {title && <h1 className="text-4xl font-bold mb-4">{title}</h1>}
+            {description && (
+                <p className="text-xl max-w-2xl mx-auto mb-16 opacity-50">{description}</p>
+            )}
             <div className="grid lg:grid-cols-4 grid-cols-2 lg:gap-6 gap-4">
-                {features?.map(({ id, icon, title, description }) => {
+                {features?.map(({ id, icon, title, description, rounded }) => {
                     // @ts-expect-error: icon is not typed
                     const Icon = dynamic(dynamicIconImports[icon])
 
@@ -37,7 +40,12 @@ export const FeaturesOne: FC<FeaturesOneProps> = ({ title, description, features
                                 'hover:-translate-y-2 hover:shadow-lg hover:scale-105',
                             )}
                         >
-                            <span className="block mx-auto bg-primary p-4 text-primary-foreground rounded-md mb-4">
+                            <span
+                                className={cn(
+                                    'block mx-auto bg-primary p-4 text-primary-foreground rounded-md mb-4',
+                                    rounded && 'rounded-full',
+                                )}
+                            >
                                 <Icon />
                             </span>
                             <h6 className="font-bold mb-2">{title}</h6>
