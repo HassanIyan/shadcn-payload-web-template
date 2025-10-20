@@ -76,11 +76,6 @@ export const HeroTwo: FC<HeroTwoProps> = ({ icon, colors, title, description, bu
                                 key={button.id}
                                 className="rounded-full hover:opacity-75"
                                 asChild
-                                // style={{
-                                //     backgroundColor:
-                                //         (index === 0 ? colors?.secondary : colors?.primary) ||
-                                //         undefined,
-                                // }}
                                 style={
                                     index === 0
                                         ? {
