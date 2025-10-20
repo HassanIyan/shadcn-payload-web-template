@@ -46,12 +46,7 @@ export interface AboutThreeProps {
 
 export const AboutThree: FC<AboutThreeProps> = ({ color, badge, lead, bullet, buttons, image }) => {
     return (
-        <section
-            className="py-20"
-            style={{
-                backgroundImage: `linear-gradient(to right, ${color}20, ${color}05)`,
-            }}
-        >
+        <section className="py-20">
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Text Content */}

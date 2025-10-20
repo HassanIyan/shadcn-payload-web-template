@@ -1,11 +1,9 @@
 'use client'
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
 import { Media, Form } from '@/payload-types'
 import React, { FC } from 'react'
+import Block from '.'
 
 export interface TabContentOneProps {
     title?: string | null
@@ -768,111 +766,38 @@ export interface TabContentOneProps {
     blockType: 'tab-content-one'
 }
 
-export const TabContentOne: FC<TabContentOneProps> = ({ ...props }) => {
+export const TabContentOne: FC<TabContentOneProps> = ({ title, description, tabs }) => {
     return (
-        <section className="py-20 bg-[#F8F9FA]">
+        <section className="py-20 bg-muted">
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-[#1A1A1A] mb-4">Academic Programs</h2>
-                    <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
-                        {`From early childhood to university preparation, we offer a comprehensive
-                        educational journey tailored to each student's needs.`}
-                    </p>
+                    {title && <h2 className="text-4xl font-bold text-[#1A1A1A] mb-4">{title}</h2>}
+                    {description && (
+                        <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">{description}</p>
+                    )}
                 </div>
 
                 {/* Tabs */}
-                <Tabs defaultValue="kindergarten" className="w-full">
-                    <TabsList className="h-10 grid w-full grid-cols-4 mb-12 bg-white rounded-md p-2 border border-gray-200">
-                        <TabsTrigger
-                            value="kindergarten"
-                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
-                        >
-                            Kindergarten
-                        </TabsTrigger>
-                        <TabsTrigger
-                            value="primary"
-                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
-                        >
-                            Primary
-                        </TabsTrigger>
-                        <TabsTrigger
-                            value="secondary"
-                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
-                        >
-                            Secondary
-                        </TabsTrigger>
-                        <TabsTrigger
-                            value="alevels"
-                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
-                        >
-                            A-Levels
-                        </TabsTrigger>
+                <Tabs defaultValue={tabs?.[0]?.name || ''} className="w-full">
+                    <TabsList className="grid w-full grid-cols-4 bg-background rounded-md p-2 border border-border">
+                        {tabs?.map(({ id, name }) => (
+                            <TabsTrigger
+                                key={id}
+                                value={name || ''}
+                                className="text-sm font-medium rounded-md text-foreground/75 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-lg hover:opacity-75 transition-all duration-300"
+                            >
+                                {name}
+                            </TabsTrigger>
+                        ))}
                     </TabsList>
 
-                    {/* Kindergarten Tab */}
-                    <TabsContent value="kindergarten" className="mt-2 space-y-8">
-                        <div className="grid lg:grid-cols-2 gap-12 items-center">
-                            {/* Text Content */}
-                            <div className="space-y-6">
-                                <div className="inline-flex items-center border transition-colors border-transparent hover:bg-primary/80 bg-[#51BDA0]/10 text-[#51BDA0] rounded-full px-4 py-2 text-sm font-semibold">
-                                    Ages 3-5
-                                </div>
-                                <h3 className="text-4xl font-bold text-[#1A1A1A] leading-tight">
-                                    Kindergarten
-                                    <span className="block text-[#51BDA0]">
-                                        Early Years Foundation
-                                    </span>
-                                </h3>
-                                <p className="text-lg text-[#6B7280] leading-relaxed">
-                                    Our kindergarten program focuses on play-based learning, helping
-                                    young children develop essential skills through exploration,
-                                    creativity, and social interaction.
-                                </p>
-
-                                {/* Features */}
-                                <div className="grid grid-cols-2 gap-4">
-                                    {[
-                                        'Phonics & Early Reading',
-                                        'Number Recognition',
-                                        'Creative Arts',
-                                        'Physical Development',
-                                        'Social Skills',
-                                        'Science Exploration',
-                                    ].map((item) => (
-                                        <div key={item} className="flex items-center gap-2">
-                                            <div className="w-2 h-2 bg-[#51BDA0] rounded-full" />
-                                            <span className="text-[#1A1A1A]">{item}</span>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                {/* Button */}
-                                <Button className="inline-flex items-center justify-center gap-2 h-10 bg-[#51BDA0] hover:bg-[#459985] text-white rounded-md px-8 py-3 font-medium">
-                                    Learn More About Kindergarten
-                                    <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </div>
-
-                            {/* Image */}
-                            <div className="relative">
-                                <div className="bg-white rounded-md p-4 shadow-professional-xl">
-                                    {/* <Image
-                                        alt="Kindergarten students"
-                                        src="/images/kindergarten-class.jpg"
-                                        width={600}
-                                        height={500}
-                                        className="rounded-md w-full object-cover"
-                                    /> */}
-                                </div>
-                            </div>
-                        </div>
-                    </TabsContent>
-
-                    {/* Empty placeholders for other tabs */}
-                    <TabsContent value="primary" className="mt-2 space-y-8"></TabsContent>
-                    <TabsContent value="secondary" className="mt-2 space-y-8"></TabsContent>
-                    <TabsContent value="alevels" className="mt-2 space-y-8"></TabsContent>
+                    {tabs?.map(({ id, name, content }) => (
+                        <TabsContent key={id} value={name || ''} className="">
+                            {/* @ts-expect-error: haha */}
+                            <Block blocks={content} />
+                        </TabsContent>
+                    ))}
                 </Tabs>
             </div>
         </section>
