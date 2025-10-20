@@ -64,7 +64,7 @@ export const ContactOne: FC<ContactOneProps> = ({ ...props }) => {
                     {supportItems.map((item, idx) => (
                         <div
                             key={idx}
-                            className="rounded-lg text-card-foreground bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                            className="rounded-md text-card-foreground bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
                         >
                             <div className="p-6 pt-8">
                                 <div

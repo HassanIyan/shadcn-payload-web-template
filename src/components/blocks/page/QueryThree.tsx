@@ -113,7 +113,7 @@ export const QueryThree: FC<QueryThreeProps> = ({ ...props }) => {
                     {downloads.map((doc, idx) => (
                         <div
                             key={idx}
-                            className={`rounded-lg bg-card text-card-foreground bg-gradient-to-br from-${doc.color}-100 to-${doc.color}-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group`}
+                            className={`rounded-md bg-card text-card-foreground bg-gradient-to-br from-${doc.color}-100 to-${doc.color}-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group`}
                         >
                             <div className="flex flex-col space-y-1.5 p-6">
                                 <div className="flex items-start justify-between">

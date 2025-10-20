@@ -97,7 +97,7 @@ export const PricingOne: FC<PricingOneProps> = ({ ...props }) => {
                     {feeCategories.map((cat) => (
                         <Card
                             key={cat.name}
-                            className={`rounded-lg border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br ${cat.gradient}`}
+                            className={`rounded-md border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-to-br ${cat.gradient}`}
                         >
                             <CardContent className="flex flex-col space-y-4 text-center">
                                 <div className="flex flex-col items-center space-y-2">
@@ -147,7 +147,7 @@ export const PricingOne: FC<PricingOneProps> = ({ ...props }) => {
                 </div>
 
                 {/* Scholarship Section */}
-                <Card className="rounded-lg shadow-lg mx-auto max-w-4xl">
+                <Card className="rounded-md shadow-lg mx-auto max-w-4xl">
                     <CardContent className="text-center space-y-4">
                         <div className="flex flex-col items-center space-y-2">
                             <div className="inline-block p-3 bg-mint-500 rounded-full mb-2">

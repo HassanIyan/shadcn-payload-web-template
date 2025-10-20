@@ -47,12 +47,12 @@ export const GalleryOne: FC<GalleryOneProps> = ({ ...props }) => {
                     value={activeTab}
                     onValueChange={(val) => setActiveTab(val as GalleryCategory)}
                 >
-                    <TabsList className="grid grid-cols-4 gap-2 bg-gray-50 rounded-2xl p-2 border border-gray-200 mb-12">
+                    <TabsList className="grid grid-cols-4 gap-2 bg-gray-50 rounded-md p-2 border border-gray-200 mb-12">
                         {Object.keys(galleryData).map((category) => (
                             <TabsTrigger
                                 key={category}
                                 value={category}
-                                className="text-sm font-medium rounded-xl data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg text-[#606062] hover:text-[#51BDA0] py-3 transition-all duration-300"
+                                className="text-sm font-medium rounded-md data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg text-[#606062] hover:text-[#51BDA0] py-3 transition-all duration-300"
                             >
                                 {category}
                             </TabsTrigger>
@@ -65,7 +65,7 @@ export const GalleryOne: FC<GalleryOneProps> = ({ ...props }) => {
                                 {images.map((src, index) => (
                                     <div
                                         key={index}
-                                        className="aspect-square bg-gray-100 rounded-2xl shadow-professional hover:shadow-professional-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden border border-gray-200 group"
+                                        className="aspect-square bg-gray-100 rounded-md shadow-professional hover:shadow-professional-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden border border-gray-200 group"
                                     >
                                         {/* <img
                                             src={src}

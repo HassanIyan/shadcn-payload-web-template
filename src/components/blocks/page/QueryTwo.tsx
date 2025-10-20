@@ -145,7 +145,7 @@ export const QueryTwo: FC<QueryTwoProps> = ({ ...props }) => {
                                     </div>
                                 </div>
 
-                                <Button className="w-full mt-4 h-9 border border-[#51BDA0] text-[#51BDA0] hover:bg-[#51BDA0] hover:text-white rounded-lg bg-transparent">
+                                <Button className="w-full mt-4 h-9 border border-[#51BDA0] text-[#51BDA0] hover:bg-[#51BDA0] hover:text-white rounded-md bg-transparent">
                                     Add to Calendar
                                 </Button>
                             </CardContent>

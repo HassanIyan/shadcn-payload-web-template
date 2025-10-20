@@ -783,28 +783,28 @@ export const TabContentOne: FC<TabContentOneProps> = ({ ...props }) => {
 
                 {/* Tabs */}
                 <Tabs defaultValue="kindergarten" className="w-full">
-                    <TabsList className="h-10 grid w-full grid-cols-4 mb-12 bg-white rounded-2xl p-2 border border-gray-200">
+                    <TabsList className="h-10 grid w-full grid-cols-4 mb-12 bg-white rounded-md p-2 border border-gray-200">
                         <TabsTrigger
                             value="kindergarten"
-                            className="text-sm font-medium rounded-xl text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
+                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
                         >
                             Kindergarten
                         </TabsTrigger>
                         <TabsTrigger
                             value="primary"
-                            className="text-sm font-medium rounded-xl text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
+                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
                         >
                             Primary
                         </TabsTrigger>
                         <TabsTrigger
                             value="secondary"
-                            className="text-sm font-medium rounded-xl text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
+                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
                         >
                             Secondary
                         </TabsTrigger>
                         <TabsTrigger
                             value="alevels"
-                            className="text-sm font-medium rounded-xl text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
+                            className="text-sm font-medium rounded-md text-[#606062] data-[state=active]:bg-[#51BDA0] data-[state=active]:text-white data-[state=active]:shadow-lg hover:text-[#51BDA0] transition-all duration-300"
                         >
                             A-Levels
                         </TabsTrigger>
@@ -848,7 +848,7 @@ export const TabContentOne: FC<TabContentOneProps> = ({ ...props }) => {
                                 </div>
 
                                 {/* Button */}
-                                <Button className="inline-flex items-center justify-center gap-2 h-10 bg-[#51BDA0] hover:bg-[#459985] text-white rounded-lg px-8 py-3 font-medium">
+                                <Button className="inline-flex items-center justify-center gap-2 h-10 bg-[#51BDA0] hover:bg-[#459985] text-white rounded-md px-8 py-3 font-medium">
                                     Learn More About Kindergarten
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
@@ -856,13 +856,13 @@ export const TabContentOne: FC<TabContentOneProps> = ({ ...props }) => {
 
                             {/* Image */}
                             <div className="relative">
-                                <div className="bg-white rounded-2xl p-4 shadow-professional-xl">
+                                <div className="bg-white rounded-md p-4 shadow-professional-xl">
                                     {/* <Image
                                         alt="Kindergarten students"
                                         src="/images/kindergarten-class.jpg"
                                         width={600}
                                         height={500}
-                                        className="rounded-xl w-full object-cover"
+                                        className="rounded-md w-full object-cover"
                                     /> */}
                                 </div>
                             </div>

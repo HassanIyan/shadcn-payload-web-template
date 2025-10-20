@@ -41,7 +41,7 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                     </div>
 
                     {/* Form Card */}
-                    <Card className="shadow-lg border border-border/50 rounded-2xl">
+                    <Card className="shadow-lg border border-border/50">
                         <CardHeader>
                             <CardTitle>Student Inquiry</CardTitle>
                             <CardDescription>
@@ -57,7 +57,7 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                                         <Input
                                             id="firstName"
                                             placeholder="Enter first name"
-                                            className="rounded-xl"
+                                            className="rounded-md"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -65,7 +65,7 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                                         <Input
                                             id="lastName"
                                             placeholder="Enter last name"
-                                            className="rounded-xl"
+                                            className="rounded-md"
                                         />
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                                         id="email"
                                         type="email"
                                         placeholder="Enter email address"
-                                        className="rounded-xl"
+                                        className="rounded-md"
                                     />
                                 </div>
 
@@ -86,7 +86,7 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                                     <Input
                                         id="phone"
                                         placeholder="Enter phone number"
-                                        className="rounded-xl"
+                                        className="rounded-md"
                                     />
                                 </div>
 
@@ -97,7 +97,7 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                                         <Select>
                                             <SelectTrigger
                                                 id="gradeLevel"
-                                                className="rounded-xl h-10"
+                                                className="rounded-md h-10"
                                             >
                                                 <SelectValue placeholder="Select grade level" />
                                             </SelectTrigger>
@@ -122,7 +122,7 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                                         <Input
                                             id="startDate"
                                             type="date"
-                                            className="rounded-xl h-10"
+                                            className="rounded-md h-10"
                                         />
                                     </div>
                                 </div>
@@ -134,14 +134,14 @@ export const FormOne: FC<FormOneProps> = ({ ...props }) => {
                                         id="message"
                                         placeholder="Tell us about your child's interests, previous school experience, or any questions you have..."
                                         rows={4}
-                                        className="rounded-xl"
+                                        className="rounded-md"
                                     />
                                 </div>
 
                                 {/* Submit Button */}
                                 <Button
                                     type="submit"
-                                    className="w-full rounded-xl h-12 text-lg font-medium flex items-center justify-center gap-2"
+                                    className="w-full rounded-md h-12 text-lg font-medium flex items-center justify-center gap-2"
                                 >
                                     Submit Inquiry
                                     <LucideArrowRight className="h-5 w-5" />

@@ -1,9 +1,11 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { MapPin } from 'lucide-react'
 import { Media } from '@/payload-types'
 import React, { FC } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import RichText from '../rich-text'
 
 export interface AboutThreeProps {
     color?: string | null
@@ -36,75 +38,69 @@ export interface AboutThreeProps {
               id?: string | null
           }[]
         | null
-    image?: (number | null) | Media
+    image?: null | Media
     id?: string | null
     blockName?: string | null
     blockType: 'about-three'
 }
 
-export const AboutThree: FC<AboutThreeProps> = ({ ...props }) => {
-    const facilities = [
-        'Science Laboratories',
-        'Computer Labs',
-        'Library & Media Center',
-        'Sports Facilities',
-        'Art Studios',
-        'Music Rooms',
-        'Cafeteria',
-        'Prayer Room',
-    ]
-
+export const AboutThree: FC<AboutThreeProps> = ({ color, badge, lead, bullet, buttons, image }) => {
     return (
-        <section className="py-20 bg-gradient-to-r from-sky-50 to-mint-50">
+        <section
+            className="py-20"
+            style={{
+                backgroundImage: `linear-gradient(to right, ${color}20, ${color}05)`,
+            }}
+        >
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Text Content */}
                     <div className="space-y-6">
-                        <div className="inline-flex items-center border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-mint-100 text-mint-700 hover:bg-mint-200 rounded-full px-4 py-2 text-sm font-semibold">
-                            Our Campus
+                        <div
+                            className="inline-flex items-center border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent  rounded-full px-4 py-2 text-sm font-semibold"
+                            style={{
+                                backgroundColor: `${color}20` || undefined,
+                                color: color ? color : undefined,
+                            }}
+                        >
+                            {/* bg-mint-100 text-mint-700 hover:bg-mint-200 */}
+                            {badge}
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-                            A Modern Learning
-                            <span className="text-mint-500"> Environment</span>
-                        </h2>
+                        <RichText>{lead}</RichText>
 
-                        <p className="text-lg text-gray-600 leading-relaxed">
-                            Our state-of-the-art campus in Machchangolhi, Malé, provides students
-                            with world-class facilities designed to enhance learning and personal
-                            development.
-                        </p>
-
-                        {/* Facilities Grid */}
                         <div className="grid grid-cols-2 gap-4">
-                            {facilities.map((facility, idx) => (
+                            {bullet?.map((item, idx) => (
                                 <div key={idx} className="flex items-center gap-2">
-                                    <div className="w-2 h-2 bg-mint-500 rounded-full" />
-                                    <span className="text-gray-700">{facility}</span>
+                                    <div
+                                        className="w-2 h-2 rounded-full"
+                                        style={{ backgroundColor: color || undefined }}
+                                    />
+                                    <span className="text-foreground/75">{item.title}</span>
                                 </div>
                             ))}
                         </div>
 
-                        {/* Button */}
-                        <Button className="inline-flex items-center gap-2 h-10 bg-mint-500 hover:bg-mint-600 text-white rounded-full px-8 py-3 font-semibold">
-                            <MapPin className="h-5 w-5 mr-2" />
-                            Take a Virtual Tour
-                        </Button>
+                        {buttons?.map(({ id, link, title }) => (
+                            <Button
+                                key={id}
+                                asChild
+                                className="inline-flex items-center gap-2 h-10 text-white rounded-full font-semibold"
+                                style={{ backgroundColor: color || undefined }}
+                            >
+                                <Link href={link || '#'}>{title}</Link>
+                            </Button>
+                        ))}
                     </div>
 
-                    {/* Image */}
-                    <div className="relative">
-                        <div className="absolute -top-4 -left-4 w-full h-full bg-mint-200/30 rounded-3xl"></div>
-                        {/* <img
-                            alt="School campus"
-                            src="/placeholder.svg"
-                            loading="lazy"
-                            width={600}
-                            height={500}
-                            className="relative rounded-3xl shadow-xl"
-                            style={{ color: 'transparent' }}
-                        /> */}
-                    </div>
+                    {image?.url && (
+                        <Image
+                            src={image?.url}
+                            width={image?.width || 0}
+                            height={image?.height || 0}
+                            alt={image?.alt || ''}
+                        />
+                    )}
                 </div>
             </div>
         </section>

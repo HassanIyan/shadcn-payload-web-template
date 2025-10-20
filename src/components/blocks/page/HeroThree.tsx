@@ -48,13 +48,13 @@ export const HeroThree: FC<HeroThreeProps> = ({ ...props }) => {
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button className="inline-flex items-center gap-2 h-11 bg-[#51BDA0] hover:bg-[#459985] text-white px-8 py-4 text-lg font-medium rounded-lg">
+                        <Button className="inline-flex items-center gap-2 h-11 bg-[#51BDA0] hover:bg-[#459985] text-white px-8 py-4 text-lg font-medium rounded-md">
                             Explore Curriculum
                             <ArrowRight className="ml-2 h-5 w-5" />
                         </Button>
                         <Button
                             variant="outline"
-                            className="inline-flex items-center gap-2 h-11 border-2 border-[#606062] text-[#606062] hover:bg-[#606062] hover:text-white px-8 py-4 text-lg font-medium rounded-lg bg-transparent"
+                            className="inline-flex items-center gap-2 h-11 border-2 border-[#606062] text-[#606062] hover:bg-[#606062] hover:text-white px-8 py-4 text-lg font-medium rounded-md bg-transparent"
                         >
                             Download Guides
                             <Download className="ml-2 h-5 w-5" />

@@ -53,7 +53,7 @@ export const HeroFour: FC<HeroFourProps> = ({ ...props }) => {
 
                 {/* Map / Info Card */}
                 <div className="max-w-6xl mx-auto">
-                    <div className="rounded-lg text-card-foreground bg-white border-0 shadow-xl overflow-hidden">
+                    <div className="rounded-md text-card-foreground bg-white border-0 shadow-xl overflow-hidden">
                         <div className="relative h-96 bg-gradient-to-br from-sky-100 to-mint-100 flex items-center justify-center">
                             <div className="text-center">
                                 <MapPin className="h-16 w-16 text-sky-500 mx-auto mb-4" />

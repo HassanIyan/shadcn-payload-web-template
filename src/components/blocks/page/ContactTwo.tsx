@@ -40,7 +40,7 @@ export const ContactTwo: FC<ContactTwoProps> = ({ ...props }) => {
                 {/* Contact Cards */}
                 <div className="grid md:grid-cols-3 gap-8 mb-16">
                     {/* Phone */}
-                    <div className="rounded-lg bg-card text-card-foreground bg-gradient-to-br from-coral-100 to-coral-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div className="rounded-md bg-card text-card-foreground bg-gradient-to-br from-coral-100 to-coral-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
                         <div className="p-6 pt-8">
                             <div className="inline-block p-4 bg-coral-500 rounded-full mb-4">
                                 <Phone className="h-8 w-8 text-white" />
@@ -56,7 +56,7 @@ export const ContactTwo: FC<ContactTwoProps> = ({ ...props }) => {
                     </div>
 
                     {/* Email */}
-                    <div className="rounded-lg bg-card text-card-foreground bg-gradient-to-br from-sky-100 to-sky-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div className="rounded-md bg-card text-card-foreground bg-gradient-to-br from-sky-100 to-sky-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
                         <div className="p-6 pt-8">
                             <div className="inline-block p-4 bg-sky-500 rounded-full mb-4">
                                 <Mail className="h-8 w-8 text-white" />
@@ -72,7 +72,7 @@ export const ContactTwo: FC<ContactTwoProps> = ({ ...props }) => {
                     </div>
 
                     {/* School Hours */}
-                    <div className="rounded-lg bg-card text-card-foreground bg-gradient-to-br from-mint-100 to-mint-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
+                    <div className="rounded-md bg-card text-card-foreground bg-gradient-to-br from-mint-100 to-mint-50 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
                         <div className="p-6 pt-8">
                             <div className="inline-block p-4 bg-mint-500 rounded-full mb-4">
                                 <Clock className="h-8 w-8 text-white" />

@@ -68,7 +68,7 @@ export const ResourcesOne: FC<ResourcesOneProps> = ({ ...props }) => {
                     {guides.map((guide) => (
                         <div
                             key={guide.title}
-                            className="rounded-lg text-card-foreground shadow-sm border border-[#E5E7EB] bg-[#F8F9FA] group hover:shadow-md transition-transform duration-300 hover:-translate-y-1"
+                            className="rounded-md text-card-foreground shadow-sm border border-[#E5E7EB] bg-[#F8F9FA] group hover:shadow-md transition-transform duration-300 hover:-translate-y-1"
                         >
                             {/* Top Content */}
                             <div className="flex flex-col space-y-1.5 p-6 text-center">
@@ -85,7 +85,7 @@ export const ResourcesOne: FC<ResourcesOneProps> = ({ ...props }) => {
                             <div className="p-6 pt-0 text-center">
                                 <p className="text-sm text-[#6B7280] mb-4">{guide.pages} pages</p>
                                 <Button
-                                    className="inline-flex items-center justify-center gap-2 w-full h-10 px-4 py-2 border border-[#51BDA0] text-[#51BDA0] hover:bg-[#51BDA0] hover:text-white rounded-lg text-sm font-medium"
+                                    className="inline-flex items-center justify-center gap-2 w-full h-10 px-4 py-2 border border-[#51BDA0] text-[#51BDA0] hover:bg-[#51BDA0] hover:text-white rounded-md text-sm font-medium"
                                     variant="outline"
                                 >
                                     Download PDF

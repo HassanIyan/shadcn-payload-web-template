@@ -67,7 +67,7 @@ export const ServicesOne: FC<ServicesOneProps> = ({ ...props }) => {
                     {supportServices.map((service) => (
                         <Card
                             key={service.title}
-                            className="text-center shadow-sm hover:shadow-md border border-[#E5E7EB] rounded-lg"
+                            className="text-center shadow-sm hover:shadow-md border border-[#E5E7EB] rounded-md"
                         >
                             <CardHeader className="pt-8">
                                 <div className="text-6xl mb-4">{service.icon}</div>

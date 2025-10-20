@@ -27,7 +27,7 @@ export default function Error({
                 }
             </p>
 
-            <div className="bg-muted rounded-2xl p-4 max-w-xl text-left shadow-md w-full mb-6">
+            <div className="bg-muted rounded-md p-4 max-w-xl text-left shadow-md w-full mb-6">
                 <h3 className="font-semibold mb-2 text-red-600">Error Details:</h3>
                 <p className="text-sm text-muted-foreground whitespace-pre-wrap">
                     {error.message || 'No additional information is available.'}

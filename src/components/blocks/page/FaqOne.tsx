@@ -42,7 +42,7 @@ export const FaqOne: FC<FaqOneProps> = ({ ...props }) => {
                     <Accordion type="single" collapsible className="space-y-4">
                         <AccordionItem
                             value="admission-age"
-                            className="bg-white rounded-2xl shadow-lg"
+                            className="bg-white rounded-md shadow-lg"
                         >
                             <AccordionTrigger className="px-6 py-4 font-semibold text-gray-800 hover:text-sky-600">
                                 What is the admission age for kindergarten?
@@ -52,7 +52,7 @@ export const FaqOne: FC<FaqOneProps> = ({ ...props }) => {
                             </AccordionContent>
                         </AccordionItem>
 
-                        <AccordionItem value="documents" className="bg-white rounded-2xl shadow-lg">
+                        <AccordionItem value="documents" className="bg-white rounded-md shadow-lg">
                             <AccordionTrigger className="px-6 py-4 font-semibold text-gray-800 hover:text-sky-600">
                                 What documents are required for application?
                             </AccordionTrigger>
@@ -64,7 +64,7 @@ export const FaqOne: FC<FaqOneProps> = ({ ...props }) => {
 
                         <AccordionItem
                             value="entrance-exam"
-                            className="bg-white rounded-2xl shadow-lg"
+                            className="bg-white rounded-md shadow-lg"
                         >
                             <AccordionTrigger className="px-6 py-4 font-semibold text-gray-800 hover:text-sky-600">
                                 Is there an entrance exam?
@@ -77,7 +77,7 @@ export const FaqOne: FC<FaqOneProps> = ({ ...props }) => {
 
                         <AccordionItem
                             value="academic-year"
-                            className="bg-white rounded-2xl shadow-lg"
+                            className="bg-white rounded-md shadow-lg"
                         >
                             <AccordionTrigger className="px-6 py-4 font-semibold text-gray-800 hover:text-sky-600">
                                 When does the academic year start?
@@ -87,7 +87,7 @@ export const FaqOne: FC<FaqOneProps> = ({ ...props }) => {
                             </AccordionContent>
                         </AccordionItem>
 
-                        <AccordionItem value="transport" className="bg-white rounded-2xl shadow-lg">
+                        <AccordionItem value="transport" className="bg-white rounded-md shadow-lg">
                             <AccordionTrigger className="px-6 py-4 font-semibold text-gray-800 hover:text-sky-600">
                                 Do you offer transportation services?
                             </AccordionTrigger>
@@ -98,7 +98,7 @@ export const FaqOne: FC<FaqOneProps> = ({ ...props }) => {
 
                         <AccordionItem
                             value="late-applications"
-                            className="bg-white rounded-2xl shadow-lg"
+                            className="bg-white rounded-md shadow-lg"
                         >
                             <AccordionTrigger className="px-6 py-4 font-semibold text-gray-800 hover:text-sky-600">
                                 What is your policy on late applications?

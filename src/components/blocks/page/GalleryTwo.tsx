@@ -106,7 +106,7 @@ export const GalleryTwo: FC<GalleryTwoProps> = ({ ...props }) => {
                     {socialMoments.map((item, index) => (
                         <div
                             key={index}
-                            className="aspect-square rounded-2xl shadow-professional hover:shadow-professional-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group overflow-hidden border border-gray-200 relative"
+                            className="aspect-square rounded-md shadow-professional hover:shadow-professional-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group overflow-hidden border border-gray-200 relative"
                         >
                             {/* <Image
                                 src={item.src}

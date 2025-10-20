@@ -28,7 +28,7 @@ export const IntegrationOne: FC<IntegrationOneProps> = ({ ...props }) => {
     return (
         <section className="container">
             {/* Office Hours */}
-            <div className="rounded-lg text-card-foreground bg-[#F8F9FA] border-0 shadow-lg max-w-4xl mx-auto">
+            <div className="rounded-md text-card-foreground bg-[#F8F9FA] border-0 shadow-lg max-w-4xl mx-auto">
                 <div className="p-8">
                     <div className="text-center mb-8">
                         <h3 className="text-2xl font-bold text-gray-800 mb-2">Office Hours</h3>
