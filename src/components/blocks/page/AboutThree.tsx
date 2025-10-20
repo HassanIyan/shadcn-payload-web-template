@@ -1,5 +1,3 @@
-'use client'
-
 import { Button } from '@/components/ui/button'
 import { Media } from '@/payload-types'
 import React, { FC } from 'react'

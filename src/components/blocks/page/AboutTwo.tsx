@@ -1,5 +1,3 @@
-'use client'
-
 import { Media } from '@/payload-types'
 import React, { FC } from 'react'
 import RichText from '../rich-text'

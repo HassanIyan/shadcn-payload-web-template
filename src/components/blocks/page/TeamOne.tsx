@@ -1,5 +1,3 @@
-'use client'
-
 import { Card, CardContent } from '@/components/ui/card'
 import { Media } from '@/payload-types'
 import Image from 'next/image'

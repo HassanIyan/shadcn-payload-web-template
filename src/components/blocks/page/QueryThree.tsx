@@ -1,5 +1,3 @@
-'use client'
-
 import React, { FC } from 'react'
 import { Button } from '@/components/ui/button'
 import { Download } from 'lucide-react'

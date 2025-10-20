@@ -1,6 +1,3 @@
-'use client'
-
-import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Media } from '@/payload-types'
 import React, { FC } from 'react'

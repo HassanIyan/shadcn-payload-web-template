@@ -1,7 +1,4 @@
-'use client'
-
-import { Button } from '@/components/ui/button'
-import { Phone, Mail, Clock, Users } from 'lucide-react'
+import { Phone, Mail, Clock } from 'lucide-react'
 import React, { FC } from 'react'
 
 export interface ContactTwoProps {

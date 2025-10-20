@@ -1,7 +1,5 @@
-'use client'
-
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/card'
+import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import React, { FC } from 'react'
 
 export interface QueryTwoProps {

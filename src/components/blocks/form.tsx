@@ -1,5 +1,3 @@
-'use client'
-
 import { Form as FormProps } from '@/payload-types'
 import React, { FC, Fragment } from 'react'
 import { Label } from '../ui/label'

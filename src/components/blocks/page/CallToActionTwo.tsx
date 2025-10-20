@@ -1,5 +1,3 @@
-'use client'
-
 import { Button } from '@/components/ui/button'
 import { Phone, Mail } from 'lucide-react'
 import React, { FC } from 'react'

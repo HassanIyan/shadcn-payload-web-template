@@ -1,5 +1,3 @@
-'use client'
-
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Media, Form } from '@/payload-types'
 import React, { FC } from 'react'
