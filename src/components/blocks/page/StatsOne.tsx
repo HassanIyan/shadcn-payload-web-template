@@ -1,5 +1,3 @@
-'use client'
-
 import React, { FC } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import dynamicIconImports from 'lucide-react/dynamicIconImports'
