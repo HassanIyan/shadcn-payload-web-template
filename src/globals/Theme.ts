@@ -5,7 +5,7 @@ export const Theme: GlobalConfig = {
     label: 'Theme',
     admin: {
         group: 'Website',
-        hideAPIURL: true,
+        hideAPIURL: false,
     },
     fields: [
         {

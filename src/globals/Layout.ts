@@ -5,7 +5,7 @@ export const Layout: GlobalConfig = {
     label: 'Layout',
     admin: {
         group: 'Website',
-        hideAPIURL: true,
+        hideAPIURL: false,
     },
     fields: [
         {

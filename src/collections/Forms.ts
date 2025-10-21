@@ -5,7 +5,7 @@ export const Forms: CollectionConfig = {
     admin: {
         useAsTitle: 'name',
         group: 'Form Management',
-        hideAPIURL: true,
+        hideAPIURL: false,
     },
     fields: [
         {

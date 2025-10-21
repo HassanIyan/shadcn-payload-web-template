@@ -6,7 +6,7 @@ export const Events: CollectionConfig = {
     admin: {
         useAsTitle: 'title',
         group: 'Content Management',
-        hideAPIURL: true,
+        hideAPIURL: false,
     },
     fields: [
         { name: 'title', type: 'text', label: 'Title', required: true },

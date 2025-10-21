@@ -5,7 +5,7 @@ export const Robots: GlobalConfig = {
     label: 'Robots File',
     admin: {
         group: 'Search Engine Optimization',
-        hideAPIURL: true,
+        hideAPIURL: false,
     },
     fields: [
         {

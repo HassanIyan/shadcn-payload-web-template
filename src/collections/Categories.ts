@@ -5,7 +5,7 @@ export const Categories: CollectionConfig = {
     admin: {
         useAsTitle: 'name',
         group: 'Content Management',
-        hideAPIURL: true,
+        hideAPIURL: false,
     },
     fields: [
         { name: 'name', type: 'text', label: 'Name', required: true },

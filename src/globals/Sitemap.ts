@@ -5,7 +5,7 @@ export const Sitemap: GlobalConfig = {
     label: 'Sitemap File',
     admin: {
         group: 'Search Engine Optimization',
-        hideAPIURL: true,
+        hideAPIURL: false,
     },
     fields: [
         {
