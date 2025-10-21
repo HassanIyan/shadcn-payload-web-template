@@ -1,6 +1,8 @@
+'use client'
+
+import React, { FC } from 'react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import React, { FC } from 'react'
 
 export interface ServicesOneProps {
     title?: string | null
@@ -22,72 +24,61 @@ export interface ServicesOneProps {
     blockType: 'services-one'
 }
 
-export const ServicesOne: FC<ServicesOneProps> = ({ ...props }) => {
-    const supportServices = [
-        {
-            icon: '🧠',
-            title: 'Counseling Services',
-            description:
-                'Professional counselors available for academic, personal, and social support',
-            actionText: 'Learn More',
-            variant: 'outline',
-        },
-        {
-            icon: '🤝',
-            title: 'Peer Support',
-            description: 'Trained student mentors and peer support networks for all grade levels',
-            actionText: 'Join Program',
-            variant: 'outline',
-        },
-        {
-            icon: '🧘',
-            title: 'Mindfulness Program',
-            description: 'Meditation, stress management, and emotional regulation techniques',
-            actionText: 'Get Started',
-            variant: 'outline',
-        },
-    ]
-
+export const ServicesOne: FC<ServicesOneProps> = ({ title, description, services }) => {
     return (
-        <section className="py-20 bg-[#F8F9FA]">
-            <div className="container">
-                <div className="container mx-auto px-4 text-center mb-16">
-                    <h2 className="text-4xl font-bold text-[#1A1A1A] mb-4">
-                        Wellbeing &amp; Support
-                    </h2>
-                    <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
-                        We prioritize the mental health and emotional wellbeing of our students,
-                        providing comprehensive support services.
-                    </p>
+        <section className="py-20 bg-muted text-muted-foreground">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                    {title && <h2 className="text-4xl font-bold mb-4">{title} </h2>}
+                    {description && (
+                        <p className="text-xl text-muted-foreground/75 max-w-3xl mx-auto">
+                            {description}
+                        </p>
+                    )}
                 </div>
-
-                <div className="grid md:grid-cols-3 gap-8">
-                    {supportServices.map((service) => (
-                        <Card
-                            key={service.title}
-                            className="text-center shadow-sm hover:shadow-md border border-[#E5E7EB] rounded-md"
-                        >
-                            <CardHeader className="pt-8">
-                                <div className="text-6xl mb-4">{service.icon}</div>
-                                <CardTitle className="text-xl font-bold text-[#1A1A1A]">
-                                    {service.title}
-                                </CardTitle>
-                                <CardDescription className="text-[#6B7280] mb-4">
-                                    {service.description}
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <Button
-                                    // @ts-expect-error: hehe
-                                    variant={service.variant}
-                                    className="border-[#51BDA0] text-[#51BDA0] hover:bg-[#51BDA0] hover:text-white"
-                                >
-                                    {service.actionText}
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
+                {services && (
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {services.map((service) => (
+                            <Card
+                                key={service.id || service.title}
+                                className="text-center shadow-sm hover:shadow-md border rounded-md transition-shadow bg-background text-foreground"
+                            >
+                                <CardHeader className="pt-8">
+                                    {service.emoji && (
+                                        <div className="text-6xl mb-4">{service.emoji}</div>
+                                    )}
+                                    {service.title && (
+                                        <CardTitle className="text-xl font-bold">
+                                            {service.title}
+                                        </CardTitle>
+                                    )}
+                                    {service.description && (
+                                        <CardDescription className="mb-4 text-card-foreground/75">
+                                            {service.description}
+                                        </CardDescription>
+                                    )}
+                                </CardHeader>
+                                {service.button && service.button.title && (
+                                    <CardContent>
+                                        <Button
+                                            variant="outline"
+                                            asChild={!!service.button.link}
+                                            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                                        >
+                                            {service.button.link ? (
+                                                <a href={service.button.link}>
+                                                    {service.button.title}
+                                                </a>
+                                            ) : (
+                                                <span>{service.button.title}</span>
+                                            )}
+                                        </Button>
+                                    </CardContent>
+                                )}
+                            </Card>
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     )
