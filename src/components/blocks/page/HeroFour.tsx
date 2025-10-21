@@ -1,6 +1,10 @@
-import { Button } from '@/components/ui/button'
-import { MapPin, Globe } from 'lucide-react'
+'use client'
+
 import React, { FC } from 'react'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { GlobeIcon, MapPinIcon } from 'lucide-react'
+import Link from 'next/link'
 
 export interface HeroFourProps {
     colors?: {
@@ -29,54 +33,101 @@ export interface HeroFourProps {
     blockType: 'hero-four'
 }
 
-export const HeroFour: FC<HeroFourProps> = ({ ...props }) => {
+export const HeroFour: FC<HeroFourProps> = ({
+    title,
+    description,
+    colors,
+    name,
+    address,
+    button,
+    coordniates,
+    id,
+}) => {
     return (
-        <section className="pt-24 pb-16 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-mint-500/10" />
-
+        <section
+            id={id ?? undefined}
+            className="relative overflow-hidden py-8"
+            style={{
+                background: `linear-gradient(to right, ${colors?.primary}, ${colors?.secondary})`,
+            }}
+        >
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center max-w-4xl mx-auto mb-12">
-                    <div className="inline-block p-4 bg-sky-100 rounded-full mb-6">
-                        <MapPin className="h-12 w-12 text-sky-600" />
+                    <div className="inline-block p-4 bg-primary/10 rounded-full mb-6">
+                        <MapPinIcon
+                            className="h-12 w-12"
+                            style={{
+                                color: colors?.accent || undefined,
+                            }}
+                        />
                     </div>
-                    <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-                        Visit Us & <span className="block text-sky-500">Get in Touch</span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-                        {`Located in the heart of Malé, we're here to answer your questions and
-                        welcome you to our community.`}
-                    </p>
+                    {title?.first_part && title?.second_part && (
+                        <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+                            {title.first_part}{' '}
+                            <span className="block" style={{ color: colors?.accent || undefined }}>
+                                {title.second_part}
+                            </span>
+                        </h1>
+                    )}
+                    {description && (
+                        <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+                            {description}
+                        </p>
+                    )}
                 </div>
 
                 {/* Map / Info Card */}
                 <div className="max-w-6xl mx-auto">
-                    <div className="rounded-md text-card-foreground bg-white border-0 shadow-xl overflow-hidden">
-                        <div className="relative h-96 bg-gradient-to-br from-sky-100 to-mint-100 flex items-center justify-center">
+                    <Card className="rounded-md p-0 border-0 relative shadow-xl overflow-hidden text-card-foreground bg-background">
+                        <div className={'absolute inset-0'}>
+                            <iframe
+                                src={`https://maps.google.com/maps?q=${coordniates?.[0]},${coordniates?.[1]}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                                width="100%"
+                                height="100%"
+                                className={'absolute inset-0'}
+                                allowFullScreen={false}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Office Location"
+                                style={{ border: 0 }}
+                            />
+                            <span className={'absolute inset-0 bg-white/80'} />
+                        </div>
+
+                        <div className="relative h-96 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                             <div className="text-center">
-                                <MapPin className="h-16 w-16 text-sky-500 mx-auto mb-4" />
-                                <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                                    Ahmadhiyya International School
-                                </h3>
-                                <p className="text-gray-600 mb-4">
-                                    Machchangolhi, Malé 20026, Maldives
-                                </p>
-                                <Button
-                                    asChild
-                                    className="h-10 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-full"
-                                >
-                                    <a
-                                        href="https://www.google.com/maps?q=Ahmadhiyya+International+School,+Malé,+Maldives"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2"
+                                <MapPinIcon
+                                    className="h-16 w-16 mx-auto mb-4"
+                                    style={{ color: colors?.accent || undefined }}
+                                />
+                                {name && (
+                                    <h3 className="text-2xl font-bold text-foreground mb-2">
+                                        {name}
+                                    </h3>
+                                )}
+                                {address && <p className="text-muted-foreground mb-4">{address}</p>}
+                                {button?.title && button?.link && (
+                                    <Button
+                                        asChild
+                                        className="h-10 px-4 py-2 rounded-full text-background"
+                                        style={{
+                                            backgroundColor: colors?.accent || undefined,
+                                        }}
                                     >
-                                        <Globe className="h-4 w-4" /> View on Google Maps
-                                    </a>
-                                </Button>
+                                        <Link
+                                            href={button.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2"
+                                        >
+                                            <GlobeIcon className="h-4 w-4" /> {button.title}
+                                        </Link>
+                                    </Button>
+                                )}
                             </div>
                         </div>
-                    </div>
+                    </Card>
                 </div>
             </div>
         </section>
