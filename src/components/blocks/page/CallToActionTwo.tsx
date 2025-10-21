@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Phone, Mail } from 'lucide-react'
+import Link from 'next/link'
 import React, { FC } from 'react'
 
 export interface CallToActionTwoProps {
@@ -22,40 +22,41 @@ export interface CallToActionTwoProps {
     blockType: 'call-to-action-two'
 }
 
-export const CallToActionTwo: FC<CallToActionTwoProps> = ({ ...props }) => {
+export const CallToActionTwo: FC<CallToActionTwoProps> = ({
+    colors,
+    title,
+    description,
+    button,
+}) => {
     return (
         <section className="py-20">
             <div className="container mx-auto px-4">
-                <div className="rounded-md bg-gradient-to-r from-coral-500 to-sky-500 text-white text-center shadow-xl p-12">
-                    <h3 className="text-3xl font-bold mb-4">Still Have Questions?</h3>
-                    <p className="text-xl mb-8 opacity-90">
-                        Our admissions team is here to help you through every step of the process
-                    </p>
+                <div
+                    className="rounded-md text-center shadow-xl p-12"
+                    style={{
+                        background: `linear-gradient(to right, ${colors?.primary}, ${colors?.secondary})`,
+                        color: colors?.accent || undefined,
+                    }}
+                >
+                    {title && <h3 className="text-3xl font-bold mb-4">{title}</h3>}
+                    {description && <p className="text-xl mb-8 opacity-90">{description}</p>}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button
-                            variant="default"
-                            className="bg-white text-coral-600 hover:bg-gray-100"
-                            asChild
-                        >
-                            <a href="tel:+9603305676" className="inline-flex items-center gap-2">
-                                <Phone className="h-5 w-5" />
-                                Call Us: +960 330-5676
-                            </a>
-                        </Button>
-
-                        <Button
-                            variant="default"
-                            className="bg-white text-sky-600 hover:bg-gray-100"
-                            asChild
-                        >
-                            <a
-                                href="mailto:admissions@ahmadhiyya.edu.mv"
-                                className="inline-flex items-center gap-2"
+                        {button?.map((btn, index) => (
+                            <Button
+                                key={index}
+                                size={'lg'}
+                                className="bg-background"
+                                style={{
+                                    color:
+                                        index === 0
+                                            ? colors?.primary || undefined
+                                            : colors?.secondary || undefined,
+                                }}
+                                asChild
                             >
-                                <Mail className="h-5 w-5" />
-                                Email: admissions@ahmadhiyya.edu.mv
-                            </a>
-                        </Button>
+                                <Link href={btn?.link || '#'}>{btn?.title}</Link>
+                            </Button>
+                        ))}
                     </div>
                 </div>
             </div>

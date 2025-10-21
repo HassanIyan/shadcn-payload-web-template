@@ -23,7 +23,7 @@ const getForm = cache(async (id: string) => {
     }
 })
 
-const action = async (formData: FormData) => {
+export const action = async (formData: FormData) => {
     'use server'
 
     const payload = await getPayload({ config })
