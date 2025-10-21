@@ -38,7 +38,7 @@ const Form: FC<FormProps & { action?: (formData: FormData) => void }> = ({ actio
                                         id={option.value}
                                         value={option.value}
                                         name={block?.name}
-                                        checked={option?.defaultChecked ? true : false}
+                                        defaultChecked={option?.defaultChecked ? true : false}
                                     />
                                     <Label htmlFor={option?.value}>{option?.label}</Label>
                                 </div>

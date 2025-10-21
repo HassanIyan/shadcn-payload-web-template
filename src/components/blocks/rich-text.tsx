@@ -113,7 +113,7 @@ export const Node: FC<unknown> = ({ type, tag, indent, direction, text, format, 
             </ol>
         )
 
-    if (type === 'link')
+    if (type === 'link' || type === 'autolink')
         return (
             <Link
                 {...attr}

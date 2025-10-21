@@ -1,5 +1,6 @@
-import { UsersIcon } from 'lucide-react'
 import React, { FC } from 'react'
+import dynamic from 'next/dynamic'
+import dynamicIconImports from 'lucide-react/dynamicIconImports'
 
 export interface IntegrationOneProps {
     title?: string | null
@@ -24,69 +25,63 @@ export interface IntegrationOneProps {
     blockType: 'integration-one'
 }
 
-export const IntegrationOne: FC<IntegrationOneProps> = ({ ...props }) => {
+export const IntegrationOne: FC<IntegrationOneProps> = ({
+    title,
+    description,
+    integration,
+    id,
+}) => {
     return (
-        <section className="container">
-            {/* Office Hours */}
-            <div className="rounded-md text-card-foreground bg-[#F8F9FA] border-0 shadow-lg max-w-4xl mx-auto">
+        <section id={id ?? undefined} className="container">
+            <div className="rounded-md border-0 shadow-lg max-w-4xl mx-auto text-card-foreground bg-card">
                 <div className="p-8">
                     <div className="text-center mb-8">
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Office Hours</h3>
-                        <p className="text-gray-600">
-                            Our administrative offices are open during these hours
-                        </p>
+                        {title && (
+                            <h3 className="text-2xl font-bold text-foreground mb-2">{title}</h3>
+                        )}
+                        {description && <p className="text-muted-foreground">{description}</p>}
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        {/* Main Office */}
-                        <div>
-                            <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                                <UsersIcon className="h-5 w-5 text-coral-500" /> Main Office
-                            </h4>
-                            <div className="space-y-2 text-gray-600">
-                                <div className="flex justify-between">
-                                    <span>Monday - Thursday:</span>
-                                    <span>7:00 AM - 3:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Friday:</span>
-                                    <span>7:00 AM - 12:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Saturday:</span>
-                                    <span>Closed</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Sunday:</span>
-                                    <span>Closed</span>
-                                </div>
-                            </div>
-                        </div>
+                        {integration?.map((office) => {
+                            const Icon = office.icon
+                                ? // @ts-expect-error: Dynamic icon import
+                                  dynamic(dynamicIconImports[office.icon])
+                                : null
 
-                        {/* Admissions Office */}
-                        <div>
-                            <h4 className="font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                                <UsersIcon className="h-5 w-5 text-sky-500" /> Admissions Office
-                            </h4>
-                            <div className="space-y-2 text-gray-600">
-                                <div className="flex justify-between">
-                                    <span>Monday - Thursday:</span>
-                                    <span>8:00 AM - 4:00 PM</span>
+                            return (
+                                <div key={office.id ?? office.title}>
+                                    {office.title && (
+                                        <h4
+                                            className="font-semibold text-foreground mb-4 flex items-center gap-2"
+                                            style={{ color: office.color || undefined }}
+                                        >
+                                            {Icon && (
+                                                <Icon
+                                                    // @ts-expect-error: Dynamic icon import
+                                                    className="h-5 w-5"
+                                                />
+                                            )}
+                                            {office.title}
+                                        </h4>
+                                    )}
+
+                                    {office.records && (
+                                        <div className="space-y-2 text-muted-foreground">
+                                            {office.records.map((record) => (
+                                                <div
+                                                    key={record.id ?? record.name}
+                                                    className="flex justify-between"
+                                                >
+                                                    <span>{record.name}</span>
+                                                    <span>{record.value}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="flex justify-between">
-                                    <span>Friday:</span>
-                                    <span>8:00 AM - 12:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Saturday:</span>
-                                    <span>9:00 AM - 1:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span>Sunday:</span>
-                                    <span>Closed</span>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
