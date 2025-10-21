@@ -25,6 +25,7 @@ import { InlineToolbarFeatureClient as InlineToolbarFeatureClient_e70f5e05f09f93
 import { default as default_ea3acf0ef673e74b66cd124d7bf46286 } from '@/components/payload/icon-selector/cell'
 import { default as default_e02a5affe07f46d1ca4aab088e80510f } from '@/components/payload/icon-selector'
 import { default as default_78e2240968210678f3f3ce1fd6e57ff1 } from '@/components/payload/ColorPicker'
+import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -53,5 +54,6 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#InlineToolbarFeatureClient": InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@/components/payload/icon-selector/cell#default": default_ea3acf0ef673e74b66cd124d7bf46286,
   "@/components/payload/icon-selector#default": default_e02a5affe07f46d1ca4aab088e80510f,
-  "@/components/payload/ColorPicker#default": default_78e2240968210678f3f3ce1fd6e57ff1
+  "@/components/payload/ColorPicker#default": default_78e2240968210678f3f3ce1fd6e57ff1,
+  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e
 }
