@@ -29,7 +29,7 @@ export const GalleryOne: FC<GalleryOneProps> = ({ images }) => {
         setCurrentIndex((prev) => (prev === (images?.length ?? 1) - 1 ? 0 : prev + 1))
 
     return (
-        <section className="py-20 bg-background">
+        <section className="py-10">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {images?.map((img: Media, index: number) => (
