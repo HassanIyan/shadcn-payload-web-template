@@ -28,11 +28,11 @@
         "social_media": [
             {
                 "icon": "facebook",
-                "url": "https://www.facebook.com/gdhaec"
+                "url": "https://www.facebook.com/school"
             },
             {
                 "icon": "instagram",
-                "url": "https://www.instagram.com/gdhaec_official/?hl=en"
+                "url": "https://www.instagram.com/school_official/?hl=en"
             }
         ],
         "menus": [
@@ -111,18 +111,18 @@
                     },
                     {
                         "icon": "mail",
-                        "title": "info@gdhaec.edu.mv",
-                        "url": "mailto://info@gdhaec.edu.mv"
+                        "title": "info@school.edu.mv",
+                        "url": "mailto://info@school.edu.mv"
                     },
                     {
                         "icon": "globe",
-                        "title": "www.gdhaec.edu.mv",
-                        "url": "https://www.gdhaec.edu.mv"
+                        "title": "www.school.edu.mv",
+                        "url": "https://www.school.edu.mv"
                     }
                 ]
             }
         ],
-        "copy_right": "© 2025 G.Dh. Atoll Education Centre. All rights reserved.",
+        "copy_right": "© 2025 Example School. All rights reserved.",
         "navigations": [
             {
                 "title": "Privacy Policy",

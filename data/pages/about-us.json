@@ -4,7 +4,7 @@
         "blocks": [
             {
                 "icon": "heart",
-                "description": "For over four decades, G.Dh. Atoll Education Centre has been nurturing young minds and preparing them for success in an interconnected world.",
+                "description": "For over four decades, Example School has been nurturing young minds and preparing them for success in an interconnected world.",
                 "blockName": null,
                 "buttons": [
                     {
@@ -97,7 +97,7 @@
                                 "children": [
                                     {
                                         "mode": "normal",
-                                        "text": "Founded in 1982, G.Dh. Atoll Education Centre has been at the forefront of educational innovation in the Maldives. We combine the best of international curricula with local values, creating a unique learning environment that prepares students for global success.",
+                                        "text": "Founded in 1982, Example School has been at the forefront of educational innovation in the Maldives. We combine the best of international curricula with local values, creating a unique learning environment that prepares students for global success.",
                                         "type": "text",
                                         "style": "",
                                         "detail": 0,

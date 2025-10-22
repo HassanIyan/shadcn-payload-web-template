@@ -25,7 +25,7 @@
             },
             {
                 "title": "Latest News",
-                "description": "Stay up to date with the latest happenings at G.Dh. Atoll Education Centre",
+                "description": "Stay up to date with the latest happenings at Example School",
                 "query": null,
                 "blockName": null,
                 "blockType": "query-one"
@@ -53,13 +53,13 @@
                 "blockType": "tab-content-one"
             },
             {
-                "title": "#gdhaecMoments",
+                "title": "#schoolMoments",
                 "description": "Follow our social media for daily updates and behind-the-scenes moments",
                 "blockName": null,
                 "images": [],
                 "buttons": [
                     {
-                        "title": "Follow @gdhaecschool",
+                        "title": "Follow @schoolschool",
                         "link": "/follow-us",
                         "type": "default"
                     },
