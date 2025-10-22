@@ -1,0 +1,158 @@
+{
+    "url": "/resources",
+    "design": {
+        "blocks": [
+            {
+                "icon": "book",
+                "description": "Access important documents, forms, calendars, and frequently asked questions to support your school journey.",
+                "blockName": null,
+                "buttons": [
+                    {
+                        "title": "Browse Resources",
+                        "link": "/browse-resources"
+                    }
+                ],
+                "blockType": "hero-two",
+                "colors": { "primary": "#0ea5e9", "secondary": "#86efac" },
+                "title": { "first_part": "Resources &", "second_part": "Support" }
+            },
+            {
+                "title": "Downloads & Forms",
+                "description": "Access essential documents, application forms, and school policies",
+                "query": null,
+                "blockName": null,
+                "blockType": "query-three"
+            },
+            {
+                "title": "Frequently Asked Questions",
+                "description": "Find answers to common questions about our school, admissions, and policies",
+                "blockName": null,
+                "question": [
+                    {
+                        "question": "What is the admission process for new students?",
+                        "answer": "The admission process involves submitting an inquiry form, completing the full application with required documents, taking an age-appropriate assessment, attending an interview, and completing the enrollment process. We accept applications throughout the year subject to availability."
+                    },
+                    {
+                        "question": "What curriculum does the school follow?",
+                        "answer": "We follow the Cambridge International Curriculum from Kindergarten through A-Levels. This includes Cambridge Primary, Cambridge Lower Secondary, IGCSE, and Cambridge International A-Levels, providing students with globally recognized qualifications."
+                    },
+                    {
+                        "question": "Are there any additional fees apart from tuition?",
+                        "answer": "Yes, additional fees may include registration fee, examination fees, transportation (if used), school meals, uniforms, textbooks, and extracurricular activities. A detailed fee structure is available in our prospectus."
+                    },
+                    {
+                        "question": "Does the school provide transportation services?",
+                        "answer": "Yes, we provide safe and reliable school bus services covering major areas of Malé. Transportation fees are separate from tuition fees. Routes and schedules are available from the school office."
+                    },
+                    {
+                        "question": "What is the school uniform policy?",
+                        "answer": "All students are required to wear the prescribed school uniform. Different uniforms are designated for regular school days, PE classes, and special events. Detailed uniform guidelines and supplier information are available in our uniform policy document."
+                    },
+                    {
+                        "question": "What health and safety measures are in place?",
+                        "answer": "We have a qualified school nurse, first aid facilities, emergency procedures, and regular health screenings. All students must submit medical forms and vaccination records. We also have policies for managing illnesses and medical emergencies."
+                    },
+                    {
+                        "question": "How does the school communicate with parents?",
+                        "answer": "We use multiple communication channels including parent-teacher conferences, progress reports, school newsletters, our website, social media, and direct communication through phone and email. We also have a parent portal for accessing student information."
+                    },
+                    {
+                        "question": "What extracurricular activities are available?",
+                        "answer": "We offer a wide range of activities including academic clubs (Science, Debate, Math Olympiad), creative arts (Drama, Music, Art), sports teams, community service projects, and leadership opportunities through our house system and prefect program."
+                    },
+                    {
+                        "question": "What support services are available for students?",
+                        "answer": "We provide comprehensive support including academic tutoring, counseling services, learning support for students with special needs, career guidance, university application assistance, and peer mentoring programs."
+                    },
+                    {
+                        "question": "What technology resources are available?",
+                        "answer": "Our school is equipped with computer labs, interactive whiteboards, high-speed internet, digital learning platforms, and educational software. We also integrate technology into our curriculum to prepare students for the digital age."
+                    }
+                ],
+                "blockType": "faq-one"
+            },
+            {
+                "title": "Need More Help?",
+                "description": "Our support team is here to assist you with any questions or concerns",
+                "blockName": null,
+                "cards": [
+                    {
+                        "color": "#e76565",
+                        "icon": "circle-question-mark",
+                        "title": "General Inquiries",
+                        "description": "For general questions about our school, programs, and services",
+                        "button": { "title": "Contact Us", "link": "/contact-us" }
+                    },
+                    {
+                        "color": "#0ea5e9",
+                        "icon": "users",
+                        "title": "Admissions Support",
+                        "description": "Assistance with applications, requirements, and enrollment process",
+                        "button": { "title": "Get Help", "link": "/get-help" }
+                    },
+                    {
+                        "color": "#22c55e",
+                        "icon": "file",
+                        "title": "Document Support",
+                        "description": "Help with forms, applications, and document requirements",
+                        "button": { "title": "Get Assistance", "link": "/get-assistence" }
+                    }
+                ],
+                "blockType": "contact-one"
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}

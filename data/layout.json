@@ -1,0 +1,138 @@
+{
+    "header": {
+        "sticky": true,
+        "logo": null,
+        "menu": {
+            "align": "right",
+            "navigation": [
+                { "label": "About", "url": "/about-us" },
+                { "label": "Academics", "url": "/academics" },
+                { "label": "Admission", "url": "/admissions" },
+                {
+                    "label": "Students Life",
+                    "url": "/student-life"
+                },
+                {
+                    "label": "Media & Events",
+                    "url": "/media-events"
+                },
+                { "label": "Resources", "url": "/resources" },
+                { "label": "Contact", "url": "/contact-us" }
+            ]
+        },
+        "buttons": [{ "label": "Apply Now", "url": "/apply" }]
+    },
+    "footer": {
+        "logo": null,
+        "description": "Empowering learners with global skills since 1982. Building bright futures through excellence in education and character development.",
+        "social_media": [
+            {
+                "icon": "facebook",
+                "url": "https://www.facebook.com/ahmadhiyyainternationalschool"
+            },
+            {
+                "icon": "instagram",
+                "url": "https://www.instagram.com/ahmadhiyya_official/?hl=en"
+            }
+        ],
+        "menus": [
+            {
+                "title": "Quick Links",
+                "navigations": [
+                    {
+                        "icon": null,
+                        "title": "About us",
+                        "url": "/about"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Academic",
+                        "url": "/academics"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Admissions",
+                        "url": "/admissions"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Student life",
+                        "url": "/student-life"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Contact",
+                        "url": "/contact"
+                    }
+                ]
+            },
+            {
+                "title": "Resources",
+                "navigations": [
+                    {
+                        "icon": null,
+                        "title": "School calendar",
+                        "url": "/school-calendar"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Downloads & forms",
+                        "url": "/downloads-forms"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Parent portal",
+                        "url": "/parant-portal"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Student portal",
+                        "url": "/student-portal"
+                    },
+                    {
+                        "icon": null,
+                        "title": "Career oppotunities",
+                        "url": "/career"
+                    }
+                ]
+            },
+            {
+                "title": "Contact Info",
+                "navigations": [
+                    {
+                        "icon": "map-pin",
+                        "title": "Machchangolhi  Malé 20026, Maldives",
+                        "url": "https://maps.app.goo.gl/BaTCmRgbVNXHrzCw6"
+                    },
+                    {
+                        "icon": "phone",
+                        "title": "+960 330-5676",
+                        "url": "tel://9603305676"
+                    },
+                    {
+                        "icon": "mail",
+                        "title": "info@ahmadhiyya.edu.mv",
+                        "url": "mailto://info@ahmadhiyya.edu.mv"
+                    },
+                    {
+                        "icon": "globe",
+                        "title": "www.ahmadhiyya.edu.mv",
+                        "url": "https://www.ahmadhiyya.edu.mv"
+                    }
+                ]
+            }
+        ],
+        "copy_right": "© 2025 Ahmadhiyya International School. All rights reserved.",
+        "navigations": [
+            {
+                "title": "Privacy Policy",
+                "url": "/privacy-policy"
+            },
+            {
+                "title": "Terms of Service",
+                "url": "/terms-of-service"
+            },
+            { "title": "Accessibility", "url": "/accessibility" }
+        ]
+    }
+}

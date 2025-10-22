@@ -1,15 +1,15 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import data from '../../data/theme.json'
+import data from '../../data/meta.json'
 ;(async () => {
     const payload = await getPayload({ config })
 
-    const theme = await payload.updateGlobal({
-        slug: 'theme',
+    const layout = await payload.updateGlobal({
+        slug: 'layout',
         data,
     })
 
-    console.table({ ...theme, id: undefined })
+    console.table({ ...layout, id: undefined })
 
     process.exit(0)
 })()

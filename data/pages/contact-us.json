@@ -1,0 +1,455 @@
+{
+    "url": "/contact-us",
+    "design": {
+        "blocks": [
+            {
+                "description": "Located in the heart of Male', we are here to answer your questions and welcome you to our community.",
+                "name": "Ahmadhiyya International School",
+                "address": "Machchangolhi, Malé 20026, Maldives",
+                "blockName": null,
+                "coordniates": [4.172046, 73.508898],
+                "blockType": "hero-four",
+                "colors": { "primary": "#d9effb", "secondary": "#e8f9ef", "accent": "#10a7e1" },
+                "title": { "first_part": "Visit us &", "second_part": "Get in Touch" },
+                "button": {
+                    "title": "View on Google Maps",
+                    "link": "https://www.google.com/maps/place/Ahmadhiyya+International+School/data=!4m2!3m1!1s0x0:0x9cfc55bb61830b04?sa=X&ved=1t:2428&ictx=111"
+                }
+            },
+            {
+                "blockName": null,
+                "cards": [
+                    {
+                        "color": "#e76565",
+                        "icon": "phone",
+                        "title": "Phone",
+                        "lead": {
+                            "root": {
+                                "type": "root",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "Main Office",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "+960 330-5676",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": null,
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "Admissions",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "+960 330-5677",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": null,
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    }
+                                ],
+                                "direction": "ltr"
+                            }
+                        }
+                    },
+                    {
+                        "color": "#0ea5e9",
+                        "icon": "mail",
+                        "title": "Email",
+                        "lead": {
+                            "root": {
+                                "type": "root",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "General Inquiries",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "type": "autolink",
+                                                "fields": {
+                                                    "url": "mailto:info@ahmadhiyya.edu.mv",
+                                                    "linkType": "custom"
+                                                },
+                                                "format": "",
+                                                "indent": 0,
+                                                "version": 2,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "info@ahmadhiyya.edu.mv",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "Admissions",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "type": "autolink",
+                                                "fields": {
+                                                    "url": "mailto:admissions@ahmadhiyya.edu.mv",
+                                                    "linkType": "custom"
+                                                },
+                                                "format": "",
+                                                "indent": 0,
+                                                "version": 2,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "admissions@ahmadhiyya.edu.mv",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    }
+                                ],
+                                "direction": "ltr"
+                            }
+                        }
+                    },
+                    {
+                        "color": "#22c55e",
+                        "icon": "clock",
+                        "title": "School Hours",
+                        "lead": {
+                            "root": {
+                                "type": "root",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "Monday - Thursday",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "7:30 AM - 2:30 PM",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "Friday",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "format": "center",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "7:30 AM - 11:30 AM",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    }
+                                ],
+                                "direction": "ltr"
+                            }
+                        }
+                    }
+                ],
+                "blockType": "contact-two"
+            },
+            {
+                "title": "Office Hours",
+                "description": "Our administrative offices are open during these hours",
+                "blockName": null,
+                "integration": [
+                    {
+                        "color": "#e76565",
+                        "icon": "users",
+                        "title": "Main Office",
+                        "records": [
+                            {
+                                "name": "Monday - Thursday:",
+                                "value": "7:00 AM - 3:00 PM"
+                            },
+                            {
+                                "name": "Friday:",
+                                "value": "7:00 AM - 12:00 PM"
+                            },
+                            {
+                                "name": "Saturday:",
+                                "value": "Closed"
+                            },
+                            {
+                                "name": "Sunday:",
+                                "value": "Closed"
+                            }
+                        ]
+                    },
+                    {
+                        "color": "#0ea5e9",
+                        "icon": "users",
+                        "title": "Admissions Office",
+                        "records": [
+                            {
+                                "name": "Monday - Thursday:",
+                                "value": "8:00 AM - 4:00 PM"
+                            },
+                            {
+                                "name": "Friday:",
+                                "value": "8:00 AM - 12:00 PM"
+                            },
+                            {
+                                "name": "Saturday:",
+                                "value": "9:00 AM - 1:00 PM"
+                            },
+                            {
+                                "name": "Sunday:",
+                                "value": "Closed"
+                            }
+                        ]
+                    }
+                ],
+                "blockType": "integration-one"
+            },
+            {
+                "title": "Send Us a Message",
+                "description": "Have a question or want to schedule a visit? We'd love to hear from you.",
+                "form": null,
+                "blockName": null,
+                "blockType": "form-one"
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}

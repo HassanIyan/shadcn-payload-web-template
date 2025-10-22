@@ -1,0 +1,562 @@
+{
+    "url": "/academics",
+    "design": {
+        "blocks": [
+            {
+                "badge": "Academic Excellence",
+                "description": "Our comprehensive academic program follows the Cambridge International Curriculum, preparing students for success at every level.",
+                "blockName": null,
+                "buttons": [
+                    {
+                        "title": "Explore Curriculum",
+                        "link": "/curriculum",
+                        "type": "default"
+                    },
+                    {
+                        "title": "Download Guides",
+                        "link": "/guides",
+                        "type": "outline"
+                    }
+                ],
+                "blockType": "hero-three",
+                "title": { "first_part": "Learn. Grow.", "second_part": "Achieve." }
+            },
+            {
+                "title": null,
+                "description": null,
+                "blockName": null,
+                "features": [
+                    {
+                        "icon": "globe",
+                        "rounded": true,
+                        "title": "Cambridge Curriculum",
+                        "description": "International standards"
+                    },
+                    {
+                        "icon": "users",
+                        "rounded": true,
+                        "title": "Qualified Teachers",
+                        "description": "Expert educators"
+                    },
+                    {
+                        "icon": "circle",
+                        "rounded": true,
+                        "title": "Small Class Sizes",
+                        "description": "Personalized attention"
+                    },
+                    {
+                        "icon": "star",
+                        "rounded": true,
+                        "title": "100% Pass Rate",
+                        "description": "Proven results"
+                    }
+                ],
+                "blockType": "features-one"
+            },
+            {
+                "title": "Academic Programs",
+                "description": "From early childhood to university preparation, we offer a comprehensive educational journey tailored to each student's needs.",
+                "blockName": null,
+                "tabs": [
+                    {
+                        "name": "Kindergarten",
+                        "content": [
+                            {
+                                "color": "#4db298",
+                                "badge": "Ages 3-5",
+                                "lead": {
+                                    "root": {
+                                        "type": "root",
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "tag": "h3",
+                                                "type": "heading",
+                                                "format": "",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "KindergartenEarly Years Foundation",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [],
+                                                "direction": "ltr",
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Our kindergarten program focuses on play-based learning, helping young children develop essential skills through exploration, creativity, and social interaction.",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr",
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            }
+                                        ],
+                                        "direction": "ltr"
+                                    }
+                                },
+                                "image": null,
+                                "blockName": null,
+                                "bullet": [
+                                    {
+                                        "title": "Phonics & Early Reading"
+                                    },
+                                    {
+                                        "title": "Number Recognition"
+                                    },
+                                    { "title": "Creative Arts" },
+                                    {
+                                        "title": "Physical Development"
+                                    },
+                                    { "title": "Social Skills" },
+                                    {
+                                        "title": "Science Exploration"
+                                    }
+                                ],
+                                "buttons": [
+                                    {
+                                        "title": "Learn More About Kindergarten",
+                                        "link": "/kindergarden"
+                                    }
+                                ],
+                                "blockType": "about-three"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Primary",
+                        "content": [
+                            {
+                                "color": "#4db298",
+                                "badge": "Grades 1-5",
+                                "lead": {
+                                    "root": {
+                                        "type": "root",
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "tag": "h3",
+                                                "type": "heading",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Primary SchoolBuilding Strong Foundations",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [],
+                                                "direction": null,
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Our primary program follows the Cambridge Primary curriculum, focusing on developing core literacy and numeracy skills while fostering curiosity and critical thinking.",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr",
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            }
+                                        ],
+                                        "direction": "ltr"
+                                    }
+                                },
+                                "image": null,
+                                "blockName": null,
+                                "bullet": [
+                                    {
+                                        "title": "English Language"
+                                    },
+                                    { "title": "Mathematics" },
+                                    { "title": "Science" },
+                                    { "title": "ICT" },
+                                    { "title": "Art & Design" },
+                                    {
+                                        "title": "Physical Education"
+                                    },
+                                    { "title": "Music" },
+                                    {
+                                        "title": "Global Perspectives"
+                                    }
+                                ],
+                                "buttons": [
+                                    {
+                                        "title": "Explore Primary Curriculum",
+                                        "link": "/curriculum"
+                                    }
+                                ],
+                                "blockType": "about-three"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Secondary",
+                        "content": [
+                            {
+                                "color": "#4db298",
+                                "badge": "Grades 6-11",
+                                "lead": {
+                                    "root": {
+                                        "type": "root",
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "tag": "h3",
+                                                "type": "heading",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Secondary SchoolIGCSE Excellence",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [],
+                                                "direction": null,
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Our secondary program prepares students for Cambridge IGCSE examinations, offering a broad range of subjects and developing independent learning skills.",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr",
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            }
+                                        ],
+                                        "direction": "ltr"
+                                    }
+                                },
+                                "image": null,
+                                "blockName": null,
+                                "bullet": [
+                                    {
+                                        "title": "English Literature"
+                                    },
+                                    { "title": "Mathematics" },
+                                    { "title": "Physics" },
+                                    { "title": "Chemistry" },
+                                    { "title": "Biology" },
+                                    { "title": "History" },
+                                    { "title": "Geography" },
+                                    {
+                                        "title": "Business Studies"
+                                    },
+                                    { "title": "Economics" },
+                                    { "title": "Art & Design" },
+                                    { "title": "ICT" },
+                                    {
+                                        "title": "Physical Education"
+                                    }
+                                ],
+                                "buttons": [
+                                    {
+                                        "title": "View IGCSE Options",
+                                        "link": "/igcse-options"
+                                    }
+                                ],
+                                "blockType": "about-three"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "A-Levels",
+                        "content": [
+                            {
+                                "color": "#4db298",
+                                "badge": "Grades 12-13",
+                                "lead": {
+                                    "root": {
+                                        "type": "root",
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "tag": "h3",
+                                                "type": "heading",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "A-LevelsUniversity Preparation",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [],
+                                                "direction": null,
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            },
+                                            {
+                                                "type": "paragraph",
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Our A-Level program offers specialized study in chosen subjects, preparing students for university admission worldwide with excellent results and comprehensive support.",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr",
+                                                "textStyle": "",
+                                                "textFormat": 0
+                                            }
+                                        ],
+                                        "direction": "ltr"
+                                    }
+                                },
+                                "image": null,
+                                "blockName": null,
+                                "bullet": [
+                                    { "title": "Mathematics" },
+                                    {
+                                        "title": "Further Mathematics"
+                                    },
+                                    { "title": "Physics" },
+                                    { "title": "Chemistry" },
+                                    { "title": "Biology" },
+                                    { "title": "Economics" },
+                                    {
+                                        "title": "Business Studies"
+                                    },
+                                    { "title": "Psychology" },
+                                    {
+                                        "title": "English Literature"
+                                    },
+                                    { "title": "History" },
+                                    { "title": "Geography" },
+                                    { "title": "Art & Design" }
+                                ],
+                                "buttons": [
+                                    {
+                                        "title": "A-Level Subject Guide",
+                                        "link": "/a-level"
+                                    }
+                                ],
+                                "blockType": "about-three"
+                            }
+                        ]
+                    }
+                ],
+                "blockType": "tab-content-one"
+            },
+            {
+                "title": "Curriculum Guides & Resources",
+                "description": "Download detailed curriculum guides and academic resources to learn more about our programs.",
+                "blockName": null,
+                "resources": [
+                    {
+                        "icon": "download",
+                        "title": "Kindergarten Guide",
+                        "description": "Early years curriculum overview",
+                        "detail": "12 pages",
+                        "button": { "title": "Download PDF", "link": "/downloads/1" }
+                    },
+                    {
+                        "icon": "download",
+                        "title": "Primary Handbook",
+                        "description": "Grades 1-5 subject details",
+                        "detail": "24 pages",
+                        "button": { "title": "Download PDF", "link": "/download/2" }
+                    },
+                    {
+                        "icon": "upload",
+                        "title": "IGCSE Prospectus",
+                        "description": "Secondary school options",
+                        "detail": "36 pages",
+                        "button": { "title": "Download PDF", "link": "/downloads/2" }
+                    },
+                    {
+                        "icon": "download",
+                        "title": "A-Level Guide",
+                        "description": "University preparation pathway",
+                        "detail": "28 pages",
+                        "button": { "title": "Download PDF", "link": "/downloads/4" }
+                    }
+                ],
+                "blockType": "resources-one"
+            },
+            {
+                "title": "Outstanding Academic Results",
+                "description": "Our students consistently achieve excellent results in Cambridge examinations, opening doors to top universities worldwide.",
+                "blockName": null,
+                "stat": [
+                    {
+                        "name": "A-Level Pass Rate",
+                        "value": "100%",
+                        "description": "Three consecutive years of excellence"
+                    },
+                    {
+                        "name": "IGCSE A*-C Grades",
+                        "value": "95%",
+                        "description": "Consistently high achievement"
+                    },
+                    {
+                        "name": "University Acceptance",
+                        "value": "85%",
+                        "description": "Top universities worldwide"
+                    }
+                ],
+                "blockType": "stats-two"
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}

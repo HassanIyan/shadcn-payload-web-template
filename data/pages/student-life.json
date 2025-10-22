@@ -1,0 +1,327 @@
+{
+    "url": "/student-life",
+    "design": {
+        "blocks": [
+            {
+                "badge": "Student Life",
+                "description": "Discover a vibrant community where students grow, lead, and thrive through diverse activities and meaningful experiences.",
+                "blockName": null,
+                "buttons": [
+                    {
+                        "title": "Explore Activities",
+                        "link": "/activities",
+                        "type": "default"
+                    }
+                ],
+                "blockType": "hero-three",
+                "title": { "first_part": "Life Beyond", "second_part": "The Classroom" }
+            },
+            {
+                "title": "House System",
+                "description": "Every student belongs to one of our four houses, fostering teamwork, leadership, and healthy competition.",
+                "badge": "Earn points. Win the cup. 🏆",
+                "blockName": null,
+                "feature": [
+                    {
+                        "emoji": "🌙",
+                        "title": "Chaandhanee",
+                        "sub_title": "\"Moonlight\"",
+                        "value": "2,450",
+                        "name": "House Points",
+                        "tags": [
+                            { "title": "Wisdom" },
+                            { "title": "Serenity" },
+                            { "title": "Guidance" }
+                        ]
+                    },
+                    {
+                        "emoji": "🌊",
+                        "title": "Huvandhumaa",
+                        "sub_title": "\"Ocean Breeze\"",
+                        "value": "2,380",
+                        "name": "House Points",
+                        "tags": [
+                            { "title": "Freedom" },
+                            { "title": "Adventure" },
+                            { "title": "Flow" }
+                        ]
+                    },
+                    {
+                        "emoji": "🌺",
+                        "title": "Janavaree",
+                        "sub_title": "\"Paradise\"",
+                        "value": "2,520",
+                        "name": "House Points",
+                        "tags": [
+                            { "title": "Beauty" },
+                            { "title": "Growth" },
+                            { "title": "Harmony" }
+                        ]
+                    },
+                    {
+                        "emoji": "⚡",
+                        "title": "Kaaminee",
+                        "sub_title": "\"Lightning\"",
+                        "value": "2,410",
+                        "name": "House Points",
+                        "tags": [{ "title": "Energy" }, { "title": "Speed" }, { "title": "Power" }]
+                    }
+                ],
+                "blockType": "features-three"
+            },
+            {
+                "title": "Clubs & Activities",
+                "description": "Explore your passions and discover new interests through our diverse range of clubs and activities.",
+                "blockName": null,
+                "tabs": [
+                    {
+                        "name": "Academics",
+                        "content": [
+                            {
+                                "blockName": null,
+                                "features": [
+                                    {
+                                        "icon": "telescope",
+                                        "image": null,
+                                        "title": "Science Club",
+                                        "description": "Experiments, research projects, and science fairs"
+                                    },
+                                    {
+                                        "icon": "user",
+                                        "image": null,
+                                        "title": "Debate Society",
+                                        "description": "Public speaking, argumentation, and competitions"
+                                    },
+                                    {
+                                        "icon": "trophy",
+                                        "image": null,
+                                        "title": "Math Olympiad",
+                                        "description": "Problem solving and mathematical competitions"
+                                    }
+                                ],
+                                "blockType": "features-four"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Creative",
+                        "content": [
+                            {
+                                "blockName": null,
+                                "features": [
+                                    {
+                                        "icon": "paintbrush",
+                                        "image": null,
+                                        "title": "Art Studio",
+                                        "description": "Painting, drawing, sculpture, and digital art"
+                                    },
+                                    {
+                                        "icon": "camera",
+                                        "image": null,
+                                        "title": "Drama Club",
+                                        "description": "Theater productions, acting, and stage design"
+                                    },
+                                    {
+                                        "icon": "music",
+                                        "image": null,
+                                        "title": "Music Ensemble",
+                                        "description": "Choir, band, and individual music lessons"
+                                    }
+                                ],
+                                "blockType": "features-four"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Sports",
+                        "content": [
+                            {
+                                "blockName": null,
+                                "features": [
+                                    {
+                                        "icon": "trophy",
+                                        "image": null,
+                                        "title": "Football Team",
+                                        "description": "Inter-school competitions and training"
+                                    },
+                                    {
+                                        "icon": "trophy",
+                                        "image": null,
+                                        "title": "Basketball Club",
+                                        "description": "Skills development and tournaments"
+                                    },
+                                    {
+                                        "icon": "trophy",
+                                        "image": null,
+                                        "title": "Swimming Team",
+                                        "description": "Competitive swimming and water safety"
+                                    }
+                                ],
+                                "blockType": "features-four"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Service",
+                        "content": [
+                            {
+                                "blockName": null,
+                                "features": [
+                                    {
+                                        "icon": "heart",
+                                        "image": null,
+                                        "title": "Environmental Club",
+                                        "description": "Sustainability projects and eco-awareness"
+                                    },
+                                    {
+                                        "icon": "users",
+                                        "image": null,
+                                        "title": "Community Service",
+                                        "description": "Volunteer work and social impact projects"
+                                    },
+                                    {
+                                        "icon": "heart",
+                                        "image": null,
+                                        "title": "Peer Mentoring",
+                                        "description": "Supporting younger students and new arrivals"
+                                    }
+                                ],
+                                "blockType": "features-four"
+                            }
+                        ]
+                    }
+                ],
+                "blockType": "tab-content-one"
+            },
+            {
+                "title": "Student Leadership",
+                "description": "Developing tomorrow's leaders through responsibility, service, and meaningful participation in school life.",
+                "blockName": null,
+                "team": [
+                    {
+                        "image": null,
+                        "name": "Aisha Mohamed",
+                        "designation": "Head Prefect",
+                        "sub_title": "Grade 13",
+                        "description": "Leading the student body with vision and dedication"
+                    },
+                    {
+                        "image": null,
+                        "name": "Ahmed Hassan",
+                        "designation": "Deputy Head Prefect",
+                        "sub_title": "Grade 12",
+                        "description": "Supporting school initiatives and student welfare"
+                    },
+                    {
+                        "image": null,
+                        "name": "Mariyam Ali",
+                        "designation": "House Captain - Chaandhanee",
+                        "sub_title": "Grade 11",
+                        "description": "Inspiring house spirit and inter-house competitions"
+                    },
+                    {
+                        "image": null,
+                        "name": "Ibrahim Mohamed",
+                        "designation": "Sports Captain",
+                        "sub_title": "Grade 12",
+                        "description": "Promoting fitness and athletic excellence"
+                    },
+                    {
+                        "image": null,
+                        "name": "Fatima Ahmed",
+                        "designation": "Environmental Prefect",
+                        "sub_title": "Grade 11",
+                        "description": "Leading sustainability and eco-friendly initiatives"
+                    },
+                    {
+                        "image": null,
+                        "name": "Hassan Ali",
+                        "designation": "Cultural Prefect",
+                        "sub_title": "Grade 12",
+                        "description": "Organizing cultural events and celebrations"
+                    }
+                ],
+                "blockType": "team-one"
+            },
+            {
+                "title": "Wellbeing & Support",
+                "description": "We prioritize the mental health and emotional wellbeing of our students, providing comprehensive support services.",
+                "blockName": null,
+                "services": [
+                    {
+                        "emoji": "🧠",
+                        "title": "Counseling Services",
+                        "description": "Professional counselors available for academic, personal, and social support",
+                        "button": { "title": "Learn More", "link": "/learn-more" }
+                    },
+                    {
+                        "emoji": "🤝",
+                        "title": "Peer Support",
+                        "description": "Trained student mentors and peer support networks for all grade levels",
+                        "button": { "title": "Join Program", "link": "/join" }
+                    },
+                    {
+                        "emoji": "🧘",
+                        "title": "Mindfulness Program",
+                        "description": "Meditation, stress management, and emotional regulation techniques",
+                        "button": { "title": "Get Started", "link": "/get-started" }
+                    }
+                ],
+                "blockType": "services-one"
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}

@@ -1,0 +1,681 @@
+{
+    "url": "/",
+    "design": {
+        "blocks": [
+            {
+                "image": null,
+                "badge": "Excellence in Education Since 1982",
+                "description": "At Ahmadhiyya International School, we provide world-class education that prepares students for success in an interconnected world while nurturing their individual potential.",
+                "blockName": null,
+                "buttons": [
+                    {
+                        "title": "Apply for Admission  ➜",
+                        "link": "/apply",
+                        "type": "default"
+                    },
+                    {
+                        "title": "Schedule a visit",
+                        "link": "/schedule",
+                        "type": "outline"
+                    }
+                ],
+                "stats": [
+                    {
+                        "name": "Years of Excellence",
+                        "value": "42+"
+                    },
+                    { "name": "Students", "value": "800+" },
+                    {
+                        "name": "A-Level Pass Rate",
+                        "value": "100%"
+                    },
+                    { "name": "Expert Faculty", "value": "60+" }
+                ],
+                "blockType": "hero-one",
+                "title": { "first_part": "Shaping Tomorrow's", "second_part": "Global Leaders" }
+            },
+            {
+                "title": "Why Choose Ahmadhiyya?",
+                "description": "Discover what makes our school the preferred choice for families seeking excellence in education.",
+                "blockName": null,
+                "features": [
+                    {
+                        "icon": "globe",
+                        "rounded": null,
+                        "title": "International Curriculum",
+                        "description": "Cambridge International Education pathway from Kindergarten to A-Levels"
+                    },
+                    {
+                        "icon": "users",
+                        "rounded": null,
+                        "title": "Expert Faculty",
+                        "description": "Highly qualified teachers committed to student success and development"
+                    },
+                    {
+                        "icon": "circle",
+                        "rounded": null,
+                        "title": "Personalized Learning",
+                        "description": "Small class sizes ensuring individual attention and tailored support"
+                    },
+                    {
+                        "icon": "area-chart",
+                        "rounded": null,
+                        "title": "Outstanding Results",
+                        "description": "Consistent academic excellence with 100% A-Level pass rate"
+                    }
+                ],
+                "blockType": "features-one"
+            },
+            {
+                "badge": "Our Story",
+                "lead": {
+                    "root": {
+                        "type": "root",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                            {
+                                "tag": "h2",
+                                "type": "heading",
+                                "format": "start",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "mode": "normal",
+                                        "text": "Building Excellence Since 1982",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                    }
+                                ],
+                                "direction": "ltr"
+                            },
+                            {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [],
+                                "direction": "ltr",
+                                "textStyle": "",
+                                "textFormat": 0
+                            },
+                            {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "mode": "normal",
+                                        "text": "For over four decades, Ahmadhiyya International School has been committed to providing exceptional education that prepares students for global success. Our proven track record speaks to our dedication to academic excellence and character development.",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                    }
+                                ],
+                                "direction": "ltr",
+                                "textStyle": "",
+                                "textFormat": 0
+                            }
+                        ],
+                        "direction": "ltr"
+                    }
+                },
+                "image": null,
+                "blockName": null,
+                "bullet": [
+                    {
+                        "name": "Cambridge International Curriculum"
+                    },
+                    {
+                        "name": "Experienced and Qualified Teachers"
+                    },
+                    { "name": "State-of-the-Art Facilities" },
+                    { "name": "Comprehensive Student Support" }
+                ],
+                "blockType": "about-one",
+                "button": {
+                    "title": "Learn more about us",
+                    "link": "/learn-more",
+                    "type": "default"
+                }
+            },
+            {
+                "title": "Academic Programs",
+                "description": "Comprehensive education pathways designed to unlock every student's potential from early years through university preparation.",
+                "blockName": null,
+                "products": [
+                    {
+                        "title": "Kindergarten",
+                        "sub_title": "Ages 3-5",
+                        "image": null,
+                        "lead": {
+                            "root": {
+                                "type": "root",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "format": "start",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "Foundation years with play-based learning approach",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "tag": "ul",
+                                        "type": "list",
+                                        "start": 1,
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "type": "listitem",
+                                                "value": 1,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Early literacy",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 2,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Numeracy skills",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 3,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Social development",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            }
+                                        ],
+                                        "listType": "bullet",
+                                        "direction": "ltr"
+                                    }
+                                ],
+                                "direction": "ltr"
+                            }
+                        },
+                        "button": { "name": "Learn More", "link": "/products/1" }
+                    },
+                    {
+                        "title": "Primary",
+                        "sub_title": "Grades 1-5",
+                        "image": null,
+                        "lead": {
+                            "root": {
+                                "type": "root",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "format": "start",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "Cambridge Primary curriculum building core skills",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "tag": "ul",
+                                        "type": "list",
+                                        "start": 1,
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "type": "listitem",
+                                                "value": 1,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Core subjects",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 2,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Creative arts",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 3,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Physical education",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            }
+                                        ],
+                                        "listType": "bullet",
+                                        "direction": "ltr"
+                                    }
+                                ],
+                                "direction": "ltr"
+                            }
+                        },
+                        "button": { "name": "Learn More", "link": "/products/2" }
+                    },
+                    {
+                        "title": "Secondary",
+                        "sub_title": "Grades 6-11",
+                        "image": null,
+                        "lead": {
+                            "root": {
+                                "type": "root",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "format": "start",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "IGCSE preparation with comprehensive subject options",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "tag": "ul",
+                                        "type": "list",
+                                        "start": 1,
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "type": "listitem",
+                                                "value": 1,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "IGCSE subjects",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 2,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Science labs",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 3,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Career guidance",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            }
+                                        ],
+                                        "listType": "bullet",
+                                        "direction": "ltr"
+                                    }
+                                ],
+                                "direction": "ltr"
+                            }
+                        },
+                        "button": { "name": "Learn More", "link": "/products/3" }
+                    },
+                    {
+                        "title": "A-Levels",
+                        "sub_title": "Grades 12-13",
+                        "image": null,
+                        "lead": {
+                            "root": {
+                                "type": "root",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "format": "start",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "mode": "normal",
+                                                "text": "University preparation with excellent results",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                            }
+                                        ],
+                                        "direction": "ltr",
+                                        "textStyle": "",
+                                        "textFormat": 0
+                                    },
+                                    {
+                                        "tag": "ul",
+                                        "type": "list",
+                                        "start": 1,
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                            {
+                                                "type": "listitem",
+                                                "value": 1,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "Subject specialization",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 2,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "University guidance",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            },
+                                            {
+                                                "type": "listitem",
+                                                "value": 3,
+                                                "format": "start",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                    {
+                                                        "mode": "normal",
+                                                        "text": "100% pass rate",
+                                                        "type": "text",
+                                                        "style": "",
+                                                        "detail": 0,
+                                                        "format": 0,
+                                                        "version": 1
+                                                    }
+                                                ],
+                                                "direction": "ltr"
+                                            }
+                                        ],
+                                        "listType": "bullet",
+                                        "direction": "ltr"
+                                    }
+                                ],
+                                "direction": "ltr"
+                            }
+                        },
+                        "button": { "name": "Learn More", "link": "/products/4" }
+                    }
+                ],
+                "blockType": "products-one"
+            },
+            {
+                "title": "What Our Community Says",
+                "description": "Hear from parents, students, and alumni about their experience",
+                "blockName": null,
+                "testimonials": [
+                    {
+                        "stars": 5,
+                        "message": "\"The quality of education and care my daughter receives at AIS is exceptional. The teachers are dedicated and the facilities are world-class.\"",
+                        "person": { "name": "Mariyam Ali", "designation": "Parent" }
+                    },
+                    {
+                        "stars": 5,
+                        "message": "\"AIS prepared me perfectly for university abroad. The international curriculum and supportive environment made all the difference.\"",
+                        "person": { "name": "Ahmed Hassan", "designation": "Alumni, Class of 2020" }
+                    },
+                    {
+                        "stars": 5,
+                        "message": "\"The personalized attention and excellent teaching have helped me achieve my academic goals. I'm proud to be an AIS student.\"",
+                        "person": {
+                            "name": "Aisha Mohamed",
+                            "designation": "Current A-Level Student"
+                        }
+                    }
+                ],
+                "blockType": "testimonials-one"
+            },
+            {
+                "title": "Ready to Join Our Community?",
+                "description": "Take the first step towards your child's bright future. Apply now or schedule a visit to experience our exceptional learning environment.",
+                "blockName": null,
+                "buttons": [
+                    {
+                        "title": "Apply now ➜",
+                        "link": "/apply",
+                        "type": "default"
+                    },
+                    {
+                        "title": "Schedule Visit",
+                        "link": "/schedule",
+                        "type": "outline"
+                    }
+                ],
+                "blockType": "call-to-action-one"
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}

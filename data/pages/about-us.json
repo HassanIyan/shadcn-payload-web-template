@@ -1,0 +1,394 @@
+{
+    "url": "/about-us",
+    "design": {
+        "blocks": [
+            {
+                "icon": "heart",
+                "description": "For over four decades, Ahmadhiyya International School has been nurturing young minds and preparing them for success in an interconnected world.",
+                "blockName": null,
+                "buttons": [
+                    {
+                        "title": "Take a Virtual Tour ➜",
+                        "link": "/take"
+                    },
+                    {
+                        "title": "Download Prospectus",
+                        "link": "/downloads"
+                    }
+                ],
+                "blockType": "hero-two",
+                "colors": { "primary": "#0ea5e9", "secondary": "#e76565" },
+                "title": { "first_part": "We Believe in", "second_part": "Curious Minds" }
+            },
+            {
+                "blockName": null,
+                "items": [
+                    {
+                        "icon": "calendar",
+                        "color": "#e76565",
+                        "name": "Years of Excellence",
+                        "value": "42"
+                    },
+                    {
+                        "icon": "user",
+                        "color": "#0ea5e9",
+                        "name": "Students",
+                        "value": "800+"
+                    },
+                    {
+                        "icon": "heart",
+                        "color": "#22c55e",
+                        "name": "Dedicated Staff",
+                        "value": "60+"
+                    },
+                    {
+                        "icon": "badge",
+                        "color": "#f7e62b",
+                        "name": "A-Level Pass Rate",
+                        "value": "100%"
+                    }
+                ],
+                "blockType": "stats-one"
+            },
+            {
+                "color": "#0ea5e9",
+                "badge": "Who We Are",
+                "lead": {
+                    "root": {
+                        "type": "root",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                            {
+                                "tag": "h2",
+                                "type": "heading",
+                                "format": "start",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "mode": "normal",
+                                        "text": "A Legacy of Educational Excellence",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                    }
+                                ],
+                                "direction": "ltr"
+                            },
+                            {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [],
+                                "direction": "ltr",
+                                "textStyle": "",
+                                "textFormat": 0
+                            },
+                            {
+                                "type": "paragraph",
+                                "format": "start",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "mode": "normal",
+                                        "text": "Founded in 1982, Ahmadhiyya International School has been at the forefront of educational innovation in the Maldives. We combine the best of international curricula with local values, creating a unique learning environment that prepares students for global success.",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                    }
+                                ],
+                                "direction": "ltr",
+                                "textStyle": "",
+                                "textFormat": 0
+                            },
+                            {
+                                "type": "paragraph",
+                                "format": "start",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "mode": "normal",
+                                        "text": "Our commitment to academic excellence, character development, and holistic education has made us one of the most respected educational institutions in the region.",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                    }
+                                ],
+                                "direction": "ltr",
+                                "textStyle": "",
+                                "textFormat": 0
+                            }
+                        ],
+                        "direction": "ltr"
+                    }
+                },
+                "image": null,
+                "blockName": null,
+                "bullet": [
+                    {
+                        "title": "Cambridge Curriculum",
+                        "color": "#e76565"
+                    },
+                    {
+                        "title": "International Standards",
+                        "color": "#0ea5e9"
+                    },
+                    {
+                        "title": "Local Values",
+                        "color": "#22c55e"
+                    }
+                ],
+                "blockType": "about-two"
+            },
+            {
+                "color": "#eff6ff",
+                "title": "Our Mission & Values",
+                "description": "Guided by our core principles, we strive to create an environment where every student can thrive and reach their full potential.",
+                "blockName": null,
+                "blockType": "features-two",
+                "features": [
+                    {
+                        "color": "#b23636",
+                        "icon": "circle",
+                        "title": "Our Mission",
+                        "description": "To provide a world-class education that empowers students to become confident, creative, and compassionate global citizens who contribute positively to society while maintaining their cultural identity and values.",
+                        "blockName": null,
+                        "blockType": "varient-one"
+                    },
+                    {
+                        "color": "#0369a1",
+                        "icon": "eye",
+                        "title": "Our Vision",
+                        "description": "To be the leading international school in the Maldives, recognized for academic excellence, innovative teaching, and nurturing well-rounded individuals who are prepared to thrive in an ever-changing global landscape.",
+                        "blockName": null,
+                        "blockType": "varient-one"
+                    },
+                    {
+                        "color": "#b23636",
+                        "emoji": "🏆",
+                        "title": "Excellence",
+                        "description": "We strive for the highest standards in everything we do, encouraging students to reach their full potential.",
+                        "blockName": null,
+                        "blockType": "varient-two"
+                    },
+                    {
+                        "color": "#3669a1",
+                        "emoji": "🤝",
+                        "title": "Integrity",
+                        "description": "We foster honesty, respect, and ethical behavior in all our interactions and decisions.",
+                        "blockName": null,
+                        "blockType": "varient-two"
+                    },
+                    {
+                        "color": "#15803d",
+                        "emoji": "💡",
+                        "title": "Innovation",
+                        "description": "We embrace creativity and forward-thinking approaches to education and problem-solving.",
+                        "blockName": null,
+                        "blockType": "varient-two"
+                    },
+                    {
+                        "color": "#210817",
+                        "emoji": "🌍",
+                        "title": "Inclusivity",
+                        "description": "We celebrate diversity and ensure every student feels valued and supported in our community.",
+                        "blockName": null,
+                        "blockType": "varient-two"
+                    },
+                    {
+                        "color": "#b23636",
+                        "emoji": "❤️",
+                        "title": "Compassion",
+                        "description": "We cultivate empathy and kindness, encouraging students to care for others and their environment.",
+                        "blockName": null,
+                        "blockType": "varient-two"
+                    },
+                    {
+                        "color": "#0369a1",
+                        "emoji": "🌱",
+                        "title": "Growth",
+                        "description": "We believe in continuous learning and development for students, staff, and our institution.",
+                        "blockName": null,
+                        "blockType": "varient-two"
+                    }
+                ]
+            },
+            {
+                "title": "Leadership & Legacy",
+                "description": "Meet the dedicated leaders who guide our school's vision and ensure excellence in education.",
+                "blockName": null,
+                "team": [
+                    {
+                        "image": null,
+                        "name": "Dr. Ahmed Hassan",
+                        "designation": "Principal",
+                        "sub_title": "15+ years in education",
+                        "description": "Leading with vision and dedication to academic excellence."
+                    },
+                    {
+                        "image": null,
+                        "name": "Ms. Mariyam Ali",
+                        "designation": "Vice Principal",
+                        "sub_title": "12+ years in administration",
+                        "description": "Passionate about student development and innovative teaching."
+                    },
+                    {
+                        "image": null,
+                        "name": "Mr. Ibrahim Mohamed",
+                        "designation": "Academic Director",
+                        "sub_title": "18+ years in curriculum development",
+                        "description": "Expert in international curricula and educational standards."
+                    }
+                ],
+                "blockType": "team-one"
+            },
+            {
+                "color": "#22c55e",
+                "badge": "Our Campus",
+                "lead": {
+                    "root": {
+                        "type": "root",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                            {
+                                "tag": "h2",
+                                "type": "heading",
+                                "format": "start",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "mode": "normal",
+                                        "text": "A Modern Learning Environment",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                    }
+                                ],
+                                "direction": "ltr"
+                            },
+                            {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [],
+                                "direction": "ltr",
+                                "textStyle": "",
+                                "textFormat": 0
+                            },
+                            {
+                                "type": "paragraph",
+                                "format": "start",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                    {
+                                        "mode": "normal",
+                                        "text": "Our state-of-the-art campus in Machchangolhi, Malé, provides students with world-class facilities designed to enhance learning and personal development.",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                    }
+                                ],
+                                "direction": "ltr",
+                                "textStyle": "",
+                                "textFormat": 0
+                            }
+                        ],
+                        "direction": "ltr"
+                    }
+                },
+                "image": null,
+                "blockName": null,
+                "bullet": [
+                    { "title": "Science Laboratories" },
+                    { "title": "Computer Labs" },
+                    { "title": "Library & Media Center" },
+                    { "title": "Sports Facilities" },
+                    { "title": "Art Studios" },
+                    { "title": "Music Rooms" },
+                    { "title": "Cafeteria" },
+                    { "title": "Prayer Room" }
+                ],
+                "buttons": [
+                    {
+                        "title": "📍Take a Virtual Tour",
+                        "link": "/tour"
+                    }
+                ],
+                "blockType": "about-three"
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}

@@ -1,0 +1,129 @@
+{
+    "url": "/media-events",
+    "design": {
+        "blocks": [
+            {
+                "badge": "Media & Events",
+                "description": "Discover the latest news, upcoming events, and memorable moments from our vibrant school community.",
+                "blockName": null,
+                "buttons": [
+                    {
+                        "title": "View Latest Updates",
+                        "link": "/updates",
+                        "type": "default"
+                    }
+                ],
+                "blockType": "hero-three",
+                "title": { "first_part": "Stay Connected", "second_part": "With Our Community" }
+            },
+            {
+                "title": "Upcoming Events",
+                "description": "Mark your calendars for these exciting upcoming events and activities",
+                "query": null,
+                "blockName": null,
+                "blockType": "query-two"
+            },
+            {
+                "title": "Latest News",
+                "description": "Stay up to date with the latest happenings at Ahmadhiyya International School",
+                "query": null,
+                "blockName": null,
+                "blockType": "query-one"
+            },
+            {
+                "title": "Photo Gallery",
+                "description": "Capturing the memorable moments and achievements of our school community",
+                "blockName": null,
+                "tabs": [
+                    {
+                        "name": "Recent",
+                        "content": [
+                            {
+                                "blockName": null,
+                                "blockType": "gallery-one",
+                                "images": []
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Events",
+                        "content": []
+                    }
+                ],
+                "blockType": "tab-content-one"
+            },
+            {
+                "title": "#AhmadhiyyaMoments",
+                "description": "Follow our social media for daily updates and behind-the-scenes moments",
+                "blockName": null,
+                "images": [],
+                "buttons": [
+                    {
+                        "title": "Follow @ahmadhiyyaschool",
+                        "link": "/follow-us",
+                        "type": "default"
+                    },
+                    {
+                        "title": "View All Posts",
+                        "link": "/posts",
+                        "type": "outline"
+                    }
+                ],
+                "blockType": "gallery-two"
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}

@@ -1,0 +1,234 @@
+{
+    "url": "/admissions",
+    "design": {
+        "blocks": [
+            {
+                "icon": "users",
+                "description": "Join our vibrant learning community and unlock your child's potential with world-class education.",
+                "blockName": null,
+                "buttons": [
+                    { "title": "Apply Now", "link": "/apply" },
+                    {
+                        "title": "Schedule Visit",
+                        "link": "/schedule"
+                    }
+                ],
+                "blockType": "hero-two",
+                "colors": { "primary": "#0ea5e9", "secondary": "#e76565" },
+                "title": { "first_part": "Start Your Journey", "second_part": "With Us" }
+            },
+            {
+                "title": "Application Process",
+                "description": "Follow these simple steps to join our school community",
+                "blockName": null,
+                "timeline": [
+                    {
+                        "color": "#e76565",
+                        "icon": "phone",
+                        "title": "Inquiry",
+                        "description": "Submit initial inquiry form or contact our admissions team"
+                    },
+                    {
+                        "color": "#0ea5e9",
+                        "icon": "file",
+                        "title": "Application",
+                        "description": "Complete the full application form with required documents"
+                    },
+                    {
+                        "color": "#22c55e",
+                        "icon": "check-circle",
+                        "title": "Assessment",
+                        "description": "Student assessment and entrance evaluation"
+                    },
+                    {
+                        "color": "#ecd436",
+                        "icon": "users",
+                        "title": "Interview",
+                        "description": "Meet with our admissions team and school leadership"
+                    },
+                    {
+                        "color": "#e76565",
+                        "icon": "calendar",
+                        "title": "Enrollment",
+                        "description": "Complete enrollment process and join our community"
+                    }
+                ],
+                "blockType": "timeline-one"
+            },
+            {
+                "title": "Fees & Scholarships",
+                "description": "Transparent pricing with scholarship opportunities for deserving students",
+                "color": "#eff6ff",
+                "blockName": null,
+                "price": [
+                    {
+                        "color": "#e76565",
+                        "icon": "dollar-sign",
+                        "title": "Kindergarten",
+                        "sub_title": "Ages 3-5",
+                        "price": "MVR 2,500",
+                        "basis": "per month",
+                        "bullet": [
+                            { "title": "Play-based learning" },
+                            { "title": "Nutritious meals" },
+                            { "title": "Extended care" }
+                        ],
+                        "button": { "title": "Apply Now", "link": "/apply" }
+                    },
+                    {
+                        "color": "#0ea5e9",
+                        "icon": "dollar-sign",
+                        "title": "Primary",
+                        "sub_title": "Grades 1-5",
+                        "price": "MVR 3,200",
+                        "basis": "per month",
+                        "bullet": [
+                            { "title": "Cambridge Primary" },
+                            { "title": "Specialist teachers" },
+                            { "title": "After-school activities" }
+                        ],
+                        "button": { "title": "Apply Now", "link": "/apply" }
+                    },
+                    {
+                        "color": "#22c55e",
+                        "icon": "dollar-sign",
+                        "title": "Secondary",
+                        "sub_title": "Grades 6-11",
+                        "price": "MVR 4,000",
+                        "basis": "per month",
+                        "bullet": [
+                            { "title": "IGCSE preparation" },
+                            { "title": "Science labs" },
+                            { "title": "Career guidance" }
+                        ],
+                        "button": { "title": "Apply Now", "link": "/apply" }
+                    },
+                    {
+                        "color": "#eaca2a",
+                        "icon": "dollar-sign",
+                        "title": "A-Levels",
+                        "sub_title": "Grades 12-13",
+                        "price": "MVR 4,800",
+                        "basis": "per month",
+                        "bullet": [
+                            { "title": "University prep" },
+                            { "title": "Small classes" },
+                            { "title": "Personal tutoring" }
+                        ],
+                        "button": { "title": "Apply Now", "link": "/apply" }
+                    }
+                ],
+                "blockType": "pricing-one"
+            },
+            {
+                "title": "Quick Inquiry Form",
+                "description": "Get started with your application by filling out this form",
+                "form": null,
+                "blockName": null,
+                "blockType": "form-one"
+            },
+            {
+                "title": "Frequently Asked Questions",
+                "description": "Find answers to common questions about our admissions process",
+                "blockName": null,
+                "question": [
+                    {
+                        "question": "What is the admission age for kindergarten?",
+                        "answer": "We accept children from age 3 for our kindergarten program. Children should be toilet trained and able to communicate basic needs."
+                    },
+                    {
+                        "question": "What documents are required for application?",
+                        "answer": "Required documents include: birth certificate, passport photos, previous school reports (if applicable), medical records, and parent/guardian identification."
+                    },
+                    {
+                        "question": "Is there an entrance exam?",
+                        "answer": "Yes, students applying for primary and above will take an age-appropriate assessment to determine their academic level and placement."
+                    },
+                    {
+                        "question": "When does the academic year start?",
+                        "answer": "Our academic year begins in January and ends in November, following the Maldivian academic calendar with three terms per year."
+                    },
+                    {
+                        "question": "Do you offer transportation services?",
+                        "answer": "Yes, we provide safe and reliable school bus services covering major areas of Malé. Transportation fees are separate from tuition fees."
+                    },
+                    {
+                        "question": "What is your policy on late applications?",
+                        "answer": "We accept applications throughout the year subject to availability. However, we recommend applying early to secure your preferred start date."
+                    }
+                ],
+                "blockType": "faq-one"
+            },
+            {
+                "title": "Still Have Questions?",
+                "description": "Our admissions team is here to help you through every step of the process",
+                "blockName": null,
+                "button": [
+                    {
+                        "title": "Call Us: +960 330-5676",
+                        "link": "tel://960330-5676"
+                    },
+                    {
+                        "title": "Email: admissions@ahmadhiyya.edu.mv",
+                        "link": "mailto://admissions@ahmadhiyya.edu.mv"
+                    }
+                ],
+                "blockType": "call-to-action-two",
+                "colors": { "primary": "#e76565", "secondary": "#0ea5e9", "accent": "#ffffff" }
+            }
+        ]
+    },
+    "seo": {
+        "metadataBase": null,
+        "title": { "default": null, "template": null, "absolute": null },
+        "description": null,
+        "applicationName": null,
+        "authors": [],
+        "generator": "Shadcn UI Payload CMS Template",
+        "keywords": [],
+        "referrer": null,
+        "creator": "Coffee Dev Team",
+        "publisher": "Coffee Dev Pvt Ltd",
+        "robots": null,
+        "alternates": { "canonical": null, "languages": [], "media": [], "types": [] },
+        "icons": [],
+        "manifest": null,
+        "facebook": { "appId": null, "admins": [] },
+        "pinterest": { "richPin": null },
+        "verification": { "google": [], "yahoo": [], "yandex": [], "me": [], "other": null },
+        "appleWebApp": {
+            "capable": null,
+            "title": null,
+            "startupImage": [],
+            "statusBarStyle": null
+        },
+        "formatDetection": {
+            "telephone": null,
+            "date": null,
+            "address": null,
+            "email": null,
+            "url": null
+        },
+        "itunes": { "appId": null, "appArgument": null },
+        "abstract": null,
+        "appLinks": {
+            "ios": [],
+            "iphone": [],
+            "ipad": [],
+            "android": [],
+            "windows_phone": [],
+            "windows": [],
+            "windows_universal": [],
+            "web": []
+        },
+        "archives": [],
+        "assets": [],
+        "bookmarks": [],
+        "pagination": { "previous": null, "next": null },
+        "category": null,
+        "classification": null,
+        "other": null,
+        "openGraph": [],
+        "twitter": []
+    }
+}
