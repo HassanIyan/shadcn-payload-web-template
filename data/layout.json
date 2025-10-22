@@ -28,11 +28,11 @@
         "social_media": [
             {
                 "icon": "facebook",
-                "url": "https://www.facebook.com/ahmadhiyyainternationalschool"
+                "url": "https://www.facebook.com/gdhaec"
             },
             {
                 "icon": "instagram",
-                "url": "https://www.instagram.com/ahmadhiyya_official/?hl=en"
+                "url": "https://www.instagram.com/gdhaec_official/?hl=en"
             }
         ],
         "menus": [
@@ -111,18 +111,18 @@
                     },
                     {
                         "icon": "mail",
-                        "title": "info@ahmadhiyya.edu.mv",
-                        "url": "mailto://info@ahmadhiyya.edu.mv"
+                        "title": "info@gdhaec.edu.mv",
+                        "url": "mailto://info@gdhaec.edu.mv"
                     },
                     {
                         "icon": "globe",
-                        "title": "www.ahmadhiyya.edu.mv",
-                        "url": "https://www.ahmadhiyya.edu.mv"
+                        "title": "www.gdhaec.edu.mv",
+                        "url": "https://www.gdhaec.edu.mv"
                     }
                 ]
             }
         ],
-        "copy_right": "© 2025 Ahmadhiyya International School. All rights reserved.",
+        "copy_right": "© 2025 G.Dh. Atoll Education Centre. All rights reserved.",
         "navigations": [
             {
                 "title": "Privacy Policy",

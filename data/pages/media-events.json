@@ -25,7 +25,7 @@
             },
             {
                 "title": "Latest News",
-                "description": "Stay up to date with the latest happenings at Ahmadhiyya International School",
+                "description": "Stay up to date with the latest happenings at G.Dh. Atoll Education Centre",
                 "query": null,
                 "blockName": null,
                 "blockType": "query-one"
@@ -53,13 +53,13 @@
                 "blockType": "tab-content-one"
             },
             {
-                "title": "#AhmadhiyyaMoments",
+                "title": "#gdhaecMoments",
                 "description": "Follow our social media for daily updates and behind-the-scenes moments",
                 "blockName": null,
                 "images": [],
                 "buttons": [
                     {
-                        "title": "Follow @ahmadhiyyaschool",
+                        "title": "Follow @gdhaecschool",
                         "link": "/follow-us",
                         "type": "default"
                     },

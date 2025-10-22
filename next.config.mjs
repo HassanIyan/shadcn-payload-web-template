@@ -19,9 +19,6 @@ const nextConfig = {
             '.mjs': ['.mts', '.mjs'],
         },
     },
-    images: {
-        remotePatterns: [new URL('https://ahmadhiyya-edu-mv.vercel.app/**')],
-    },
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })

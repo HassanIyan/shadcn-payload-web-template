@@ -65,7 +65,7 @@ export const action = async (formData: FormData) => {
 
     await payload.sendEmail({
         html: `<h1>New Form Submission</h1><pre>${JSON.stringify(entries, null, 2)}</pre>`,
-        to: 'no_reply@ahmadhiyya.edu.mv',
+        to: 'no_reply@school.edu.mv',
         subject: mailSubject,
     })
 

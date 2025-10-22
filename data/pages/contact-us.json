@@ -4,7 +4,7 @@
         "blocks": [
             {
                 "description": "Located in the heart of Male', we are here to answer your questions and welcome you to our community.",
-                "name": "Ahmadhiyya International School",
+                "name": "G.Dh. Atoll Education Centre",
                 "address": "Machchangolhi, Malé 20026, Maldives",
                 "blockName": null,
                 "coordniates": [4.172046, 73.508898],
@@ -13,7 +13,7 @@
                 "title": { "first_part": "Visit us &", "second_part": "Get in Touch" },
                 "button": {
                     "title": "View on Google Maps",
-                    "link": "https://www.google.com/maps/place/Ahmadhiyya+International+School/data=!4m2!3m1!1s0x0:0x9cfc55bb61830b04?sa=X&ved=1t:2428&ictx=111"
+                    "link": "https://www.google.com/maps/place/gdhaec/data=!4m2!3m1!1s0x0:0x9cfc55bb61830b04?sa=X&ved=1t:2428&ictx=111"
                 }
             },
             {
@@ -155,7 +155,7 @@
                                             {
                                                 "type": "autolink",
                                                 "fields": {
-                                                    "url": "mailto:info@ahmadhiyya.edu.mv",
+                                                    "url": "mailto:info@gdhaec.edu.mv",
                                                     "linkType": "custom"
                                                 },
                                                 "format": "",
@@ -164,7 +164,7 @@
                                                 "children": [
                                                     {
                                                         "mode": "normal",
-                                                        "text": "info@ahmadhiyya.edu.mv",
+                                                        "text": "info@gdhaec.edu.mv",
                                                         "type": "text",
                                                         "style": "",
                                                         "detail": 0,
@@ -208,7 +208,7 @@
                                             {
                                                 "type": "autolink",
                                                 "fields": {
-                                                    "url": "mailto:admissions@ahmadhiyya.edu.mv",
+                                                    "url": "mailto:admissions@gdhaec.edu.mv",
                                                     "linkType": "custom"
                                                 },
                                                 "format": "",
@@ -217,7 +217,7 @@
                                                 "children": [
                                                     {
                                                         "mode": "normal",
-                                                        "text": "admissions@ahmadhiyya.edu.mv",
+                                                        "text": "admissions@gdhaec.edu.mv",
                                                         "type": "text",
                                                         "style": "",
                                                         "detail": 0,
