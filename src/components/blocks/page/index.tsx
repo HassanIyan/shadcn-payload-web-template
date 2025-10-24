@@ -1707,7 +1707,11 @@ const Block: FC<BlockProps> = ({ blocks }) => {
                 if (block?.blockType === 'timeline-one')
                     return <TimelineOne key={index} {...(block as TimelineOneProps)} />
                 if (block?.blockType === 'rich-text')
-                    return <RichText key={index}>{block?.lead}</RichText>
+                    return (
+                        <section key={index} className="container">
+                            <RichText>{block?.lead}</RichText>
+                        </section>
+                    )
 
                 return (
                     <section
