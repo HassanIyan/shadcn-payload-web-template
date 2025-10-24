@@ -45,7 +45,7 @@ export const CallToActionTwo: FC<CallToActionTwoProps> = ({
                             <Button
                                 key={index}
                                 size={'lg'}
-                                className="bg-background"
+                                className="bg-background hover:bg-background/75"
                                 style={{
                                     color:
                                         index === 0
