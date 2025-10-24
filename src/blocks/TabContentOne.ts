@@ -31,6 +31,7 @@ import { StatsTwo } from './StatsTwo'
 import { TeamOne } from './TeamOne'
 import { TestimonialsOne } from './TestimonialsOne'
 import { TimelineOne } from './TimelineOne'
+import { RichText } from './RichText'
 
 export const TabContentOne: Block = {
     slug: 'tab-content-one',
@@ -85,6 +86,7 @@ export const TabContentOne: Block = {
                         TeamOne,
                         TestimonialsOne,
                         TimelineOne,
+                        RichText,
                     ],
                 },
             ],

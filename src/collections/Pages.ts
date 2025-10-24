@@ -34,6 +34,7 @@ import { TabContentOne } from '@/blocks/TabContentOne'
 import { TeamOne } from '@/blocks/TeamOne'
 import { TestimonialsOne } from '@/blocks/TestimonialsOne'
 import { TimelineOne } from '@/blocks/TimelineOne'
+import { RichText } from '@/blocks/RichText'
 
 export const Pages: CollectionConfig = {
     slug: 'pages',
@@ -89,6 +90,7 @@ export const Pages: CollectionConfig = {
                                 TeamOne,
                                 TestimonialsOne,
                                 TimelineOne,
+                                RichText,
                             ],
                         },
                     ],

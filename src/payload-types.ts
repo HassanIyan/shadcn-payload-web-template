@@ -1745,6 +1745,26 @@ export interface Page {
                               blockName?: string | null;
                               blockType: 'timeline-one';
                             }
+                          | {
+                              lead?: {
+                                root: {
+                                  type: string;
+                                  children: {
+                                    type: string;
+                                    version: number;
+                                    [k: string]: unknown;
+                                  }[];
+                                  direction: ('ltr' | 'rtl') | null;
+                                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                  indent: number;
+                                  version: number;
+                                };
+                                [k: string]: unknown;
+                              } | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: 'rich-text';
+                            }
                         )[]
                       | null;
                     id?: string | null;
@@ -1804,6 +1824,26 @@ export interface Page {
               id?: string | null;
               blockName?: string | null;
               blockType: 'timeline-one';
+            }
+          | {
+              lead?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: string;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'rich-text';
             }
         )[]
       | null;
@@ -4455,6 +4495,13 @@ export interface PagesSelect<T extends boolean = true> {
                                       id?: T;
                                       blockName?: T;
                                     };
+                                'rich-text'?:
+                                  | T
+                                  | {
+                                      lead?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
                               };
                           id?: T;
                         };
@@ -4514,6 +4561,13 @@ export interface PagesSelect<T extends boolean = true> {
                           description?: T;
                           id?: T;
                         };
+                    id?: T;
+                    blockName?: T;
+                  };
+              'rich-text'?:
+                | T
+                | {
+                    lead?: T;
                     id?: T;
                     blockName?: T;
                   };

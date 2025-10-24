@@ -125,6 +125,7 @@ const TestimonialsOne = dynamic(() =>
 const TimelineOne = dynamic(() =>
     import('@/components/blocks/page/TimelineOne').then((mod) => mod.TimelineOne),
 )
+const RichText = dynamic(() => import('@/components/blocks/rich-text').then((mod) => mod))
 
 export interface BlockProps {
     blocks?:
@@ -1611,6 +1612,12 @@ export interface BlockProps {
                     blockName?: string | null
                     blockType: 'timeline-one'
                 }
+              | {
+                    lead?: unknown
+                    id?: string | null
+                    blockName?: string | null
+                    blockType: 'rich-text'
+                }
           )[]
         | null
 }
@@ -1699,6 +1706,8 @@ const Block: FC<BlockProps> = ({ blocks }) => {
                     return <TestimonialsOne key={index} {...(block as TestimonialsOneProps)} />
                 if (block?.blockType === 'timeline-one')
                     return <TimelineOne key={index} {...(block as TimelineOneProps)} />
+                if (block?.blockType === 'rich-text')
+                    return <RichText key={index}>{block?.lead}</RichText>
 
                 return (
                     <section
