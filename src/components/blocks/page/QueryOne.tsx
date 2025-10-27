@@ -52,44 +52,46 @@ const QueryOneContent: FC<{ query: QueryOneProps['query'] }> = ({ query }) => {
         <div className="grid lg:grid-cols-3 gap-8">
             {/* Featured Post */}
             <div className="lg:col-span-2">
-                <Card className="bg-muted border-border pt-0 text-card-foreground shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                    <div className="relative h-64">
-                        <Image
-                            src={(featured?.feature_image as Media)?.url as string}
-                            alt={featured?.title as string}
-                            fill
-                            className="object-cover"
-                        />
-                        <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-primary text-primary-foreground px-2.5 py-0.5 text-xs font-semibold">
-                            Featured
+                {featured && (
+                    <Card className="bg-muted border-border pt-0 text-card-foreground shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div className="relative h-64">
+                            <Image
+                                src={(featured?.feature_image as Media)?.url as string}
+                                alt={featured?.title as string}
+                                fill
+                                className="object-cover"
+                            />
+                            <div className="absolute top-4 left-4 inline-flex items-center rounded-full bg-primary text-primary-foreground px-2.5 py-0.5 text-xs font-semibold">
+                                Featured
+                            </div>
                         </div>
-                    </div>
-                    <CardContent className="p-6">
-                        <div className="flex items-center gap-4 mb-3 text-sm text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                                <Clock className="h-4 w-4" />
-                                {featured?.date}
-                            </span>
-                            <span>•</span>
-                            <span>{(featured?.category as Category)?.name}</span>
-                        </div>
-                        <h3 className="text-2xl font-bold text-foreground mb-3">
-                            {featured?.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed mb-4">
-                            {featured?.description}
-                        </p>
-                        <Button
-                            asChild
-                            className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
-                        >
-                            <Link href={`/posts/${featured?.id}`}>
-                                Read Full Story
-                                <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
-                    </CardContent>
-                </Card>
+                        <CardContent className="p-6">
+                            <div className="flex items-center gap-4 mb-3 text-sm text-muted-foreground">
+                                <span className="flex items-center gap-1">
+                                    <Clock className="h-4 w-4" />
+                                    {featured?.date}
+                                </span>
+                                <span>•</span>
+                                <span>{(featured?.category as Category)?.name}</span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-foreground mb-3">
+                                {featured?.title}
+                            </h3>
+                            <p className="text-muted-foreground leading-relaxed mb-4">
+                                {featured?.description}
+                            </p>
+                            <Button
+                                asChild
+                                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg"
+                            >
+                                <Link href={`/posts/${featured?.id}`}>
+                                    Read Full Story
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        </CardContent>
+                    </Card>
+                )}
             </div>
 
             {/* Side Posts */}
