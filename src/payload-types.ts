@@ -77,6 +77,7 @@ export interface Config {
     pages: Page;
     media: Media;
     users: User;
+    'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -94,6 +95,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -102,6 +104,7 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
+  fallbackLocale: null;
   globals: {
     metadata: Metadatum;
     robots: Robot;
@@ -163,7 +166,7 @@ export interface Post {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -264,7 +267,7 @@ export interface Event {
     root: {
       type: string;
       children: {
-        type: string;
+        type: any;
         version: number;
         [k: string]: unknown;
       }[];
@@ -554,7 +557,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -588,7 +591,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -618,7 +621,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -711,7 +714,7 @@ export interface Page {
                       root: {
                         type: string;
                         children: {
-                          type: string;
+                          type: any;
                           version: number;
                           [k: string]: unknown;
                         }[];
@@ -928,7 +931,7 @@ export interface Page {
                       root: {
                         type: string;
                         children: {
-                          type: string;
+                          type: any;
                           version: number;
                           [k: string]: unknown;
                         }[];
@@ -1178,7 +1181,7 @@ export interface Page {
                                 root: {
                                   type: string;
                                   children: {
-                                    type: string;
+                                    type: any;
                                     version: number;
                                     [k: string]: unknown;
                                   }[];
@@ -1212,7 +1215,7 @@ export interface Page {
                                 root: {
                                   type: string;
                                   children: {
-                                    type: string;
+                                    type: any;
                                     version: number;
                                     [k: string]: unknown;
                                   }[];
@@ -1242,7 +1245,7 @@ export interface Page {
                                 root: {
                                   type: string;
                                   children: {
-                                    type: string;
+                                    type: any;
                                     version: number;
                                     [k: string]: unknown;
                                   }[];
@@ -1337,7 +1340,7 @@ export interface Page {
                                       root: {
                                         type: string;
                                         children: {
-                                          type: string;
+                                          type: any;
                                           version: number;
                                           [k: string]: unknown;
                                         }[];
@@ -1556,7 +1559,7 @@ export interface Page {
                                       root: {
                                         type: string;
                                         children: {
-                                          type: string;
+                                          type: any;
                                           version: number;
                                           [k: string]: unknown;
                                         }[];
@@ -1750,7 +1753,7 @@ export interface Page {
                                 root: {
                                   type: string;
                                   children: {
-                                    type: string;
+                                    type: any;
                                     version: number;
                                     [k: string]: unknown;
                                   }[];
@@ -1830,7 +1833,7 @@ export interface Page {
                 root: {
                   type: string;
                   children: {
-                    type: string;
+                    type: any;
                     version: number;
                     [k: string]: unknown;
                   }[];
@@ -2871,6 +2874,23 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv".
+ */
+export interface PayloadKv {
+  id: number;
+  key: string;
+  data:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-jobs".
  */
 export interface PayloadJob {
@@ -3007,10 +3027,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: number | User;
-      } | null)
-    | ({
-        relationTo: 'payload-jobs';
-        value: number | PayloadJob;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -5691,6 +5707,14 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv_select".
+ */
+export interface PayloadKvSelect<T extends boolean = true> {
+  key?: T;
+  data?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

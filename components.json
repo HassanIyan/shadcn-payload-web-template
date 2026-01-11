@@ -5,8 +5,8 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "src/app/(frontend)/styles.css",
-    "baseColor": "neutral",
+    "css": "src/app/globals.css",
+    "baseColor": "gray",
     "cssVariables": true,
     "prefix": ""
   },
@@ -17,5 +17,6 @@
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
-  }
+  },
+  "registries": {}
 }

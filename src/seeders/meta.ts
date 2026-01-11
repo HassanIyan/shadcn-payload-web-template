@@ -1,3 +1,4 @@
+import '../../envConfig'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import data from '../../data/meta.json'
