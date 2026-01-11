@@ -121,3 +121,5 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         theme_color: stringOrUndefined(manifest?.theme_color),
     }) as MetadataRoute.Manifest
 }
+
+export const dynamic = 'force-dynamic'

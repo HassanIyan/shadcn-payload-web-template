@@ -71,3 +71,5 @@ export const action = async (formData: FormData) => {
 
     if (redirectURL) redirect(redirectURL)
 }
+
+export const dynamic = 'force-dynamic'

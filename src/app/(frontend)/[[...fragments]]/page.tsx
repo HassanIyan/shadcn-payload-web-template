@@ -50,3 +50,5 @@ const getPage = cache(async (fragments: string[]) => {
         throw error
     }
 })
+
+export const dynamic = 'force-dynamic'

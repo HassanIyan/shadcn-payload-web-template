@@ -68,3 +68,5 @@ const getTag = cache(async (id: string) => {
         throw error
     }
 })
+
+export const dynamic = 'force-dynamic'

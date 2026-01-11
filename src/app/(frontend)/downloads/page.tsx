@@ -15,3 +15,5 @@ export async function generateMetadata(): Promise<Metadata> {
         title: 'Downloads',
     }
 }
+
+export const dynamic = 'force-dynamic'

@@ -22,3 +22,5 @@ export async function generateMetadata(): Promise<Metadata> {
         title: 'Posts',
     }
 }
+
+export const dynamic = 'force-dynamic'

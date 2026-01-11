@@ -31,3 +31,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
     return ObjectifyMetaData(meta)
 }
+
+export const dynamic = 'force-dynamic'

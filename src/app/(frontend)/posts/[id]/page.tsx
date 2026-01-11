@@ -55,3 +55,5 @@ const getPost = cache(async (id: string) => {
         throw error
     }
 })
+
+export const dynamic = 'force-dynamic'

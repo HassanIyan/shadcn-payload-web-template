@@ -36,3 +36,5 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
         ) as string[],
     }
 }
+
+export const dynamic = 'force-dynamic'
